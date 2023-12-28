@@ -1,0 +1,43 @@
+@import url('./reset.css');
+
+:root {
+  font-family: Poppins, system-ui, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --active-nav-link: #2add50;
+}
+
+body.theme-dark {
+  --bg: #030304;
+  --font-color-main: #fff;
+}
+
+body.theme-light {
+  --bg: #ebebeb;
+  --font-color-main: #131010;
+}
+
+body {
+  padding: 10px;
+  background-color: var(--bg);
+  color: var(--font-color-main);
+}
+
+a,
+li {
+  text-decoration: none;
+}
+
+* {
+  transition-property: color, background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+nav a.active {
+  color: var(--active-nav-link);
+}

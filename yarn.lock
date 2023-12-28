@@ -2885,6 +2885,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/identity-obj-proxy@npm:^3":
+  version: 3.0.2
+  resolution: "@types/identity-obj-proxy@npm:3.0.2"
+  checksum: 9277c7bf75aaf3688b659ad86f33eb57bd9fab9a5ed342adfbab6b6a804b8f7ce2f0a9ce0394dc6e73b3128d61920c5d35d71b825b84bfe28a97f86f5360c7e3
+  languageName: node
+  linkType: hard
+
 "@types/imagemin-svgo@npm:^10":
   version: 10.0.5
   resolution: "@types/imagemin-svgo@npm:10.0.5"
@@ -3060,6 +3067,15 @@ __metadata:
   dependencies:
     "@types/react": "npm:*"
   checksum: 74dba11a1b8156f3a763f3fca1fb4ec1dcd349153279b8bf79210024a69f994bf2cf0728198c047f8130c5318420ea56281b0a4ef84c8ae943cd9a0cac705220
+  languageName: node
+  linkType: hard
+
+"@types/react-toggle@npm:^4":
+  version: 4.0.5
+  resolution: "@types/react-toggle@npm:4.0.5"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: f557b85c96715b145bcc3beb2903f88ee3a6045ef85da0f80561c7cc2ecdc531e2d4ae121ed8ec3a1761264de25b8410653744093f37abf042201587add7ffa6
   languageName: node
   linkType: hard
 
@@ -4482,6 +4498,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bs-logger@npm:0.x":
+  version: 0.2.6
+  resolution: "bs-logger@npm:0.2.6"
+  dependencies:
+    fast-json-stable-stringify: "npm:2.x"
+  checksum: 80e89aaaed4b68e3374ce936f2eb097456a0dddbf11f75238dbd53140b1e39259f0d248a5089ed456f1158984f22191c3658d54a713982f676709fbe1a6fa5a0
+  languageName: node
+  linkType: hard
+
 "bser@npm:2.1.1":
   version: 2.1.1
   resolution: "bser@npm:2.1.1"
@@ -4724,6 +4749,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"camelcase@npm:6.3.0, camelcase@npm:^6.2.0":
+  version: 6.3.0
+  resolution: "camelcase@npm:6.3.0"
+  checksum: 0d701658219bd3116d12da3eab31acddb3f9440790c0792e0d398f0a520a6a4058018e546862b6fba89d7ae990efaeb97da71e1913e9ebf5a8b5621a3d55c710
+  languageName: node
+  linkType: hard
+
 "camelcase@npm:^2.0.0":
   version: 2.1.1
   resolution: "camelcase@npm:2.1.1"
@@ -4735,13 +4767,6 @@ __metadata:
   version: 5.3.1
   resolution: "camelcase@npm:5.3.1"
   checksum: 92ff9b443bfe8abb15f2b1513ca182d16126359ad4f955ebc83dc4ddcc4ef3fdd2c078bc223f2673dc223488e75c99b16cc4d056624374b799e6a1555cf61b23
-  languageName: node
-  linkType: hard
-
-"camelcase@npm:^6.2.0":
-  version: 6.3.0
-  resolution: "camelcase@npm:6.3.0"
-  checksum: 0d701658219bd3116d12da3eab31acddb3f9440790c0792e0d398f0a520a6a4058018e546862b6fba89d7ae990efaeb97da71e1913e9ebf5a8b5621a3d55c710
   languageName: node
   linkType: hard
 
@@ -4873,6 +4898,13 @@ __metadata:
   version: 1.2.3
   resolution: "cjs-module-lexer@npm:1.2.3"
   checksum: 0de9a9c3fad03a46804c0d38e7b712fb282584a9c7ef1ed44cae22fb71d9bb600309d66a9711ac36a596fd03422f5bb03e021e8f369c12a39fa1786ae531baab
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.2.5":
+  version: 2.5.0
+  resolution: "classnames@npm:2.5.0"
+  checksum: f10a5b07db7fda8eb77f701f795b7006f3de86a723ec62cc10f4d82b4195fc65a578bbf91c47675b8c6fcb2921b903bfea5c670bdb43513e454daa6c2e9738b3
   languageName: node
   linkType: hard
 
@@ -5483,18 +5515,22 @@ __metadata:
     "@testing-library/jest-dom": "npm:^6.1.6"
     "@testing-library/react": "npm:^14.1.2"
     "@types/babel__preset-env": "npm:^7"
+    "@types/identity-obj-proxy": "npm:^3"
     "@types/imagemin": "npm:^8"
     "@types/imagemin-svgo": "npm:^10"
     "@types/jest": "npm:^29.5.11"
     "@types/node": "npm:^20.10.5"
     "@types/react": "npm:^18.2.45"
     "@types/react-dom": "npm:^18.2.18"
+    "@types/react-toggle": "npm:^4"
     "@types/webpack": "npm:^5.28.5"
     "@typescript-eslint/eslint-plugin": "npm:^6.16.0"
     "@typescript-eslint/parser": "npm:^6.16.0"
     "@webpack-cli/generators": "npm:^3.0.7"
     airbnb: "npm:^0.0.2"
+    babel-jest: "npm:^29.7.0"
     babel-loader: "npm:^9.1.3"
+    babel-preset-jest: "npm:^29.6.3"
     clean-webpack-plugin: "npm:^4.0.0"
     css-loader: "npm:^6.8.1"
     eslint: "npm:^8.56.0"
@@ -5512,12 +5548,14 @@ __metadata:
     favicons-webpack-plugin: "npm:^6.0.1"
     html-webpack-plugin: "npm:^5.6.0"
     husky: "npm:^8.0.3"
+    identity-obj-proxy: "npm:^3.0.0"
     image-minimizer-webpack-plugin: "npm:^3.8.3"
     imagemin: "npm:^8.0.1"
     imagemin-jpegtran: "npm:^7.0.0"
     imagemin-optipng: "npm:^8.0.0"
     imagemin-svgo: "npm:^10.0.1"
     jest: "npm:^29.7.0"
+    jest-css-modules-transform: "npm:^4.4.2"
     jest-environment-jsdom: "npm:^29.7.0"
     lint-staged: "npm:^15.2.0"
     mini-css-extract-plugin: "npm:^2.7.6"
@@ -5525,9 +5563,11 @@ __metadata:
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-router-dom: "npm:^6.21.1"
+    react-toggle: "npm:^4.1.3"
     sharp: "npm:^0.33.1"
     style-loader: "npm:^3.3.3"
     terser-webpack-plugin: "npm:^5.3.9"
+    ts-jest: "npm:^29.1.1"
     ts-loader: "npm:^9.5.1"
     typescript: "npm:^5.3.3"
     webpack: "npm:^5.89.0"
@@ -7017,7 +7057,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stable-stringify@npm:^2.0.0, fast-json-stable-stringify@npm:^2.1.0":
+"fast-json-stable-stringify@npm:2.x, fast-json-stable-stringify@npm:^2.0.0, fast-json-stable-stringify@npm:^2.1.0":
   version: 2.1.0
   resolution: "fast-json-stable-stringify@npm:2.1.0"
   checksum: 7f081eb0b8a64e0057b3bb03f974b3ef00135fbf36c1c710895cd9300f13c94ba809bb3a81cf4e1b03f6e5285610a61abbd7602d0652de423144dfee5a389c9b
@@ -7873,6 +7913,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"harmony-reflect@npm:^1.4.6":
+  version: 1.6.2
+  resolution: "harmony-reflect@npm:1.6.2"
+  checksum: fa5b251fbeff0e2d925f0bfb5ffe39e0627639e998c453562d6a39e41789c15499649dc022178c807cf99bfb97e7b974bbbc031ba82078a26be7b098b9bc2b1a
+  languageName: node
+  linkType: hard
+
 "has-ansi@npm:^2.0.0":
   version: 2.0.0
   resolution: "has-ansi@npm:2.0.0"
@@ -8276,6 +8323,15 @@ __metadata:
   peerDependencies:
     postcss: ^8.1.0
   checksum: 39c92936fabd23169c8611d2b5cc39e39d10b19b0d223352f20a7579f75b39d5f786114a6b8fc62bee8c5fed59ba9e0d38f7219a4db383e324fb3061664b043d
+  languageName: node
+  linkType: hard
+
+"identity-obj-proxy@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "identity-obj-proxy@npm:3.0.0"
+  dependencies:
+    harmony-reflect: "npm:^1.4.6"
+  checksum: a3fc4de0042d7b45bf8652d5596c80b42139d8625c9cd6a8834e29e1b6dce8fccabd1228e08744b78677a19ceed7201a32fed8ca3dc3e4852e8fee24360a6cfc
   languageName: node
   linkType: hard
 
@@ -9288,6 +9344,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-css-modules-transform@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "jest-css-modules-transform@npm:4.4.2"
+  dependencies:
+    camelcase: "npm:6.3.0"
+    postcss: "npm:^7.0.30 || ^8.0.0"
+    postcss-nested: "npm:^4.2.1 || ^5.0.0"
+  checksum: 393edf96b5baa538d342f568f96e067dc73f755edfd4497b175ccdf90d9ea64b32a593c4b49ba6edc2f2ce34d8482d7171584d0bfa5c6d0b5291ffb2fc9db4f8
+  languageName: node
+  linkType: hard
+
 "jest-diff@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest-diff@npm:29.7.0"
@@ -9570,7 +9637,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-util@npm:^29.7.0":
+"jest-util@npm:^29.0.0, jest-util@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest-util@npm:29.7.0"
   dependencies:
@@ -10061,6 +10128,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.memoize@npm:4.x":
+  version: 4.1.2
+  resolution: "lodash.memoize@npm:4.1.2"
+  checksum: c8713e51eccc650422716a14cece1809cfe34bc5ab5e242b7f8b4e2241c2483697b971a604252807689b9dd69bfe3a98852e19a5b89d506b000b4187a1285df8
+  languageName: node
+  linkType: hard
+
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -10239,6 +10313,13 @@ __metadata:
   dependencies:
     semver: "npm:^7.5.3"
   checksum: 69b98a6c0b8e5c4fe9acb61608a9fbcfca1756d910f51e5dbe7a9e5cfb74fca9b8a0c8a0ffdf1294a740826c1ab4871d5bf3f62f72a3049e5eac6541ddffed68
+  languageName: node
+  linkType: hard
+
+"make-error@npm:1.x":
+  version: 1.3.6
+  resolution: "make-error@npm:1.3.6"
+  checksum: 171e458d86854c6b3fc46610cfacf0b45149ba043782558c6875d9f42f222124384ad0b468c92e996d815a8a2003817a710c0a160e49c1c394626f76fa45396f
   languageName: node
   linkType: hard
 
@@ -12056,7 +12137,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-selector-parser@npm:^6.0.2, postcss-selector-parser@npm:^6.0.4":
+"postcss-nested@npm:^4.2.1 || ^5.0.0":
+  version: 5.0.6
+  resolution: "postcss-nested@npm:5.0.6"
+  dependencies:
+    postcss-selector-parser: "npm:^6.0.6"
+  peerDependencies:
+    postcss: ^8.2.14
+  checksum: cff4f05b06ec752a90a36b329b4c1b620352458b3d8e02e2fc7efdfb5073945242573ec42c0dd2b7c4beccba21233e5f089903c3e5e8aea2bbceca09c406fb8f
+  languageName: node
+  linkType: hard
+
+"postcss-selector-parser@npm:^6.0.2, postcss-selector-parser@npm:^6.0.4, postcss-selector-parser@npm:^6.0.6":
   version: 6.0.14
   resolution: "postcss-selector-parser@npm:6.0.14"
   dependencies:
@@ -12073,7 +12165,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.21":
+"postcss@npm:^7.0.30 || ^8.0.0, postcss@npm:^8.4.21":
   version: 8.4.32
   resolution: "postcss@npm:8.4.32"
   dependencies:
@@ -12425,6 +12517,19 @@ __metadata:
   peerDependencies:
     react: ">=16.8"
   checksum: 81278cf25a999d7c93a31d540102e3b74b696eb4349779e22bba77b633e4e5f8f91b8c6f7946c9572a1e92f64363724150216f5643a6f9817f8bc1643cb8bdbc
+  languageName: node
+  linkType: hard
+
+"react-toggle@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "react-toggle@npm:4.1.3"
+  dependencies:
+    classnames: "npm:^2.2.5"
+  peerDependencies:
+    prop-types: ">= 15.3.0 < 19"
+    react: ">= 15.3.0 < 19"
+    react-dom: ">= 15.3.0 < 19"
+  checksum: afae643981d6fb922d66830ec0e9c793e729d7a55e3974edf212965acc8dc51f0d098ae6e409461d3ff2f87fe027dc3556a1a746f8472ed3a79c8878bf338fee
   languageName: node
   linkType: hard
 
@@ -14373,6 +14478,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ts-jest@npm:^29.1.1":
+  version: 29.1.1
+  resolution: "ts-jest@npm:29.1.1"
+  dependencies:
+    bs-logger: "npm:0.x"
+    fast-json-stable-stringify: "npm:2.x"
+    jest-util: "npm:^29.0.0"
+    json5: "npm:^2.2.3"
+    lodash.memoize: "npm:4.x"
+    make-error: "npm:1.x"
+    semver: "npm:^7.5.3"
+    yargs-parser: "npm:^21.0.1"
+  peerDependencies:
+    "@babel/core": ">=7.0.0-beta.0 <8"
+    "@jest/types": ^29.0.0
+    babel-jest: ^29.0.0
+    jest: ^29.0.0
+    typescript: ">=4.3 <6"
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+    "@jest/types":
+      optional: true
+    babel-jest:
+      optional: true
+    esbuild:
+      optional: true
+  bin:
+    ts-jest: cli.js
+  checksum: 6c45e0aeeff9cc54a64f931c43e1b99f4a1f0ddf44786cc128e7e55603ab7473c8c8f62fd83bd7e51bfe83e3c0c683132152efaeb844516bf7c923f4e92d157d
+  languageName: node
+  linkType: hard
+
 "ts-loader@npm:^9.5.1":
   version: 9.5.1
   resolution: "ts-loader@npm:9.5.1"
@@ -15453,7 +15591,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^21.1.1":
+"yargs-parser@npm:^21.0.1, yargs-parser@npm:^21.1.1":
   version: 21.1.1
   resolution: "yargs-parser@npm:21.1.1"
   checksum: f84b5e48169479d2f402239c59f084cfd1c3acc197a05c59b98bab067452e6b3ea46d4dd8ba2985ba7b3d32a343d77df0debd6b343e5dae3da2aab2cdf5886b2
