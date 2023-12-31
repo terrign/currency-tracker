@@ -10,6 +10,7 @@ const common = {
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -18,7 +19,7 @@ const common = {
       filename: 'index.html',
     }),
     new FaviconsWebpackPlugin({
-      logo: path.resolve(path.resolve(__dirname, './src/assets/favicon.svg')),
+      logo: path.resolve(path.resolve(__dirname, './src/assets/logo.svg')),
       prefix: '/favicons/',
       outputPath: path.resolve(path.resolve(__dirname, './dist'), 'favicons'),
       mode: 'webapp',
