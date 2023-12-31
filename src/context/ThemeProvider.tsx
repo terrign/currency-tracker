@@ -3,7 +3,7 @@ import { PropsWithChildren, useCallback, useEffect, useMemo, useState } from 're
 import ThemeContext, { Theme } from './Theme.context';
 
 function ThemeProvider({ children }: PropsWithChildren) {
-  const [theme, setTheme] = useState<Theme>(() => 'unset');
+  const [theme, setTheme] = useState<Theme>(null);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));

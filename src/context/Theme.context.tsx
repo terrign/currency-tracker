@@ -1,6 +1,6 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
 
-export type Theme = 'light' | 'dark' | 'unset';
+export type Theme = 'light' | 'dark' | null;
 
 interface ThemeContextType {
   theme: Theme;
@@ -8,6 +8,6 @@ interface ThemeContextType {
   toggleTheme?: (() => void) | null;
 }
 
-const ThemeContext = createContext<ThemeContextType>({ theme: 'light', setTheme: null, toggleTheme: null });
+const ThemeContext = createContext<ThemeContextType>({ theme: null, setTheme: null, toggleTheme: null });
 
 export default ThemeContext;

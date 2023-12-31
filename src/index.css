@@ -2,42 +2,80 @@
 
 :root {
   font-family: Poppins, system-ui, Arial, sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
+  line-height: 1.5rem;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --active-nav-link: #2add50;
+  --active-nav-link: rgb(42, 221, 80);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  transition-property: color, background-color;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--bg);
+  color: var(--font-color-main);
 }
 
 body.theme-dark {
   --bg: #030304;
-  --font-color-main: #fff;
+  --font-color-main: rgb(255, 255, 255);
+  --font-color-dark1: rgb(217, 217, 217);
+  --font-color-dark2: rgb(137, 137, 137);
 }
 
 body.theme-light {
-  --bg: #ebebeb;
-  --font-color-main: #131010;
+  --bg: #ffffff;
+  --font-color-main: rgb(19, 16, 16);
+  --font-color-dark1: rgb(53, 45, 45);
+  --font-color-dark2: rgb(172, 169, 169);
 }
 
-body {
-  padding: 10px;
-  background-color: var(--bg);
-  color: var(--font-color-main);
+.gradient-text {
+  background: linear-gradient(90deg, rgb(0, 206, 44) 0.18%, rgb(174, 223, 35) 49.3%, rgb(163, 220, 0) 99.88%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 a,
 li {
   text-decoration: none;
-}
-
-* {
-  transition-property: color, background-color;
-  transition-duration: 0.2s;
-  transition-timing-function: linear;
+  color: var(--font-color-main);
 }
 
 nav a.active {
   color: var(--active-nav-link);
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  :root {
+    font-size: 14px;
+  }
 }
