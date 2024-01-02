@@ -1,19 +1,17 @@
-import svg from '../../assets/logo.svg';
-import styles from './styles.module.css';
+import logoSvg from '../../assets/logo.svg';
+import * as styles from './styles.module.css';
 
 function SubHeader() {
   return (
-    <div className={styles['sub-header']}>
-      <div className={styles['sub-header-text']}>
+    <div className={styles.subHeader}>
+      <div className={styles.subHeaderText}>
         <h1 className="gradient-text">
           <p>Modsen Currency</p>
-          <p className={styles['sub-header-text__2nd-line']}>Tracker</p>
+          <p className={styles.subHeaderText2NdLine}>Tracker</p>
         </h1>
-        <p className={styles['sub-header-text__paragraph']}>
-          Quotes for the dollar and other international currencies.
-        </p>
+        <p className={styles.subHeaderTextParagraph}>Quotes for the dollar and other international currencies.</p>
       </div>
-      <img src={svg} alt="icon" className={styles['logo-big']} />
+      <img src={logoSvg} alt="icon" className={styles.logoBig} />
     </div>
   );
 }

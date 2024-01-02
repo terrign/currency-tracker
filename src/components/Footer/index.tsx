@@ -1,20 +1,20 @@
-import svg from '../../assets/logo.svg';
-import styles from './styles.module.css';
+import logoSvg from '../../assets/logo.svg';
+import * as styles from './styles.module.css';
 
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <h3 className={`${styles['footer-heading']}`}>
-        <img src={svg} alt="icon" />
+      <h3 className={`${styles.footerHeading}`}>
+        <img src={logoSvg} alt="icon" />
         <p className="gradient-text">Modsen Currency Tracker</p>
       </h3>
-      <div className={styles['footer-content']}>
+      <div className={styles.footerContent}>
         <p>
           Since then, the company has grown organically to. Startsup is the world&apos;s largest trading platform, with
           $12 billion worth of currency trading and 500,000 tickets sold daily to tens of thousands of traders
           worldwide.
         </p>
-        <div className={styles['footer-links']}>
+        <div className={styles.footerLinks}>
           <div>
             <a href="/#">General</a>
             <a href="/#">Market</a>
@@ -32,7 +32,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <p className={styles['footer-copyright']}>Startsup © 2023-2024, All Rights Reserved</p>
+      <p className={styles.footerCopyright}>Startsup © 2023-2024, All Rights Reserved</p>
     </footer>
   );
 }
