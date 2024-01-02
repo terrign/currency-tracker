@@ -1,3 +1,4 @@
+const path = require('path');
 const EslintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
@@ -25,14 +26,31 @@ module.exports = {
         test: /\.(ts|tsx)$/i,
         loader: 'ts-loader',
         exclude: ['/node_modules/'],
+        options: {
+          transpileOnly: true,
+        },
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+                auto: true,
+                exportGlobals: true,
+                localIdentName: '[hash:base64:5]',
+                localIdentContext: path.resolve(__dirname, 'src'),
+                localIdentHashSalt: 'my-custom-hash',
+                namedExport: true,
+                exportOnlyLocals: false,
+              },
+            },
+          },
+        ],
       },
     ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
   },
 };

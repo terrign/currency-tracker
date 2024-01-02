@@ -22,7 +22,7 @@
   max-width: 300px;
 }
 
-.sub-header-text__2nd-line {
+.sub-header-text-2nd-line {
   font-size: 3.75rem;
   text-align: right;
   margin-top: 0.8rem;
@@ -34,7 +34,7 @@
   align-items: flex-end;
 }
 
-.sub-header-text__paragraph {
+.sub-header-text-paragraph {
   text-align: center;
   width: 60%;
   color: var(--font-color-dark1);
@@ -61,12 +61,12 @@
     width: 100%;
   }
 
-  .sub-header-text__2nd-line {
+  .sub-header-text-2nd-line {
     text-align: center;
     width: 100%;
   }
 
-  .sub-header-text__paragraph {
+  .sub-header-text-paragraph {
     text-align: center;
     width: 100%;
     left: 0px;
@@ -77,7 +77,7 @@
     text-align: center;
   }
 
-  .sub-header-text__2nd-line {
+  .sub-header-text-2nd-line {
     font-size: 2.75rem;
     text-align: center;
   }

@@ -4,9 +4,9 @@ import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Toggle from 'react-toggle';
 
-import svg from '../../assets/logo.svg';
+import logoSvg from '../../assets/logo.svg';
 import ThemeContext from '../../context/Theme.context';
-import styles from './styles.module.css';
+import * as styles from './styles.module.css';
 
 function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -15,7 +15,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <Link to="/">
-        <img src={svg} alt="icon" className={styles['header-logo']} />
+        <img src={logoSvg} alt="icon" className={styles.headerLogo} />
       </Link>
       <nav className={styles.navigation}>
         <ul>

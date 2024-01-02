@@ -26,9 +26,9 @@ const common = {
       inject: (htmlPlugin) => path.basename(htmlPlugin.options.filename) === 'index.html',
       favicons: {
         icons: {
-          appleIcon: false, // Apple touch icons.
+          appleIcon: true, // Apple touch icons.
           appleStartup: false, // Apple startup images.
-          android: false, // Android homescreen icon.
+          android: true, // Android homescreen icon.
           favicons: true, // Regular favicons.
           coast: false, // Opera Coast icon.
           firefox: false, // Firefox OS icons.
@@ -36,7 +36,7 @@ const common = {
           yandex: false, // Yandex browser icon.
         },
       },
-      cache: false,
+      cache: true,
     }),
   ],
   module: {
@@ -53,7 +53,7 @@ const common = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
 };
 
