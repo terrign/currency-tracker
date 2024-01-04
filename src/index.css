@@ -9,7 +9,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --active-nav-link: rgb(42, 221, 80);
+  --light-green: rgb(42, 221, 80);
+  --border-radius: 10px;
 }
 
 html,
@@ -32,17 +33,19 @@ body {
 }
 
 body.theme-dark {
-  --bg: #030304;
+  --bg: rgb(3, 3, 4);
   --font-color-main: rgb(255, 255, 255);
   --font-color-dark1: rgb(217, 217, 217);
   --font-color-dark2: rgb(137, 137, 137);
+  --input-bg: rgb(43, 43, 49);
 }
 
 body.theme-light {
-  --bg: #ffffff;
+  --bg: rgb(255, 255, 255);
   --font-color-main: rgb(19, 16, 16);
   --font-color-dark1: rgb(53, 45, 45);
   --font-color-dark2: rgb(172, 169, 169);
+  --input-bg: rgb(238, 238, 240);
 }
 
 .gradient-text {
@@ -52,6 +55,27 @@ body.theme-light {
   -webkit-text-fill-color: transparent;
 }
 
+.chart-label-color {
+  fill: var(--font-color-main) !important;
+}
+
+input,
+select {
+  outline: none;
+  border-radius: var(--border-radius);
+  background-color: var(--input-bg);
+  color: var(--font-color-main);
+  font-size: 0.75rem;
+  font-family: inherit;
+  border: none;
+  padding: 3px;
+}
+
+select,
+input[type='date']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
 a,
 li {
   text-decoration: none;
@@ -59,7 +83,7 @@ li {
 }
 
 nav a.active {
-  color: var(--active-nav-link);
+  color: var(--light-green);
 }
 
 @media screen and (max-width: 1024px) {
