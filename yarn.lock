@@ -4170,6 +4170,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios-cache-interceptor@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "axios-cache-interceptor@npm:1.4.1"
+  dependencies:
+    cache-parser: "npm:1.2.4"
+    fast-defer: "npm:1.1.8"
+    object-code: "npm:1.3.2"
+  peerDependencies:
+    axios: ^1
+  checksum: 09badd363b905ade8784ec2c4599a7f26856a2f6a4e208a5e0180acfd28b1ef60c1195663f6c5c5360e0b27a89baffbff3a8a609bf39d2c2317f63fcccf57c53
+  languageName: node
+  linkType: hard
+
 "axios@npm:^1.6.3":
   version: 1.6.3
   resolution: "axios@npm:1.6.3"
@@ -4726,6 +4739,13 @@ __metadata:
     tar: "npm:^6.1.11"
     unique-filename: "npm:^3.0.0"
   checksum: a31666805a80a8b16ad3f85faf66750275a9175a3480896f4f6d31b5d53ef190484fabd71bdb6d2ea5603c717fbef09f4af03d6a65b525c8ef0afaa44c361866
+  languageName: node
+  linkType: hard
+
+"cache-parser@npm:1.2.4":
+  version: 1.2.4
+  resolution: "cache-parser@npm:1.2.4"
+  checksum: 5f9ee096b3cd42224208aae8bb82f4dc63b9a49f6d92898973854dc2e63fef281ef658932ea9c0b9c15ba0ff18f51a43a007624f1ef60820b06047488f1125fb
   languageName: node
   linkType: hard
 
@@ -5579,6 +5599,7 @@ __metadata:
     airbnb: "npm:^0.0.2"
     apexcharts: "npm:^3.45.1"
     axios: "npm:^1.6.3"
+    axios-cache-interceptor: "npm:^1.4.1"
     babel-jest: "npm:^29.7.0"
     babel-loader: "npm:^9.1.3"
     babel-preset-jest: "npm:^29.6.3"
@@ -7087,6 +7108,13 @@ __metadata:
   version: 3.1.3
   resolution: "fast-deep-equal@npm:3.1.3"
   checksum: 40dedc862eb8992c54579c66d914635afbec43350afbbe991235fdcb4e3a8d5af1b23ae7e79bef7d4882d0ecee06c3197488026998fb19f72dc95acff1d1b1d0
+  languageName: node
+  linkType: hard
+
+"fast-defer@npm:1.1.8":
+  version: 1.1.8
+  resolution: "fast-defer@npm:1.1.8"
+  checksum: 4537cf81ce3e1505adba01dfe232231271162c8365427b360e0e86c8e4bf65f08d9e6ced1bd063fbafb48376f2ff152d1cad3cb25237126492921a15ce203e88
   languageName: node
   linkType: hard
 
@@ -11401,6 +11429,13 @@ __metadata:
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: 1f4df9945120325d041ccf7b86f31e8bcc14e73d29171e37a7903050e96b81323784ec59f93f102ec635bcf6fa8034ba3ea0a8c7e69fa202b87ae3b6cec5a414
+  languageName: node
+  linkType: hard
+
+"object-code@npm:1.3.2":
+  version: 1.3.2
+  resolution: "object-code@npm:1.3.2"
+  checksum: 4b8f3b96b17d456bb9a3226bbe38c2ea20d54e3d88cb53a8bc6d9d752709257f7b8b53a2a0cb4ac1dd6993b92b3dce166b5c762aaf4f40598932783b60989b25
   languageName: node
   linkType: hard
 
