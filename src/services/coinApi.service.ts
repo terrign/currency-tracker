@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { AxiosCacheInstance, buildWebStorage, setupCache } from 'axios-cache-interceptor';
+import { AxiosCacheInstance, setupCache } from 'axios-cache-interceptor';
+
+import axiosCacheStorage from '../utils/axiosCacheStorage';
 
 interface GetCurrencyHistoryArgs {
   baseCurrency: string;
@@ -30,7 +32,7 @@ class CoinApi {
         },
       }),
       {
-        storage: buildWebStorage(localStorage, 'coin-api-cache'),
+        storage: axiosCacheStorage,
         ttl: 86400000,
         headerInterpreter: () => 86400000,
       },
