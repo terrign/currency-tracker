@@ -1,4 +1,5 @@
-import axios, { AxiosInstance } from 'axios';
+import axios from 'axios';
+import { AxiosCacheInstance, buildWebStorage, setupCache } from 'axios-cache-interceptor';
 
 interface GetCurrencyHistoryArgs {
   baseCurrency: string;
@@ -16,16 +17,24 @@ interface HistoryRes {
 }
 
 class CoinApi {
-  private api: AxiosInstance;
+  private api: AxiosCacheInstance;
 
   constructor() {
-    this.api = axios.create({
-      baseURL: 'https://rest.coinapi.io/v1/',
-      headers: {
-        // 'X-CoinAPI-Key': 'A93B6EA9-D8E6-4620-AD42-00A7CC968AEB',
-        'X-CoinAPI-Key': 'E851DE18-963A-467A-9732-34C873BF2BBD',
+    this.api = setupCache(
+      axios.create({
+        baseURL: 'https://rest.coinapi.io/v1/',
+        headers: {
+          // 'X-CoinAPI-Key': 'A93B6EA9-D8E6-4620-AD42-00A7CC968AEB',
+          // 'X-CoinAPI-Key': 'E851DE18-963A-467A-9732-34C873BF2BBD',
+          'X-CoinAPI-Key': '30370F58-CF09-4BF7-A496-05F1B9A53C1F',
+        },
+      }),
+      {
+        storage: buildWebStorage(localStorage, 'coin-api-cache'),
+        ttl: 86400000,
+        headerInterpreter: () => 86400000,
       },
-    });
+    );
   }
 
   public getCurrencyHistory({

@@ -22,10 +22,10 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   constructor(props: TimeLineProps) {
     super(props);
     this.state = {
-      baseCurrency: '',
-      compareCurrency: '',
-      startDate: '',
-      endDate: '',
+      baseCurrency: 'USD',
+      compareCurrency: 'BTC',
+      startDate: '2023-06-01',
+      endDate: '2024-01-01',
     };
   }
 

@@ -1,0 +1,39 @@
+.currency-card {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--currency-card-bg);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+}
+
+.currency-symbol {
+  background-color: var(--symbol-bg);
+  display: block;
+  border-radius: var(--border-radius);
+  color: white;
+  font-weight: 700;
+  font-size: 32px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.currency-name {
+  font-size: 28px;
+}
+
+.currency-rate {
+  font-size: 20px;
+  color: var(--font-color-dark2);
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+
+@media (hover: hover) {
+  .currency-card:hover {
+    background-color: var(--currency-card-bg-hover);
+    cursor: pointer;
+  }
+}

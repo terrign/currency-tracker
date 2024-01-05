@@ -11,6 +11,8 @@
   -moz-osx-font-smoothing: grayscale;
   --light-green: rgb(42, 221, 80);
   --border-radius: 10px;
+  --currency-card-bg: rgb(32, 32, 37);
+  --symbol-bg: rgb(20, 46, 103);
 }
 
 html,
@@ -38,6 +40,10 @@ body.theme-dark {
   --font-color-dark1: rgb(217, 217, 217);
   --font-color-dark2: rgb(137, 137, 137);
   --input-bg: rgb(43, 43, 49);
+  --currency-card-bg: rgb(32, 32, 37);
+  --currency-card-bg-hover: rgb(65, 65, 73);
+  --symbol-bg: rgb(20, 46, 103);
+  --modal-bg: rgb(70, 70, 82, 0.5);
 }
 
 body.theme-light {
@@ -46,6 +52,10 @@ body.theme-light {
   --font-color-dark1: rgb(53, 45, 45);
   --font-color-dark2: rgb(172, 169, 169);
   --input-bg: rgb(238, 238, 240);
+  --currency-card-bg: rgba(187, 235, 182, 0.384);
+  --currency-card-bg-hover: rgba(166, 209, 161, 0.61);
+  --symbol-bg: rgb(38, 89, 199);
+  --modal-bg: rgb(197, 197, 197, 0.5);
 }
 
 .gradient-text {

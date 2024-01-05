@@ -1,0 +1,13 @@
+.currency-symbol {
+  background-color: var(--symbol-bg);
+  display: block;
+  border-radius: var(--border-radius);
+  color: white;
+  font-weight: 700;
+  font-size: 32px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
