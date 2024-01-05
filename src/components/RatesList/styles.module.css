@@ -1,0 +1,14 @@
+.rates-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .rates-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

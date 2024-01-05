@@ -34,7 +34,7 @@
 
 .footer-links {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 1rem;
   flex: 0 0 40%;
 }
@@ -60,6 +60,7 @@
   font-weight: 400;
   display: inline-block;
   height: 1rem;
+  margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 425px) {
@@ -74,7 +75,6 @@
   }
 
   .footer-links {
-    justify-content: center;
     width: 100%;
     flex: none;
   }

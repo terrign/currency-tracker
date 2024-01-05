@@ -24,13 +24,15 @@ class CoinApi {
       axios.create({
         baseURL: 'https://rest.coinapi.io/v1/',
         headers: {
-          'X-CoinAPI-Key': 'A93B6EA9-D8E6-4620-AD42-00A7CC968AEB',
+          // 'X-CoinAPI-Key': 'A93B6EA9-D8E6-4620-AD42-00A7CC968AEB',
           // 'X-CoinAPI-Key': 'E851DE18-963A-467A-9732-34C873BF2BBD',
+          'X-CoinAPI-Key': '30370F58-CF09-4BF7-A496-05F1B9A53C1F',
         },
       }),
       {
-        storage: buildWebStorage(localStorage, 'axios-cache'),
+        storage: buildWebStorage(localStorage, 'coin-api-cache'),
         ttl: 86400000,
+        headerInterpreter: () => 86400000,
       },
     );
   }

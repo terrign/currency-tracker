@@ -7,7 +7,7 @@ import routes from './router/routes';
 
 describe('test', () => {
   it('Renders app', async () => {
-    const router = createMemoryRouter(routes);
+    const router = createMemoryRouter(routes, { initialEntries: ['/contacts'] });
     render(<RouterProvider router={router} />);
     await waitFor(() => expect(screen.getByText(`Bank Map`)).toBeInTheDocument());
   });
