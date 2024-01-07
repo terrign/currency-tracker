@@ -1,0 +1,3 @@
+export const DEFAULT_CURRENCY = 'USD';
+
+export const CACHE_EXPIRATION_TIME_MS = 86400000;

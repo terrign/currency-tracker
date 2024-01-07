@@ -5,7 +5,7 @@ import CurrencySymbol from '../UI/CurrencySymbol';
 import * as styles from './styles.module.css';
 
 interface CurrencyCardProps {
-  rate: number;
+  rate: string;
   iso: CurISO;
   // sharedModalPortal?: null;
 }

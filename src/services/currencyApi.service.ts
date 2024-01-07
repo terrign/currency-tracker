@@ -1,7 +1,9 @@
 import axios from 'axios';
-import { AxiosCacheInstance, buildWebStorage, CacheAxiosResponse, setupCache } from 'axios-cache-interceptor';
+import { AxiosCacheInstance, CacheAxiosResponse, setupCache } from 'axios-cache-interceptor';
 
 import { CUR_LIST, CurISO } from '../constants/currencyISOSymbolMap';
+import { CACHE_EXPIRATION_TIME_MS } from '../constants/globals';
+import axiosCacheStorage from '../utils/axiosCacheStorage';
 
 export interface CurrencyRate {
   code: CurISO;
@@ -27,9 +29,9 @@ class CurrencyApi {
         },
       }),
       {
-        storage: buildWebStorage(localStorage, 'currency-api-cache'),
-        ttl: 86400000,
-        headerInterpreter: () => 86400000,
+        storage: axiosCacheStorage,
+        ttl: CACHE_EXPIRATION_TIME_MS,
+        headerInterpreter: () => CACHE_EXPIRATION_TIME_MS,
       },
     );
   }

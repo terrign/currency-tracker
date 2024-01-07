@@ -18,6 +18,8 @@
   width: 50%;
   padding: 1rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-cur-name {
