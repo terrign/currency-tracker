@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Toggle from 'react-toggle';
 
 import logoSvg from '../../assets/logo.svg';
-import ThemeContext from '../../context/Theme.context';
+import ThemeContext from '../../context/Theme/Theme.context';
 import * as styles from './styles.module.css';
 
 function Header() {

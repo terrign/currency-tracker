@@ -10,6 +10,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/destructuring-assignment': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off',
   },
   parserOptions: {
     project: './tsconfig.json',

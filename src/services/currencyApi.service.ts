@@ -2,9 +2,8 @@ import axios from 'axios';
 import { AxiosCacheInstance, CacheAxiosResponse, setupCache } from 'axios-cache-interceptor';
 
 import { CUR_LIST, CurISO } from '../constants/currencyISOSymbolMap';
+import { CACHE_EXPIRATION_TIME_MS } from '../constants/globals';
 import axiosCacheStorage from '../utils/axiosCacheStorage';
-
-const CACHE_EXPIRATION_TIME_MS = 86400000;
 
 export interface CurrencyRate {
   code: CurISO;

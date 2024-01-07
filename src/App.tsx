@@ -1,11 +1,14 @@
-import ThemeProvider from './context/Theme.provider';
+import AppProvider from './context/App/App.provider';
+import ThemeProvider from './context/Theme/Theme.provider';
 import Router from './router';
 
 function App() {
   return (
-    <ThemeProvider>
-      <Router />
-    </ThemeProvider>
+    <AppProvider>
+      <ThemeProvider>
+        <Router />
+      </ThemeProvider>
+    </AppProvider>
   );
 }
 
