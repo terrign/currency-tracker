@@ -8,9 +8,11 @@ interface AutoCompleteProps {
   searchObject: typeof CUR_ISO_SYMBOL_MAP;
   defaultValue: CurISO;
   selectHandler: (key: CurISO) => () => void;
+  name: string;
+  className?: string;
 }
 
-function AutoComplete({ searchObject, defaultValue, selectHandler }: AutoCompleteProps) {
+function AutoComplete({ searchObject, defaultValue, selectHandler, name, className }: AutoCompleteProps) {
   const searchRef = useRef<HTMLInputElement>(null);
 
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
@@ -43,6 +45,7 @@ function AutoComplete({ searchObject, defaultValue, selectHandler }: AutoComplet
 
   const updateSuggestions = (value: string) => {
     setCurrentSuggestions(getSuggestions(value));
+    setShowSuggestions(true);
   };
 
   const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -55,11 +58,6 @@ function AutoComplete({ searchObject, defaultValue, selectHandler }: AutoComplet
     setShowSuggestions(false);
   };
 
-  const focusHandler = () => {
-    setShowSuggestions(true);
-    updateSuggestions(searchRef.current!.value);
-  };
-
   useEffect(() => {
     if (defaultValue) {
       searchRef.current!.value = searchObject[defaultValue].name;
@@ -67,11 +65,10 @@ function AutoComplete({ searchObject, defaultValue, selectHandler }: AutoComplet
   }, [defaultValue, searchObject]);
 
   return (
-    <div className={styles.autocomplete}>
-      <input type="search" onChange={changeHandler} ref={searchRef} onFocus={focusHandler} />
+    <div className={`${styles.autocomplete} ${className ?? ''}`}>
+      <input type="search" onChange={changeHandler} ref={searchRef} name={name} id={name} />
       <ul className={styles.suggestionsList}>
-        {currentSuggestions.length > 0 &&
-          showSuggestions &&
+        {showSuggestions &&
           currentSuggestions.map((currencyKey) => (
             <li key={currencyKey} className={styles.autocompleteOption}>
               <button type="button" onClick={optionSelectHandler(currencyKey)}>

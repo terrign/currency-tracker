@@ -6,6 +6,7 @@ export interface CurrencyAction {
   type: 'preferredCurrency';
   payload: CurISO;
 }
+
 export interface AppContextType {
   preferredCurrency: CurISO | null;
   dispatch: Dispatch<Action> | null;

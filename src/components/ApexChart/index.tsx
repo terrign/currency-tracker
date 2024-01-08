@@ -23,12 +23,13 @@ class ApexChart extends Component<ChartProps> {
     },
     yaxis: {
       opposite: false,
-      decimalsInFloat: 4,
+      decimalsInFloat: 5,
+
       tooltip: {
         enabled: true,
       },
       labels: {
-        formatter: (val) => val.toString().trim(),
+        formatter: (val) => (+val.toFixed(8)).toString().trim(),
         style: {
           cssClass: 'chart-label-color',
         },

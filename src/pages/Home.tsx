@@ -35,6 +35,7 @@ function Home() {
           searchObject={CUR_ISO_SYMBOL_MAP}
           defaultValue={preferredCurrency ?? 'USD'}
           selectHandler={selectHandler}
+          name="preferredCurrency"
         />
       </div>
       {res?.data.data && <RatesList data={res.data.data} />}

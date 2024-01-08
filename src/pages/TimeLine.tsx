@@ -1,14 +1,19 @@
 import { Component } from 'react';
+import { createPortal } from 'react-dom';
 
 import ApexChart, { ChartDataType } from '../components/ApexChart';
 import TimeLineForm, { TimeLineFormState } from '../components/TimeLineForm';
+import TimeLineUpdateModalContent from '../components/TimeLineUpdateModalContent';
+import Button from '../components/UI/Button';
+import Modal from '../components/UI/Modal';
 import { NoProps } from '../models';
-import coinApi from '../services/coinApi.service';
-import { toStringDate } from '../utils/date';
+import { generateRandomCurrencyHistoryData } from '../utils/generateRandomCurrencyHistoryData';
+import observer from '../utils/Observer';
+import * as styles from './styles.module.css';
 
 interface TimeLineState {
   chartData: ChartDataType[];
-  isLoading: boolean;
+  showModal: boolean;
 }
 
 class TimeLine extends Component<NoProps, TimeLineState> {
@@ -16,35 +21,56 @@ class TimeLine extends Component<NoProps, TimeLineState> {
     super(props);
     this.state = {
       chartData: [],
-      isLoading: false,
+      showModal: false,
     };
   }
 
-  submitHandler = async (formState: TimeLineFormState) => {
-    try {
-      this.setState({ isLoading: true });
-      const { data } = await coinApi.getCurrencyHistory(formState);
-      const result = data.map((a) => {
-        const date = toStringDate(new Date(a.time_period_start));
-        return {
-          x: date,
-          y: [a.rate_open, a.rate_high, a.rate_low, a.rate_close],
-        };
-      });
+  componentDidMount(): void {
+    observer.subscribe(this.updateDayData);
+  }
 
-      this.setState({ chartData: result });
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.log(e);
-    } finally {
-      this.setState({ isLoading: false });
-    }
+  componentWillUnmount(): void {
+    observer.unsubscribe(this.updateDayData);
+  }
+
+  updateDayData = (newData: ChartDataType) => {
+    this.setState((prev) => ({
+      chartData: prev.chartData.map((data) => {
+        if (data.x === newData.x) {
+          return newData;
+        }
+        return data;
+      }),
+    }));
+  };
+
+  closeModal = () => {
+    this.setState({ showModal: false });
+  };
+
+  openModal = () => {
+    this.setState({ showModal: true });
+  };
+
+  submitHandler = async (formState: TimeLineFormState) => {
+    this.setState({ chartData: generateRandomCurrencyHistoryData(new Date(formState.startDate)) });
   };
 
   render() {
     return (
       <>
-        <TimeLineForm submitHandler={this.submitHandler} isLoading={this.state.isLoading} />
+        <div className={styles.timeLineWrapper}>
+          <TimeLineForm submitHandler={this.submitHandler} />
+          <Button onClick={this.openModal}>Update</Button>
+
+          {this.state.showModal &&
+            createPortal(
+              <Modal onClose={this.closeModal}>
+                <TimeLineUpdateModalContent data={this.state.chartData} onSubmit={this.closeModal} />
+              </Modal>,
+              document.body,
+            )}
+        </div>
         {this.state.chartData.length > 0 && <ApexChart data={this.state.chartData} />}
       </>
     );
