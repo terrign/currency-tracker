@@ -7,6 +7,7 @@ const appReducer: AppReducerType = (state: ReducerState, action: Action) => {
         ...state,
         preferredCurrency: action.payload,
       };
+
     default:
       return state;
   }

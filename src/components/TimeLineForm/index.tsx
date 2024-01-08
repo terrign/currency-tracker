@@ -1,46 +1,54 @@
-import { ChangeEvent, Component, FormEvent } from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
 
-import { CUR_ISO_SYMBOL_MAP } from '../../constants/currencyISOSymbolMap';
+import { ChangeEvent, Component, ContextType, FormEvent } from 'react';
+
+import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
+import AppContext from '../../context/App/App.context';
 import { today } from '../../utils/date';
+import AutoComplete from '../Autocomplete';
 import Button from '../UI/Button';
-import Loader from '../UI/Loader';
 import * as styles from './styles.module.css';
 
 interface TimeLineProps {
   submitHandler: (values: TimeLineFormState) => Promise<void>;
-  isLoading: boolean;
 }
 
 export interface TimeLineFormState {
   baseCurrency: string;
   compareCurrency: string;
   startDate: string;
-  endDate: string;
 }
 
 class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
+  context!: ContextType<typeof AppContext>;
+
   constructor(props: TimeLineProps) {
     super(props);
     this.state = {
-      baseCurrency: 'USD',
-      compareCurrency: 'BTC',
-      startDate: '2023-06-01',
-      endDate: '2024-01-01',
+      baseCurrency: '',
+      compareCurrency: '',
+      startDate: '',
     };
+  }
+
+  // @ts-expect-error unused param
+  shouldComponentUpdate(_, nextState: Readonly<TimeLineFormState>): boolean {
+    return (
+      nextState.baseCurrency !== this.state.baseCurrency ||
+      nextState.compareCurrency !== this.state.compareCurrency ||
+      nextState.startDate !== this.state.startDate
+    );
+  }
+
+  componentDidUpdate(): void {
+    if (!!this.state.baseCurrency && !!this.state.compareCurrency && !!this.state.startDate) {
+      this.props.submitHandler(this.state);
+    }
   }
 
   changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const id = e.target.id as keyof TimeLineFormState;
     switch (id) {
-      case 'baseCurrency':
-        this.setState({ baseCurrency: e.target.value });
-        break;
-      case 'compareCurrency':
-        this.setState({ compareCurrency: e.target.value });
-        break;
-      case 'endDate':
-        this.setState({ endDate: e.target.value });
-        break;
       case 'startDate':
         this.setState({ startDate: e.target.value });
         break;
@@ -54,44 +62,62 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
     this.props.submitHandler(this.state);
   };
 
+  updateCompareCurrency = (key: CurISO) => () => {
+    this.setState({ compareCurrency: key });
+  };
+
+  updateBaseCurrency = (key: CurISO) => () => {
+    this.setState({ baseCurrency: key });
+  };
+
   render() {
     return (
-      <form className={styles.timeForm} onSubmit={this.submitHandler}>
-        <label htmlFor="baseCurrency">
-          <span>Currency</span>
-          <select id="baseCurrency" value={this.state.baseCurrency} onChange={this.changeHandler}>
-            {Object.keys(CUR_ISO_SYMBOL_MAP).map((a) => (
-              <option key={a} value={a}>
-                {a}
-              </option>
-            ))}
-          </select>
-        </label>
+      <>
+        <h1 className={styles.timeLineHeader}>Build currency rate chart</h1>
+        <form className={styles.timeForm} onSubmit={this.submitHandler}>
+          <label htmlFor="baseCurrency">
+            <span>Currency</span>
+            <AutoComplete
+              searchObject={CUR_ISO_SYMBOL_MAP}
+              selectHandler={this.updateBaseCurrency}
+              defaultValue={this.context.preferredCurrency!}
+              name="baseCurrency"
+              className={styles.timeLineAutoComplete}
+            />
+          </label>
 
-        <label htmlFor="compareCurrency">
-          <span>Compare Currency</span>
-          <select id="compareCurrency" onChange={this.changeHandler} value={this.state.compareCurrency}>
-            {Object.keys(CUR_ISO_SYMBOL_MAP).map((a) => (
-              <option value={a} key={a}>
-                {a}
-              </option>
-            ))}
-          </select>
-        </label>
+          <label htmlFor="compareCurrency">
+            <span>Compare currency</span>
+            <AutoComplete
+              searchObject={CUR_ISO_SYMBOL_MAP}
+              selectHandler={this.updateCompareCurrency}
+              defaultValue={this.context.preferredCurrency!}
+              name="compareCurrency"
+              className={styles.timeLineAutoComplete}
+            />
+          </label>
 
-        <label htmlFor="startDate">
-          <span>Start Date</span>
-          <input type="date" id="startDate" value={this.state.startDate} onChange={this.changeHandler} max={today()} />
-        </label>
+          <label htmlFor="startDate">
+            <span>Start Date</span>
+            <input
+              type="date"
+              id="startDate"
+              value={this.state.startDate}
+              onChange={this.changeHandler}
+              max={today()}
+              required
+            />
+          </label>
 
-        <label htmlFor="endDate">
-          <span>End Date</span>
-          <input type="date" id="endDate" value={this.state.endDate} onChange={this.changeHandler} max={today()} />
-        </label>
-        {this.props.isLoading ? <Loader /> : <Button>Build</Button>}
-      </form>
+          <Button type="submit" style={{ alignSelf: 'flex-end' }}>
+            Generate
+          </Button>
+        </form>
+      </>
     );
   }
 }
+
+TimeLineForm.contextType = AppContext;
 
 export default TimeLineForm;

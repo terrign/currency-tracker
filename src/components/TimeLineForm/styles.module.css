@@ -1,40 +1,32 @@
 .time-form {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  width: 320px;
-  margin: 0 auto;
-  text-wrap: nowrap;
-
   gap: 1rem;
-}
-
-.time-form > label,
-input,
-select {
-  height: 1.5rem;
-}
-
-.time-form > label > span {
-  text-align: right;
-  width: min-content;
-}
-
-.time-form label {
-  display: grid;
-  grid-template-columns: min-content 120px;
-  justify-content: flex-end;
-  line-height: 1.5rem;
-  gap: 0.5rem;
   width: 100%;
 }
 
-@media screen and (max-width: 425px) {
-  .time-form {
-    width: min-content;
-  }
+.time-form > label > span {
+  flex: 1 0 30%;
+  text-align: right;
+  text-wrap: nowrap;
+}
 
-  .time-form label {
-    grid-template-columns: 120px 120px;
-  }
+.time-form label {
+  display: flex;
+  gap: 1rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+.time-line-auto-complete,
+.time-form > label > input {
+  flex: 1 0 40%;
+  height: 2rem;
+}
+
+.time-line-header {
+  font-size: 1.75rem;
+  text-align: center;
+  text-wrap: nowrap;
+  margin-bottom: 1rem;
 }

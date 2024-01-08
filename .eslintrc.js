@@ -11,6 +11,9 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/require-default-props': 'off',
+    'react/button-has-type': 'off',
+    'class-methods-use-this': 'off',
+    'react/static-property-placement': 'off',
   },
   parserOptions: {
     project: './tsconfig.json',

@@ -1,6 +1,5 @@
 import { RouteObject } from 'react-router-dom';
 
-import CurrencyModal from '../components/CurrencyModal';
 import BankMap from '../pages/BankMap';
 import Contacts from '../pages/Contacts';
 import Home from '../pages/Home';
@@ -16,12 +15,6 @@ const routes: RouteObject[] = [
       {
         path: '/',
         element: <Home />,
-        children: [
-          {
-            path: '/:currencyISO',
-            element: <CurrencyModal />,
-          },
-        ],
       },
       {
         path: '/timeline',

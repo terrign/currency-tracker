@@ -8,7 +8,7 @@ interface ButtonProps extends Exclude<DefaultButtonProps, DefaultButtonProps['cl
 
 function Button({ children, type, ...rest }: ButtonProps & PropsWithChildren) {
   return (
-    <button {...rest} type="submit" className={styles.button}>
+    <button {...rest} type={type} className={styles.button}>
       {children}
     </button>
   );

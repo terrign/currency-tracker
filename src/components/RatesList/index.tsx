@@ -17,7 +17,7 @@ function RatesList({ data }: RatesListProps) {
         .map((key) => (
           <CurrencyCard
             key={key}
-            rate={`${data[key as CurISO].value}${CUR_ISO_SYMBOL_MAP[preferredCurrency!].symbol}`}
+            rate={`${data[key as CurISO].value}${CUR_ISO_SYMBOL_MAP[key].symbol}`}
             iso={key as CurISO}
           />
         ))}
