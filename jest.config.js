@@ -13,4 +13,5 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
     '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
   },
+  setupFiles: ['<rootDir>/__test__/jest.polyfills.js'],
 };

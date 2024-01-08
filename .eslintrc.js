@@ -19,5 +19,5 @@ module.exports = {
     project: './tsconfig.json',
     sourceType: 'module',
   },
-  ignorePatterns: ['/*.css', '*.eslintrc.js', '*.config.js'],
+  ignorePatterns: ['/*.css', '*.eslintrc.js', '*.config.js', '/__test__/*'],
 };
