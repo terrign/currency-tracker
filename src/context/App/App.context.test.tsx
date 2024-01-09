@@ -7,7 +7,7 @@ import { act } from 'react-dom/test-utils';
 import AppContext from './App.context';
 import AppProvider from './App.provider';
 import appReducer from './App.reducer';
-import useAppContext from './hook';
+import useAppContext from './useAppContext';
 
 describe('App context', () => {
   it('Provides default value', () => {
@@ -58,6 +58,8 @@ describe('App reducer', () => {
 
 describe('React hook', () => {
   it('Renders', () => {
-    expect(renderHook(useAppContext)).toBeTruthy();
+    const { result } = renderHook(useAppContext);
+    // @ts-expect-error wrong types
+    expect(result.current.dispatch()).toBe(null);
   });
 });

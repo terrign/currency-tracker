@@ -5,6 +5,7 @@ import { ChangeEvent, Component, ContextType, FormEvent } from 'react';
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
 import AppContext from '../../context/App/App.context';
 import { today } from '../../utils/date';
+import { notification } from '../../utils/Observer';
 import AutoComplete from '../Autocomplete';
 import Button from '../UI/Button';
 import * as styles from './styles.module.css';
@@ -20,7 +21,7 @@ export interface TimeLineFormState {
 }
 
 class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
-  context!: ContextType<typeof AppContext>;
+  declare context: ContextType<typeof AppContext>;
 
   constructor(props: TimeLineProps) {
     super(props);
@@ -43,6 +44,7 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   componentDidUpdate(): void {
     if (!!this.state.baseCurrency && !!this.state.compareCurrency && !!this.state.startDate) {
       this.props.submitHandler(this.state);
+      notification.notify({ status: 'success', info: 'Has been created', header: 'Chart' });
     }
   }
 
@@ -60,6 +62,7 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     this.props.submitHandler(this.state);
+    notification.notify({ status: 'success', info: 'Random data generated', header: 'Chart' });
   };
 
   updateCompareCurrency = (key: CurISO) => () => {
@@ -73,7 +76,7 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   render() {
     return (
       <>
-        <h1 className={styles.timeLineHeader}>Build currency rate chart</h1>
+        <h2 className={styles.timeLineHeader}>Build currency rate chart</h2>
         <form className={styles.timeForm} onSubmit={this.submitHandler}>
           <label htmlFor="baseCurrency">
             <span>Currency</span>
@@ -110,7 +113,7 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
           </label>
 
           <Button type="submit" style={{ alignSelf: 'flex-end' }}>
-            Generate
+            Randomize
           </Button>
         </form>
       </>

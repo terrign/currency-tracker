@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
-import useAppContext from '../../context/App/hook';
+import useAppContext from '../../context/App/useAppContext';
 import currencyApi, { CurrencyRate } from '../../services/currencyApi.service';
 import AutoComplete from '../Autocomplete';
 import CurrencySymbol from '../UI/CurrencySymbol';

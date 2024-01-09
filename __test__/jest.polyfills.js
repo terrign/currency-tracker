@@ -19,3 +19,5 @@ Object.defineProperties(globalThis, {
   Request: { value: Request },
   Response: { value: Response },
 });
+
+window.URL.createObjectURL = function () {};

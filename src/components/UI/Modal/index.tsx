@@ -2,7 +2,7 @@ import { MouseEvent, PropsWithChildren } from 'react';
 
 import * as styles from './styles.module.css';
 
-interface ModalProps extends PropsWithChildren {
+export interface ModalProps extends PropsWithChildren {
   onClose: () => void;
 }
 

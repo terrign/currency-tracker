@@ -18,6 +18,8 @@
   display: inline-block;
   font-size: 1rem;
   width: 100%;
+  border: 1px solid var(--font-color-dark2);
+  border-radius: var(--border-radius);
 }
 
 .autocomplete li:last-child {

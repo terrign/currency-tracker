@@ -4,7 +4,7 @@ import { AppContextType } from './models';
 
 const AppContext = createContext<AppContextType>({
   preferredCurrency: 'USD',
-  dispatch: null,
+  dispatch: () => null,
 });
 
 export default AppContext;

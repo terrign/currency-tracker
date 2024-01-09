@@ -14,6 +14,7 @@ module.exports = {
     'react/button-has-type': 'off',
     'class-methods-use-this': 'off',
     'react/static-property-placement': 'off',
+    'consistent-return': 'off',
   },
   parserOptions: {
     project: './tsconfig.json',
