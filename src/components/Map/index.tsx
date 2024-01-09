@@ -19,7 +19,7 @@ function CustomMap({ markers }: CustomMapProps) {
       }}
       attributionControl={undefined}
       style={{ height: 500, marginTop: '1rem' }}
-      mapStyle="https://tiles.basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
+      mapStyle="https://tiles.basemaps.cartocdn.com/gl/voyager-gl-style/style.json"
     >
       <GeolocateControl />
       <FullscreenControl />
