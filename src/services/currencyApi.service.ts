@@ -42,6 +42,21 @@ class CurrencyApi {
         base_currency: iso,
         currencies: CUR_LIST,
       },
+      id: 'currency-rates',
+      cache: {
+        update: {
+          'currency-rates': (cache, res) => {
+            if (cache) {
+              const cacheDay = new Date(cache.createdAt!).getDate();
+              const resDay = new Date(res.data.data.createdAt).getDate();
+              if (cacheDay < resDay) {
+                return 'delete';
+              }
+            }
+            return 'ignore';
+          },
+        },
+      },
     });
   }
 }

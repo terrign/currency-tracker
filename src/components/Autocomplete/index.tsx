@@ -76,6 +76,7 @@ function AutoComplete({ searchObject, defaultValue, selectHandler, name, classNa
         id={name}
         autoComplete="one-time-code"
         placeholder="Search currency"
+        required
       />
       {showSuggestions && (
         <ul className={styles.suggestionsList}>
