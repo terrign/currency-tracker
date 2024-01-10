@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import { ChangeEvent, Component, ContextType, FormEvent } from 'react';
+import { ChangeEvent, Component, FormEvent } from 'react';
 
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
-import AppContext from '../../context/App/App.context';
 import { today } from '../../utils/date';
 import { notification } from '../../utils/Observer';
 import AutoComplete from '../Autocomplete';
@@ -21,8 +20,6 @@ export interface TimeLineFormState {
 }
 
 class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
-  declare context: ContextType<typeof AppContext>;
-
   constructor(props: TimeLineProps) {
     super(props);
     this.state = {
@@ -48,15 +45,8 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
     }
   }
 
-  changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const id = e.target.id as keyof TimeLineFormState;
-    switch (id) {
-      case 'startDate':
-        this.setState({ startDate: e.target.value });
-        break;
-      default:
-        break;
-    }
+  dateChangeHandler = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    this.setState({ startDate: e.target.value });
   };
 
   submitHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -83,7 +73,7 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
             <AutoComplete
               searchObject={CUR_ISO_SYMBOL_MAP}
               selectHandler={this.updateBaseCurrency}
-              defaultValue={this.context.preferredCurrency!}
+              defaultValue=""
               name="baseCurrency"
               className={styles.timeLineAutoComplete}
             />
@@ -94,7 +84,7 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
             <AutoComplete
               searchObject={CUR_ISO_SYMBOL_MAP}
               selectHandler={this.updateCompareCurrency}
-              defaultValue={this.context.preferredCurrency!}
+              defaultValue=""
               name="compareCurrency"
               className={styles.timeLineAutoComplete}
             />
@@ -106,7 +96,7 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
               type="date"
               id="startDate"
               value={this.state.startDate}
-              onChange={this.changeHandler}
+              onChange={this.dateChangeHandler}
               max={today()}
               required
             />
@@ -120,7 +110,5 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
     );
   }
 }
-
-TimeLineForm.contextType = AppContext;
 
 export default TimeLineForm;

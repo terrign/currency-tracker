@@ -26,14 +26,14 @@ function CurrencyModalContent({ iso }: { iso: CurISO }) {
   };
 
   return (
-    <>
+    <div className={styles.currencyModal}>
       <div style={{ display: 'flex', gap: '1rem' }}>
         <CurrencySymbol iso={iso} />
-        <p className={styles.modalCurName}>{CUR_ISO_SYMBOL_MAP[iso].name}</p>
+        <p className={styles.curName}>{CUR_ISO_SYMBOL_MAP[iso].name}</p>
       </div>
 
       <div>
-        <span>Compare to</span>
+        <span>Compare to </span>
         <AutoComplete
           searchObject={CUR_ISO_SYMBOL_MAP}
           defaultValue={preferredCurrency as CurISO}
@@ -44,11 +44,12 @@ function CurrencyModalContent({ iso }: { iso: CurISO }) {
       <p>
         {result && (
           <span>
-            {result.value} {CUR_ISO_SYMBOL_MAP[result.code].symbol}
+            Rate: {result.value}
+            {CUR_ISO_SYMBOL_MAP[result.code].symbol}
           </span>
         )}
       </p>
-    </>
+    </div>
   );
 }
 

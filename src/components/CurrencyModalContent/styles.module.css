@@ -1,59 +1,12 @@
-.modal-background {
-  background-color: var(--modal-bg);
-  position: fixed;
-  height: 100vh;
-  width: 100%;
-  left: 0;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal {
-  border-radius: var(--border-radius);
-  background-color: var(--bg);
-  height: 50%;
-  width: 50%;
-  padding: 1rem;
-  position: relative;
+.currency-modal {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
-.modal-cur-name {
+.cur-name {
   flex: 2 0 max-content;
   font-size: 1.25rem;
   line-height: 80px;
   display: inline;
-}
-
-.modal > .close-button {
-  position: absolute;
-  left: calc(100% - 1rem - 48px);
-  top: 1rem;
-  border-radius: var(--border-radius);
-  background-color: transparent;
-  padding: 1rem;
-  outline: none;
-  border: none;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-.close-button::after {
-  display: inline-block;
-  content: '\2573';
-}
-
-@media (hover: hover) {
-  .close-button:hover {
-    background-color: var(--currency-card-bg-hover);
-  }
 }

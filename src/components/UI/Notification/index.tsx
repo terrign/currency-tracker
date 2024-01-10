@@ -47,7 +47,7 @@ function Notification() {
 
   useEffect(() => {
     notification.subscribe(onNotify);
-    return notification.unsubscribe(onNotify);
+    return () => notification.unsubscribe(onNotify);
   }, [onNotify]);
 
   return (
