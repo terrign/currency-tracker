@@ -48,11 +48,15 @@ function AutoComplete({ searchObject, defaultValue, selectHandler, name, classNa
 
   const updateSuggestions = (value: string) => {
     setCurrentSuggestions(getSuggestions(value));
-    setShowSuggestions(true);
   };
 
   const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     updateSuggestions(event.target.value);
+    if (event.target.value === '') {
+      setShowSuggestions(false);
+    } else {
+      setShowSuggestions(true);
+    }
   };
 
   const optionSelectHandler = (key: CurISO) => () => {

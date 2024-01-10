@@ -13,3 +13,11 @@ describe('TimeLine', () => {
     expect(screen.getByText('Build currency rate chart')).toBeInTheDocument();
   });
 });
+
+describe('BankMap', () => {
+  it('Renders', () => {
+    const router = createMemoryRouter(routes, { initialEntries: ['/bankmap'] });
+    act(() => render(<RouterProvider router={router} />));
+    expect(screen.getByText('Search currency in the bank')).toBeInTheDocument();
+  });
+});

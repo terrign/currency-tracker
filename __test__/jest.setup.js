@@ -2,11 +2,14 @@ import { http, HttpResponse } from 'msw';
 import { resMock } from './__mocks__/resMock';
 
 import { setupServer } from 'msw/node';
+import { mapSpec } from './__mocks__/mapSpec';
 
 const handlers = [
   http.get('https://api.currencyapi.com/v3/latest/', ({ request }) => {
-    console.log(HttpResponse);
     return HttpResponse({ data: resMock });
+  }),
+  http.get('https://tiles.basemaps.cartocdn.com/gl/voyager-gl-style/style.json', ({ request }) => {
+    return HttpResponse('');
   }),
 ];
 

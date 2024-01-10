@@ -1,4 +1,4 @@
-import { ChartDataType } from '../components/ApexChart';
+import { ChartDataType } from '../components/Chart';
 import { toStringDate } from './date';
 import {
   getRandomCloseFromBase,

@@ -38,14 +38,14 @@ function ThemeProvider({ children }: PropsWithChildren) {
   }, []);
 
   const setDefaultThemeBasedOnPrefered = useCallback(async () => {
-    const preferedTheme = await localforage.getItem('theme');
+    const preferredTheme = await localforage.getItem('theme');
 
-    if (preferedTheme === 'light') {
+    if (preferredTheme === 'light') {
       setLightTheme();
       return;
     }
 
-    if (preferedTheme === 'dark') {
+    if (preferredTheme === 'dark') {
       setDarkTheme();
       return;
     }

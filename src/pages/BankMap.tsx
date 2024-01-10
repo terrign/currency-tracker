@@ -1,11 +1,13 @@
-import { Component } from 'react';
+import { Component, lazy, Suspense } from 'react';
 
 import AutoComplete from '../components/Autocomplete';
-import CustomMap from '../components/Map';
+import Loader from '../components/UI/Loader';
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../constants/currencyISOSymbolMap';
 import { NoProps } from '../models';
 import { filterByCurrency } from '../utils/filterByCurrency';
 import * as styles from './styles.module.css';
+
+const CustomMap = lazy(() => import('../components/Map'));
 
 class BankMap extends Component<NoProps, { currency: CurISO }, undefined> {
   constructor(props: NoProps) {
@@ -26,7 +28,9 @@ class BankMap extends Component<NoProps, { currency: CurISO }, undefined> {
           <h2 className={styles.bankHeader}>Search currency in the bank</h2>
           <AutoComplete selectHandler={this.selectHandler} searchObject={CUR_ISO_SYMBOL_MAP} defaultValue="" />
         </div>
-        <CustomMap markers={filterByCurrency(this.state.currency)} />
+        <Suspense fallback={<Loader />}>
+          <CustomMap markers={filterByCurrency(this.state.currency)} />
+        </Suspense>
       </>
     );
   }
