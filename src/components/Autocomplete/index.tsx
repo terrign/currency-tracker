@@ -60,7 +60,6 @@ function AutoComplete({ searchObject, defaultValue, selectHandler, name, classNa
     selectHandler(key)();
     setShowSuggestions(false);
   };
-
   useEffect(() => {
     if (defaultValue) {
       searchRef.current!.value = searchObject[defaultValue].name;
@@ -76,6 +75,7 @@ function AutoComplete({ searchObject, defaultValue, selectHandler, name, classNa
         name={name}
         id={name}
         autoComplete="one-time-code"
+        placeholder="Search currency"
       />
       {showSuggestions && (
         <ul className={styles.suggestionsList}>

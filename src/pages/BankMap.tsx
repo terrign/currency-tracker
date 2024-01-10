@@ -1,23 +1,18 @@
-import { Component, ContextType } from 'react';
+import { Component } from 'react';
 
 import AutoComplete from '../components/Autocomplete';
 import CustomMap from '../components/Map';
 import { BankMapInfo } from '../constants/bankMapInfo';
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../constants/currencyISOSymbolMap';
-import AppContext from '../context/App/App.context';
 import { NoProps } from '../models';
 import { filterByCurrency } from '../utils/filterByCurrency';
 import * as styles from './styles.module.css';
 
 class BankMap extends Component<NoProps, { currency: CurISO }, undefined> {
-  static contextType = AppContext;
-
-  declare context: ContextType<typeof AppContext>;
-
   constructor(props: NoProps) {
     super(props);
     this.state = {
-      currency: 'USD',
+      currency: '',
     };
   }
 
@@ -37,11 +32,7 @@ class BankMap extends Component<NoProps, { currency: CurISO }, undefined> {
       <>
         <div className={styles.bankWrapper}>
           <h2 className={styles.bankHeader}>Search currency in the bank</h2>
-          <AutoComplete
-            selectHandler={this.selectHandler}
-            searchObject={CUR_ISO_SYMBOL_MAP}
-            defaultValue={this.context.preferredCurrency!}
-          />
+          <AutoComplete selectHandler={this.selectHandler} searchObject={CUR_ISO_SYMBOL_MAP} defaultValue="" />
         </div>
         <CustomMap markers={filterByCurrency(this.state.currency)} />
       </>
