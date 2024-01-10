@@ -8,7 +8,7 @@ import Button from '../components/UI/Button';
 import Modal from '../components/UI/Modal';
 import { NoProps } from '../models';
 import { generateRandomCurrencyHistoryData } from '../utils/generateRandomCurrencyHistoryData';
-import observer from '../utils/Observer';
+import { dayData } from '../utils/Observer';
 import * as styles from './styles.module.css';
 
 interface TimeLineState {
@@ -26,11 +26,11 @@ class TimeLine extends Component<NoProps, TimeLineState> {
   }
 
   componentDidMount(): void {
-    observer.subscribe(this.updateDayData);
+    dayData.subscribe(this.updateDayData);
   }
 
   componentWillUnmount(): void {
-    observer.unsubscribe(this.updateDayData);
+    dayData.unsubscribe(this.updateDayData);
   }
 
   updateDayData = (newData: ChartDataType) => {
@@ -59,9 +59,11 @@ class TimeLine extends Component<NoProps, TimeLineState> {
   render() {
     return (
       <>
-        <div className={styles.timeLineWrapper}>
+        <div className={styles.wrapper}>
           <TimeLineForm submitHandler={this.submitHandler} />
-          <Button onClick={this.openModal}>Update</Button>
+          <Button onClick={this.openModal} disabled={this.state.chartData.length === 0}>
+            Update
+          </Button>
 
           {this.state.showModal &&
             createPortal(

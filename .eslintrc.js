@@ -14,10 +14,11 @@ module.exports = {
     'react/button-has-type': 'off',
     'class-methods-use-this': 'off',
     'react/static-property-placement': 'off',
+    'consistent-return': 'off',
   },
   parserOptions: {
     project: './tsconfig.json',
     sourceType: 'module',
   },
-  ignorePatterns: ['/*.css', '*.eslintrc.js', '*.config.js'],
+  ignorePatterns: ['/*.css', '*.eslintrc.js', '*.config.js', '/__test__/*'],
 };

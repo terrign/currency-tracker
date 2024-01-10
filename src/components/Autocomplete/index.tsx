@@ -8,7 +8,7 @@ interface AutoCompleteProps {
   searchObject: typeof CUR_ISO_SYMBOL_MAP;
   defaultValue: CurISO;
   selectHandler: (key: CurISO) => () => void;
-  name: string;
+  name?: string;
   className?: string;
 }
 

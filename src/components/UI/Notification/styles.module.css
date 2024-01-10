@@ -1,0 +1,64 @@
+.notification {
+  position: fixed;
+  width: 300px;
+  font-size: 20px;
+  min-height: 100px;
+  left: calc(100% - 300px - 1rem);
+  top: calc(1rem);
+  z-index: 200;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+}
+
+.notification > h5 {
+  font-weight: 700;
+}
+
+.notification > p {
+  margin-top: 1rem;
+}
+.notification-error {
+  background-color: rgb(239 64 60);
+}
+
+.notification-success {
+  background-color: var(--light-green);
+}
+
+.close-button {
+  position: absolute;
+  left: calc(100% - 40px);
+  top: 0;
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  padding: 20px;
+  outline: none;
+  border: none;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.close-button::after {
+  display: inline-block;
+  content: '\2573';
+}
+
+@media (hover: hover) {
+  .close-button:hover {
+    background-color: var(--currency-card-bg-hover);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .notification {
+    width: calc(100% - 2rem);
+    min-height: 100px;
+    left: 1rem;
+    top: 1rem;
+  }
+}

@@ -12,9 +12,9 @@ module.exports = {
     historyApiFallback: true,
     client: {
       overlay: {
-        errors: true,
+        errors: false,
         warnings: false,
-        runtimeErrors: true,
+        runtimeErrors: false,
       },
       progress: true,
     },

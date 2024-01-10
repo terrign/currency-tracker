@@ -1,4 +1,4 @@
-class ObserverSingleton {
+class Observer {
   constructor() {
     this.observers = [];
   }
@@ -16,6 +16,8 @@ class ObserverSingleton {
   }
 }
 
-const observer = new ObserverSingleton();
+const dayData = new Observer();
 
-export default observer;
+const notification = new Observer();
+
+export { dayData, notification };

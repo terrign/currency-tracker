@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import AutoComplete from '../components/Autocomplete';
 import RatesList from '../components/RatesList';
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../constants/currencyISOSymbolMap';
-import useAppContext from '../context/App/hook';
+import useAppContext from '../context/App/useAppContext';
 import currencyApi, { CurrencyRates } from '../services/currencyApi.service';
 
 function Home() {
@@ -24,7 +24,7 @@ function Home() {
   }, [preferredCurrency, refetchData]);
 
   const selectHandler = (key: CurISO) => () => {
-    dispatch!({ type: 'preferredCurrency', payload: key });
+    dispatch({ type: 'preferredCurrency', payload: key });
   };
 
   return (

@@ -4,5 +4,8 @@
     ["@babel/preset-env", { "targets": { "node": "current" } }],
     "@babel/preset-typescript"
   ],
-  "plugins": ["@babel/plugin-proposal-class-properties"]
+  "plugins": [
+    ["@babel/plugin-transform-typescript", { "allowDeclareFields": true, "legacy": true }],
+    "@babel/plugin-proposal-class-properties"
+  ]
 }

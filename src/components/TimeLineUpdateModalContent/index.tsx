@@ -1,6 +1,6 @@
 import { Component, FormEvent } from 'react';
 
-import observer from '../../utils/Observer';
+import { dayData } from '../../utils/Observer';
 import { ChartDataType } from '../ApexChart';
 import Button from '../UI/Button';
 import * as styles from './styles.module.css';
@@ -18,7 +18,7 @@ class TimeLineUpdateModalContent extends Component<TimeLineUpdateModalContentPro
     const formData = new FormData(e.target as HTMLFormElement);
     const { date, open, close, high, low } = Object.fromEntries(formData);
 
-    observer.notify({ x: date, y: [open, high, low, close] });
+    dayData.notify({ x: date, y: [open, high, low, close] });
     this.props.onSubmit();
   };
 
