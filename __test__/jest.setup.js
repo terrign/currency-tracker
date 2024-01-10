@@ -4,10 +4,10 @@ import { resMock } from './__mocks__/resMock';
 import { setupServer } from 'msw/node';
 
 const handlers = [
-  http.get(
-    'https://api.currencyapi.com/v3/latest/?base_currency=CHF&currencies=AUD,BHD,BRL,BTC,BYN,CAD,CHF,CNY,ETH,EUR,GBP,LTC,RUB,USD,JPY',
-    () => HttpResponse.json(resMock),
-  ),
+  http.get('https://api.currencyapi.com/v3/latest/', ({ request }) => {
+    console.log(HttpResponse);
+    return HttpResponse({ data: resMock });
+  }),
 ];
 
 const server = setupServer(...handlers);
