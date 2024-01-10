@@ -2,7 +2,6 @@ import { Component } from 'react';
 
 import AutoComplete from '../components/Autocomplete';
 import CustomMap from '../components/Map';
-import { BankMapInfo } from '../constants/bankMapInfo';
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../constants/currencyISOSymbolMap';
 import { NoProps } from '../models';
 import { filterByCurrency } from '../utils/filterByCurrency';
@@ -15,13 +14,6 @@ class BankMap extends Component<NoProps, { currency: CurISO }, undefined> {
       currency: '',
     };
   }
-
-  // @ts-expect-error unused param
-  shouldComponentUpdate(_, nextState: Readonly<{ currency: CurISO; markers: BankMapInfo[] }>): boolean {
-    return this.state.currency !== nextState.currency;
-  }
-
-  componentDidUpdate(): void {}
 
   selectHandler = (key: CurISO) => () => {
     this.setState({ currency: key });

@@ -1,5 +1,6 @@
 import { RouteObject } from 'react-router-dom';
 
+import ErrorBoundary from '../components/ErrorBoundary';
 import BankMap from '../pages/BankMap';
 import Contacts from '../pages/Contacts';
 import Home from '../pages/Home';
@@ -10,7 +11,11 @@ import TimeLine from '../pages/TimeLine';
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Root />,
+    element: (
+      <ErrorBoundary>
+        <Root />
+      </ErrorBoundary>
+    ),
     children: [
       {
         path: '/',
