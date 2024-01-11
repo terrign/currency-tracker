@@ -8,7 +8,7 @@ interface ChartProps {
   data: ChartDataType[];
 }
 
-class ApexChart extends Component<ChartProps> {
+class Chart extends Component<ChartProps> {
   private chartOptions: ApexOptions = {
     tooltip: {
       theme: 'dark',
@@ -53,4 +53,4 @@ class ApexChart extends Component<ChartProps> {
   }
 }
 
-export default ApexChart;
+export default Chart;

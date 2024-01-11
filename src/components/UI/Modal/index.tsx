@@ -18,7 +18,7 @@ function Modal({ children, onClose }: ModalProps) {
   };
 
   return (
-    <div className={styles.modalBackground} aria-hidden onClick={backGroundClickHandler}>
+    <div className={styles.modalBackground} aria-hidden onClick={backGroundClickHandler} role="alertdialog">
       <div className={styles.modal}>
         {children}
         <button type="button" onClick={closeButtonHandler} className={styles.closeButton}>

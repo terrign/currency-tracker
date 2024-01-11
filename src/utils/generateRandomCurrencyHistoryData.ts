@@ -1,4 +1,4 @@
-import { ChartDataType } from '../components/ApexChart';
+import { ChartDataType } from '../components/Chart';
 import { toStringDate } from './date';
 import {
   getRandomCloseFromBase,
@@ -23,10 +23,10 @@ export const generateRandomCurrencyHistoryData = (startDate: Date): ChartDataTyp
   let currentDate = startDate.getTime();
 
   for (let i = 0; i <= daysInMonth; i += 1) {
-    const rateOpen = getRandomOpenFromBase(currentRate);
-    const rateClose = getRandomCloseFromBase(currentRate);
-    const rateHigh = getRandomHighFromBase(currentRate);
-    const rateLow = getRandomLowFromBase(currentRate);
+    const rateOpen = +getRandomOpenFromBase(currentRate).toFixed(12);
+    const rateClose = +getRandomCloseFromBase(currentRate).toFixed(12);
+    const rateHigh = +getRandomHighFromBase(currentRate).toFixed(12);
+    const rateLow = +getRandomLowFromBase(currentRate).toFixed(12);
     const date = toStringDate(new Date(currentDate));
 
     result.push({ x: date, y: [rateOpen, rateHigh, rateLow, rateClose] });

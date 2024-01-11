@@ -1,28 +1,50 @@
+import { lazy, Suspense } from 'react';
 import { RouteObject } from 'react-router-dom';
 
-import BankMap from '../pages/BankMap';
+import ErrorBoundary from '../components/ErrorBoundary';
+import Loader from '../components/UI/Loader';
 import Contacts from '../pages/Contacts';
-import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
 import Root from '../pages/Root';
-import TimeLine from '../pages/TimeLine';
+
+const TimeLine = lazy(() => import('../pages/TimeLine'));
+
+const Home = lazy(() => import('../pages/Home'));
+
+const BankMap = lazy(() => import('../pages/BankMap'));
 
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Root />,
+    element: (
+      <ErrorBoundary>
+        <Root />
+      </ErrorBoundary>
+    ),
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: '/timeline',
-        element: <TimeLine />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <TimeLine />
+          </Suspense>
+        ),
       },
       {
         path: '/bankmap',
-        element: <BankMap />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <BankMap />
+          </Suspense>
+        ),
       },
       {
         path: '/contacts',

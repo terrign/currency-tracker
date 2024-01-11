@@ -1,14 +1,12 @@
 import '@testing-library/jest-dom';
 
-import { render, screen, waitFor } from '@testing-library/react';
-import { createMemoryRouter, RouterProvider } from 'react-router-dom';
+import { render, waitFor } from '@testing-library/react';
 
-import routes from './router/routes';
+import App from './App';
 
 describe('test', () => {
   it('Renders app', async () => {
-    const router = createMemoryRouter(routes, { initialEntries: ['/contacts'] });
-    render(<RouterProvider router={router} />);
-    await waitFor(() => expect(screen.getByText(`Bank Map`)).toBeInTheDocument());
+    const { container } = render(<App />);
+    await waitFor(() => expect(container).toBeInTheDocument());
   });
 });

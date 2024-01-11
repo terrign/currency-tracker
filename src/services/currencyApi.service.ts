@@ -27,6 +27,7 @@ class CurrencyApi {
         headers: {
           apikey: 'cur_live_9TPgHZzZrB7uPZqsMkOXDqYgV3gekPGDGgZ8s1B7',
         },
+        adapter: ['http', 'xhr'],
       }),
       {
         storage: axiosCacheStorage,

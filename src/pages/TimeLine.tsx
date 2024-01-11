@@ -1,15 +1,18 @@
-import { Component } from 'react';
+import { Component, lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 
-import ApexChart, { ChartDataType } from '../components/ApexChart';
+import { ChartDataType } from '../components/Chart';
 import TimeLineForm, { TimeLineFormState } from '../components/TimeLineForm';
 import TimeLineUpdateModalContent from '../components/TimeLineUpdateModalContent';
 import Button from '../components/UI/Button';
+import Loader from '../components/UI/Loader';
 import Modal from '../components/UI/Modal';
 import { NoProps } from '../models';
 import { generateRandomCurrencyHistoryData } from '../utils/generateRandomCurrencyHistoryData';
 import { dayData } from '../utils/Observer';
 import * as styles from './styles.module.css';
+
+const Chart = lazy(() => import('../components/Chart'));
 
 interface TimeLineState {
   chartData: ChartDataType[];
@@ -52,7 +55,7 @@ class TimeLine extends Component<NoProps, TimeLineState> {
     this.setState({ showModal: true });
   };
 
-  submitHandler = async (formState: TimeLineFormState) => {
+  submitHandler = (formState: TimeLineFormState) => {
     this.setState({ chartData: generateRandomCurrencyHistoryData(new Date(formState.startDate)) });
   };
 
@@ -73,7 +76,11 @@ class TimeLine extends Component<NoProps, TimeLineState> {
               document.body,
             )}
         </div>
-        {this.state.chartData.length > 0 && <ApexChart data={this.state.chartData} />}
+        {this.state.chartData.length > 0 && (
+          <Suspense fallback={<Loader />}>
+            <Chart data={this.state.chartData} />
+          </Suspense>
+        )}
       </>
     );
   }

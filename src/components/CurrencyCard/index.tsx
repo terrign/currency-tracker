@@ -1,10 +1,10 @@
 import { createPortal } from 'react-dom';
 
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
+import useModal from '../../hooks/useModal';
 import CurrencyModalContent from '../CurrencyModalContent';
 import CurrencySymbol from '../UI/CurrencySymbol';
 import Modal from '../UI/Modal';
-import useModal from '../UI/Modal/useModal';
 import * as styles from './styles.module.css';
 
 interface CurrencyCardProps {

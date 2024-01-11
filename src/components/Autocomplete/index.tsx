@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
 import { includes } from '../../utils/includes';
@@ -19,37 +19,44 @@ function AutoComplete({ searchObject, defaultValue, selectHandler, name, classNa
 
   const [currentSuggestions, setCurrentSuggestions] = useState<string[]>([]);
 
-  const getSuggestions = (value: string) => {
-    const keys = Object.keys(searchObject);
-    const result: string[] = [];
+  const getSuggestions = useCallback(
+    (value: string) => {
+      const keys = Object.keys(searchObject);
+      const result: string[] = [];
 
-    keys.forEach((key) => {
-      const currencyObject = searchObject[key];
-      if (includes(value, key)) {
-        result.push(key);
-        return;
-      }
+      keys.forEach((key) => {
+        const currencyObject = searchObject[key];
+        if (includes(value, key)) {
+          result.push(key);
+          return;
+        }
 
-      if (includes(value, currencyObject.name)) {
-        result.push(key);
-        return;
-      }
+        if (includes(value, currencyObject.name)) {
+          result.push(key);
+          return;
+        }
 
-      if (includes(value, currencyObject.symbol)) {
-        result.push(key);
-      }
-    });
+        if (includes(value, currencyObject.symbol)) {
+          result.push(key);
+        }
+      });
 
-    return result;
-  };
+      return result;
+    },
+    [searchObject],
+  );
 
   const updateSuggestions = (value: string) => {
     setCurrentSuggestions(getSuggestions(value));
-    setShowSuggestions(true);
   };
 
   const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     updateSuggestions(event.target.value);
+    if (event.target.value === '') {
+      setShowSuggestions(false);
+    } else {
+      setShowSuggestions(true);
+    }
   };
 
   const optionSelectHandler = (key: CurISO) => () => {
@@ -57,7 +64,6 @@ function AutoComplete({ searchObject, defaultValue, selectHandler, name, classNa
     selectHandler(key)();
     setShowSuggestions(false);
   };
-
   useEffect(() => {
     if (defaultValue) {
       searchRef.current!.value = searchObject[defaultValue].name;
@@ -66,17 +72,27 @@ function AutoComplete({ searchObject, defaultValue, selectHandler, name, classNa
 
   return (
     <div className={`${styles.autocomplete} ${className ?? ''}`}>
-      <input type="search" onChange={changeHandler} ref={searchRef} name={name} id={name} />
-      <ul className={styles.suggestionsList}>
-        {showSuggestions &&
-          currentSuggestions.map((currencyKey) => (
+      <input
+        type="search"
+        onChange={changeHandler}
+        ref={searchRef}
+        name={name}
+        id={name}
+        autoComplete="one-time-code"
+        placeholder="Search currency"
+        required
+      />
+      {showSuggestions && (
+        <ul className={styles.suggestionsList}>
+          {currentSuggestions.map((currencyKey) => (
             <li key={currencyKey} className={styles.autocompleteOption}>
               <button type="button" onClick={optionSelectHandler(currencyKey)}>
-                {CUR_ISO_SYMBOL_MAP[currencyKey].name}
+                {searchObject[currencyKey].name}
               </button>
             </li>
           ))}
-      </ul>
+        </ul>
+      )}
     </div>
   );
 }

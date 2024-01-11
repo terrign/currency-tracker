@@ -1,27 +1,15 @@
-import { CacheAxiosResponse } from 'axios-cache-interceptor';
-import { useCallback, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import AutoComplete from '../components/Autocomplete';
 import RatesList from '../components/RatesList';
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../constants/currencyISOSymbolMap';
-import useAppContext from '../context/App/useAppContext';
-import currencyApi, { CurrencyRates } from '../services/currencyApi.service';
+import useAppContext from '../hooks/useAppContext';
+import useQueryRates from '../hooks/useQueryRates';
 
 function Home() {
   const { preferredCurrency, dispatch } = useAppContext();
-  const [res, setRes] = useState<CacheAxiosResponse<CurrencyRates>>();
 
-  const refetchData = useCallback(async () => {
-    if (preferredCurrency) {
-      const result = await currencyApi.getAllCurrencyRates(preferredCurrency as CurISO);
-      setRes(result);
-    }
-  }, [preferredCurrency]);
-
-  useEffect(() => {
-    refetchData();
-  }, [preferredCurrency, refetchData]);
+  const { result } = useQueryRates(preferredCurrency);
 
   const selectHandler = (key: CurISO) => () => {
     dispatch({ type: 'preferredCurrency', payload: key });
@@ -38,7 +26,7 @@ function Home() {
           name="preferredCurrency"
         />
       </div>
-      {res?.data.data && <RatesList data={res.data.data} />}
+      {result?.data && <RatesList data={result.data} />}
       <Outlet />
     </>
   );

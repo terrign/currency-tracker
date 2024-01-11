@@ -6,7 +6,7 @@
   height: 48px;
   color: var(--light-green);
   display: block;
-  margin: 0 auto;
+  margin: 3rem auto;
 }
 .loader:before,
 .loader:after {

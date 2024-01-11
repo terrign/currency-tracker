@@ -1,5 +1,5 @@
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
-import useAppContext from '../../context/App/useAppContext';
+import useAppContext from '../../hooks/useAppContext';
 import { CurrencyRates } from '../../services/currencyApi.service';
 import CurrencyCard from '../CurrencyCard';
 import * as styles from './styles.module.css';

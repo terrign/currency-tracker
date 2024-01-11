@@ -1,16 +1,16 @@
 import '@testing-library/jest-dom';
 
-import { render, renderHook, screen, waitFor } from '@testing-library/react';
+import { render, renderHook, screen } from '@testing-library/react';
 import localforage from 'localforage';
 import { act } from 'react-dom/test-utils';
 
+import useAppContext from '../../hooks/useAppContext';
 import AppContext from './App.context';
 import AppProvider from './App.provider';
 import appReducer from './App.reducer';
-import useAppContext from './useAppContext';
 
 describe('App context', () => {
-  it('Provides default value', () => {
+  it('Provides default value', async () => {
     act(() =>
       render(
         <AppProvider>
@@ -18,7 +18,8 @@ describe('App context', () => {
         </AppProvider>,
       ),
     );
-    waitFor(() => expect(screen.getByText(/^USD/)).toHaveTextContent('USD'));
+    const elem = await screen.findByText(/^USD/);
+    expect(elem).toHaveTextContent('USD');
   });
 
   it('Saves currency to local', async () => {
