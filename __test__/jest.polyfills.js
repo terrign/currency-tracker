@@ -8,6 +8,8 @@ Object.defineProperties(globalThis, {
 
 const { Blob, File } = require('node:buffer');
 
+const performance = require('perf_hooks').performance;
+
 const { fetch, Headers, FormData, Request, Response } = require('undici');
 
 Object.defineProperties(globalThis, {
@@ -18,6 +20,9 @@ Object.defineProperties(globalThis, {
   FormData: { value: FormData },
   Request: { value: Request },
   Response: { value: Response },
+  performance: { value: performance },
 });
+
+HTMLCanvasElement.prototype.getContext = () => {};
 
 window.URL.createObjectURL = function () {};
