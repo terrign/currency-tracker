@@ -55,7 +55,7 @@ class TimeLine extends Component<NoProps, TimeLineState> {
     this.setState({ showModal: true });
   };
 
-  submitHandler = async (formState: TimeLineFormState) => {
+  submitHandler = (formState: TimeLineFormState) => {
     this.setState({ chartData: generateRandomCurrencyHistoryData(new Date(formState.startDate)) });
   };
 

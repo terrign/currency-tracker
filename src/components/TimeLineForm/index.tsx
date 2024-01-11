@@ -10,7 +10,7 @@ import Button from '../UI/Button';
 import * as styles from './styles.module.css';
 
 interface TimeLineProps {
-  submitHandler: (values: TimeLineFormState) => Promise<void>;
+  submitHandler: (values: TimeLineFormState) => void;
 }
 
 export interface TimeLineFormState {

@@ -19,6 +19,8 @@ interface TimeLineUpdateModalContentState {
 }
 
 class TimeLineUpdateModalContent extends Component<TimeLineUpdateModalContentProps, TimeLineUpdateModalContentState> {
+  dateRef = createRef<HTMLSelectElement>();
+
   openRef = createRef<HTMLInputElement>();
 
   highRef = createRef<HTMLInputElement>();
@@ -41,8 +43,13 @@ class TimeLineUpdateModalContent extends Component<TimeLineUpdateModalContentPro
 
   submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    const { date, open, close, high, low } = Object.fromEntries(formData);
+
+    const date = this.dateRef.current!.value;
+    const open = this.openRef.current!.value;
+    const high = this.highRef.current!.value;
+    const low = this.lowRef.current!.value;
+    const close = this.closeRef.current!.value;
+
     dayData.notify({ x: date, y: [open, high, low, close] });
     notification.notify({ status: 'success', header: 'Chart', info: 'Has been updated' });
     this.props.onSubmit();
@@ -60,7 +67,7 @@ class TimeLineUpdateModalContent extends Component<TimeLineUpdateModalContentPro
           <label htmlFor="date">
             <span>Date</span>
 
-            <select id="date" name="date" required onChange={this.dateChangeHandler}>
+            <select id="date" name="date" required onChange={this.dateChangeHandler} ref={this.dateRef}>
               {this.props.data.map((a) => (
                 <option key={a.x} value={a.x}>
                   {a.x}
