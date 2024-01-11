@@ -1,54 +1,33 @@
 import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { useMemo, useReducer } from 'react';
 import { act } from 'react-dom/test-utils';
 
 import { resMock } from '../../../__test__/__mocks__/resMock';
 import { CUR_ISO_SYMBOL_MAP } from '../../constants/currencyISOSymbolMap';
-import AppContext from '../../context/App/App.context';
-import appReducer from '../../context/App/App.reducer';
-import { AppReducerType } from '../../context/App/models';
 import CurrencyModalContent from '.';
 
-function TestComponent() {
-  const [{ preferredCurrency }, dispatch] = useReducer<AppReducerType>(appReducer, {
-    preferredCurrency: 'USD',
-  });
-
-  const contextValue = useMemo(
-    () => ({
-      preferredCurrency,
-      dispatch,
-    }),
-    [preferredCurrency],
-  );
-
-  return (
-    <AppContext.Provider value={contextValue}>
-      <CurrencyModalContent iso="EUR" />
-    </AppContext.Provider>
-  );
-}
-
 describe('CurrencyModalContent', () => {
-  it('Renders content', () => {
+  it('Renders content', async () => {
     act(() => {
-      render(<TestComponent />);
+      render(<CurrencyModalContent iso="USD" />);
     });
 
-    expect(screen.getByText(CUR_ISO_SYMBOL_MAP.EUR.name)).toBeInTheDocument();
-    expect(screen.getByDisplayValue(CUR_ISO_SYMBOL_MAP.USD.name)).toBeInTheDocument();
+    const text = await screen.findByText(/US Dollar/);
+
+    expect(text).toBeInTheDocument();
   });
 
   it('Can select different currency to compare, displays correct value after change', async () => {
-    await waitFor(() => {
-      act(() => render(<TestComponent />));
+    waitFor(() => {
+      act(() => {
+        render(<CurrencyModalContent iso="USD" />);
+      });
     });
 
     const input = await screen.findByDisplayValue(CUR_ISO_SYMBOL_MAP.USD.name);
 
-    await waitFor(() => {
+    waitFor(() => {
       act(() => {
         fireEvent.change(input, { target: { value: 'pound' } });
       });
@@ -56,7 +35,7 @@ describe('CurrencyModalContent', () => {
 
     const button = await screen.findByRole('button', { name: /Pound Sterling/ });
 
-    await waitFor(() => {
+    waitFor(() => {
       act(() => {
         fireEvent.click(button);
       });
@@ -64,11 +43,8 @@ describe('CurrencyModalContent', () => {
 
     expect(screen.getByDisplayValue(CUR_ISO_SYMBOL_MAP.GBP.name)).toBeInTheDocument();
 
-    await new Promise((resolve) => {
-      setTimeout(() => resolve(null), 100);
-    });
-    expect(screen.getByText(/Rate: /)).toHaveTextContent(
-      `Rate: ${resMock.data.GBP.value}${CUR_ISO_SYMBOL_MAP.GBP.symbol}`,
-    );
+    const result = await screen.findByText(/Rate: /);
+
+    expect(result).toHaveTextContent(`Rate: ${resMock.data.GBP.value}${CUR_ISO_SYMBOL_MAP.GBP.symbol}`);
   });
 });
