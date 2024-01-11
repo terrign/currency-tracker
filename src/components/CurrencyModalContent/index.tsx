@@ -1,28 +1,21 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
-import useAppContext from '../../context/App/useAppContext';
-import currencyApi, { CurrencyRate } from '../../services/currencyApi.service';
+import useAppContext from '../../hooks/useAppContext';
+import useQueryRates from '../../hooks/useQueryRates';
 import AutoComplete from '../Autocomplete';
 import CurrencySymbol from '../UI/CurrencySymbol';
 import * as styles from './styles.module.css';
 
 function CurrencyModalContent({ iso }: { iso: CurISO }) {
   const { preferredCurrency } = useAppContext();
-  const [result, setResult] = useState<CurrencyRate>();
-  const [compareCurrency, setCompareCurrency] = useState(preferredCurrency as CurISO);
 
-  const getRate = useCallback(async () => {
-    const res = await currencyApi.getAllCurrencyRates(iso);
-    setResult(res.data.data[compareCurrency]);
-  }, [compareCurrency, iso]);
+  const [currency, setCurrency] = useState(() => preferredCurrency);
 
-  useEffect(() => {
-    getRate();
-  }, [getRate]);
+  const { result } = useQueryRates(iso);
 
   const selectHandler = (key: CurISO) => () => {
-    setCompareCurrency(key);
+    setCurrency(key);
   };
 
   return (
@@ -41,12 +34,7 @@ function CurrencyModalContent({ iso }: { iso: CurISO }) {
         />
       </div>
 
-      {result && (
-        <p>
-          Rate: {result.value}
-          {CUR_ISO_SYMBOL_MAP[result.code].symbol}
-        </p>
-      )}
+      <p>Rate: {result && `${result.data[currency!].value}${CUR_ISO_SYMBOL_MAP[currency!].symbol}`}</p>
     </div>
   );
 }
