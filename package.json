@@ -95,7 +95,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.0",
     "mini-css-extract-plugin": "^2.7.6",
-    "msw": "2.0.5",
     "prettier": "^3.1.1",
     "sharp": "^0.33.1",
     "style-loader": "^3.3.3",
