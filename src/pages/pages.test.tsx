@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -12,54 +12,58 @@ import Root from './Root';
 import TimeLine from './TimeLine';
 
 describe('TimeLine', () => {
-  it('Renders', () => {
+  it('Renders', async () => {
     act(() => {
-      const { container } = render(
+      render(
         <MemoryRouter>
           <TimeLine />
         </MemoryRouter>,
       );
-      waitFor(() => expect(container).toBeInTheDocument());
     });
+    const elem = await screen.findByText(/Build currency rate chart/);
+    expect(elem).toBeInTheDocument();
   });
 });
 
 describe('BankMap', () => {
-  it('Renders', () => {
+  it('Renders', async () => {
     act(() => {
-      const { container } = render(
+      render(
         <MemoryRouter>
           <BankMap />
         </MemoryRouter>,
       );
-      waitFor(() => expect(container).toBeInTheDocument());
     });
+    const elem = await screen.findByText(/Search currency in the bank/);
+    expect(elem).toBeInTheDocument();
   });
 });
 
 describe('Contacts', () => {
-  it('Renders', () => {
+  it('Renders', async () => {
     act(() => {
-      const { container } = render(
+      render(
         <MemoryRouter>
           <Contacts />
         </MemoryRouter>,
       );
-      waitFor(() => expect(container).toBeInTheDocument());
     });
+    const elem = await screen.findByText(/Contacts/);
+    expect(elem).toBeInTheDocument();
   });
 });
 
 describe('Home', () => {
-  it('Renders', () => {
+  it('Renders', async () => {
     act(() => {
-      const { container } = render(
+      render(
         <MemoryRouter>
           <Home />
         </MemoryRouter>,
       );
-      waitFor(() => expect(container).toBeInTheDocument());
     });
+    const elem = await screen.findByText(/Quotes for/);
+    expect(elem).toBeInTheDocument();
   });
 });
 

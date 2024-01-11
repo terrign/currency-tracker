@@ -41,14 +41,12 @@ function CurrencyModalContent({ iso }: { iso: CurISO }) {
         />
       </div>
 
-      <p>
-        {result && (
-          <span>
-            Rate: {result.value}
-            {CUR_ISO_SYMBOL_MAP[result.code].symbol}
-          </span>
-        )}
-      </p>
+      {result && (
+        <p>
+          Rate: {result.value}
+          {CUR_ISO_SYMBOL_MAP[result.code].symbol}
+        </p>
+      )}
     </div>
   );
 }
