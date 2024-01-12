@@ -58,7 +58,6 @@ const common = {
 };
 
 module.exports = (env, args) => {
-  console.log(process.env.NODE_ENV);
   switch (args.mode) {
     case 'development':
       return merge(common, require('./webpack.dev.config'));

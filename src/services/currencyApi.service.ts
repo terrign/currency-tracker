@@ -25,7 +25,8 @@ class CurrencyApi {
       axios.create({
         baseURL: 'https://api.currencyapi.com/v3/',
         headers: {
-          apikey: 'cur_live_9TPgHZzZrB7uPZqsMkOXDqYgV3gekPGDGgZ8s1B7',
+          // apikey: 'cur_live_9TPgHZzZrB7uPZqsMkOXDqYgV3gekPGDGgZ8s1B7',
+          apikey: 'cur_live_jR8JoknFqGzwa3Da5vonQXNwpQHkkUBrzZYgyhE9',
         },
         adapter: ['http', 'xhr'],
       }),

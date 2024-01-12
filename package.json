@@ -13,7 +13,8 @@
     "watch": "webpack --watch",
     "dev": "webpack serve --mode=development --node-env=development",
     "prepare": "husky install",
-    "test": "jest --coverage.enabled --coverage.all"
+    "test": "jest --coverage.enabled --coverage.all",
+    "cy:open": "cypress open"
   },
   "lint-staged": {
     "src/**/*.{js,mjs,cjs,ts,mts,jsx,tsx}": [
@@ -67,6 +68,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
+    "cypress": "^13.6.2",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.1.0",
