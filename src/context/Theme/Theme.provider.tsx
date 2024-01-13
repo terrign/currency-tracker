@@ -1,73 +1,56 @@
 import localforage from 'localforage';
-import { PropsWithChildren, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
 
+import { matchesDarkThemeMedia } from '../../utils/matchesDarkThemeMedia';
 import ThemeContext, { Theme } from './Theme.context';
 
 function ThemeProvider({ children }: PropsWithChildren) {
-  const [theme, setTheme] = useState<Theme>(null);
-
+  const [theme, setTheme] = useState<Theme>('dark');
   const bodyRef = useRef(document.body);
-
   const documentRef = useRef(document.documentElement);
 
+  const setAppTheme = (newTheme: Theme) => {
+    setTheme(newTheme);
+    bodyRef.current.className = `theme-${newTheme}`;
+    documentRef.current.style.colorScheme = newTheme;
+    localforage.setItem('theme', newTheme);
+  };
+
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    if (theme === 'light') {
+      setAppTheme('dark');
+      return;
+    }
+    setAppTheme('light');
   };
 
   const contextValue = useMemo(
     () => ({
       theme,
-      setTheme,
       toggleTheme,
     }),
     [theme],
   );
 
-  const setDarkTheme = useCallback(() => {
-    setTheme('dark');
-    bodyRef.current.className = 'theme-dark';
-    documentRef.current.style.colorScheme = 'dark';
-    localforage.setItem('theme', 'dark');
-  }, []);
-
-  const setLightTheme = useCallback(() => {
-    setTheme('light');
-    bodyRef.current.className = 'theme-light';
-    documentRef.current.style.colorScheme = 'light';
-    localforage.setItem('theme', 'light');
-  }, []);
-
-  const setDefaultThemeBasedOnPrefered = useCallback(async () => {
+  const setDefaultThemeBasedOnPrefered = async () => {
     const preferredTheme = await localforage.getItem('theme');
 
-    if (preferredTheme === 'light') {
-      setLightTheme();
+    if (preferredTheme) {
+      setAppTheme(preferredTheme as Theme);
       return;
     }
 
-    if (preferredTheme === 'dark') {
-      setDarkTheme();
+    if (matchesDarkThemeMedia()) {
+      setAppTheme('dark');
       return;
     }
 
-    if (window?.matchMedia && window?.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setDarkTheme();
-    } else {
-      setLightTheme();
-    }
-  }, [setDarkTheme, setLightTheme]);
+    setAppTheme('light');
+  };
 
   useEffect(() => {
     setDefaultThemeBasedOnPrefered();
-  }, [setDefaultThemeBasedOnPrefered]);
-
-  useEffect(() => {
-    if (theme === 'light') {
-      setLightTheme();
-    } else if (theme === 'dark') {
-      setDarkTheme();
-    }
-  }, [theme, setLightTheme, setDarkTheme]);
+  }, []);
 
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 }

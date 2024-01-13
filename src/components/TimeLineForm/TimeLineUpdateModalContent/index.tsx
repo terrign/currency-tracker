@@ -1,8 +1,8 @@
 import { ChangeEvent, Component, createRef, FormEvent } from 'react';
 
-import { dayData, notification } from '../../utils/Observer';
-import { ChartDataType } from '../Chart';
-import Button from '../UI/Button';
+import { dayData, notification } from '../../../utils/Observer';
+import { ChartDataType } from '../../Chart';
+import Button from '../../UI/Button';
 import * as styles from './styles.module.css';
 
 export interface TimeLineUpdateModalContentProps {

@@ -3,8 +3,8 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import { resMock } from '../../../__test__/__mocks__/resMock';
-import { CUR_ISO_SYMBOL_MAP } from '../../constants/currencyISOSymbolMap';
+import { resMock } from '../../../../__test__/__mocks__/resMock';
+import { CUR_ISO_SYMBOL_MAP } from '../../../constants/currencyISOSymbolMap';
 import CurrencyModalContent from '.';
 
 describe('CurrencyModalContent', () => {

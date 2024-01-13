@@ -24,8 +24,12 @@ body,
 body {
   overflow-y: scroll;
 }
+
 * {
   box-sizing: border-box;
+}
+
+nav a {
   transition-property: color, background-color;
   transition-duration: 0.1s;
   transition-timing-function: linear;

@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
 
-import AutoComplete from '../components/Autocomplete';
-import RatesList from '../components/RatesList';
-import { CUR_ISO_SYMBOL_MAP, CurISO } from '../constants/currencyISOSymbolMap';
-import useAppContext from '../hooks/useAppContext';
-import useQueryRates from '../hooks/useQueryRates';
+import AutoComplete from '../../components/Autocomplete';
+import RatesList from '../../components/RatesList';
+import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
+import useAppContext from '../../hooks/useAppContext';
+import useQueryRates from '../../hooks/useQueryRates';
 
 function Home() {
   const { preferredCurrency, dispatch } = useAppContext();

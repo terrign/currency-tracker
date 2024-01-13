@@ -3,9 +3,9 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import { generateRandomCurrencyHistoryData } from '../../utils/generateRandomCurrencyHistoryData';
-import { dayData } from '../../utils/Observer';
-import Notification from '../UI/Notification';
+import { generateRandomCurrencyHistoryData } from '../../../utils/generateRandomCurrencyHistoryData';
+import { dayData } from '../../../utils/Observer';
+import Notification from '../../UI/Notification';
 import TimeLineUpdateModalContent from '.';
 
 test('Submits data, shows notification', async () => {

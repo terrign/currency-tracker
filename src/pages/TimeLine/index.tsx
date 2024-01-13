@@ -1,18 +1,18 @@
 import { Component, lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 
-import { ChartDataType } from '../components/Chart';
-import TimeLineForm, { TimeLineFormState } from '../components/TimeLineForm';
-import TimeLineUpdateModalContent from '../components/TimeLineUpdateModalContent';
-import Button from '../components/UI/Button';
-import Loader from '../components/UI/Loader';
-import Modal from '../components/UI/Modal';
-import { NoProps } from '../models';
-import { generateRandomCurrencyHistoryData } from '../utils/generateRandomCurrencyHistoryData';
-import { dayData } from '../utils/Observer';
+import { ChartDataType } from '../../components/Chart';
+import TimeLineForm, { TimeLineFormState } from '../../components/TimeLineForm';
+import TimeLineUpdateModalContent from '../../components/TimeLineForm/TimeLineUpdateModalContent';
+import Button from '../../components/UI/Button';
+import Loader from '../../components/UI/Loader';
+import Modal from '../../components/UI/Modal';
+import { NoProps } from '../../models';
+import { generateRandomCurrencyHistoryData } from '../../utils/generateRandomCurrencyHistoryData';
+import { dayData } from '../../utils/Observer';
 import * as styles from './styles.module.css';
 
-const Chart = lazy(() => import('../components/Chart'));
+const Chart = lazy(() => import('../../components/Chart'));
 
 interface TimeLineState {
   chartData: ChartDataType[];

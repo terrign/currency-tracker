@@ -15,6 +15,7 @@ module.exports = {
     'class-methods-use-this': 'off',
     'react/static-property-placement': 'off',
     'consistent-return': 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
   parserOptions: {
     project: './tsconfig.json',
