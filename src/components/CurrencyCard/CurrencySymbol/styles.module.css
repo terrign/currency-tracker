@@ -4,10 +4,17 @@
   border-radius: var(--border-radius);
   color: white;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 1.5rem;
   width: 80px;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 425px) {
+  .currency-symbol {
+    width: 60px;
+    height: 60px;
+  }
 }

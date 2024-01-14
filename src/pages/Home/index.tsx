@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <>
-      <div style={{}}>
+      <div>
         Quotes for{' '}
         <AutoComplete
           searchObject={CUR_ISO_SYMBOL_MAP}

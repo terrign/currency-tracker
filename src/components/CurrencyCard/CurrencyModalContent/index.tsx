@@ -4,7 +4,7 @@ import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../../constants/currencyISOSymbol
 import useAppContext from '../../../hooks/useAppContext';
 import useQueryRates from '../../../hooks/useQueryRates';
 import AutoComplete from '../../Autocomplete';
-import CurrencySymbol from '../../UI/CurrencySymbol';
+import CurrencySymbol from '../CurrencySymbol';
 import * as styles from './styles.module.css';
 
 function CurrencyModalContent({ iso }: { iso: CurISO }) {

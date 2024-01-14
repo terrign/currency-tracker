@@ -7,7 +7,6 @@
 
 .cur-name {
   flex: 2 0 max-content;
-  font-size: 1.25rem;
   line-height: 80px;
   display: inline;
 }

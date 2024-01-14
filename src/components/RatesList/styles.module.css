@@ -1,15 +1,15 @@
 .rates-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, minmax(230px, 520px));
   grid-template-rows: auto;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 2rem;
   margin-top: 1rem;
 }
 
 @media screen and (max-width: 768px) {
   .rates-list {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, minmax(230px, 520px));
   }
 }
