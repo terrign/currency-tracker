@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { MemoryRouter } from 'react-router-dom';
 
-import Contacts from '.';
+import { Contacts } from '.';
 
 describe('Contacts', () => {
   it('Renders', async () => {

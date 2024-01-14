@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom';
 
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
-import SubHeader from '../../components/SubHeader/Index';
-import Layout from '../../components/UI/Layout';
-import Notification from '../../components/UI/Notification';
+import { Footer } from '../../components/Footer';
+import { Header } from '../../components/Header';
+import { SubHeader } from '../../components/SubHeader/Index';
+import { Layout } from '../../components/UI';
+import { Notification } from '../../components/UI';
 
-function Root() {
+export function Root() {
   return (
     <>
       <Header />
@@ -21,5 +21,3 @@ function Root() {
     </>
   );
 }
-
-export default Root;

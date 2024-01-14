@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-import Button from '../UI/Button';
+import { Button } from '../UI';
 import * as styles from './styles.module.css';
 
 interface State {
@@ -11,7 +11,7 @@ interface Props {
   children?: JSX.Element;
 }
 
-export default class ErrorBoundary extends Component<Props, State> {
+export class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props | Readonly<Props>) {
     super(props);
     this.state = { hasError: false, errorMessage: null };

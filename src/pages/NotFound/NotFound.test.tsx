@@ -3,8 +3,8 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
-import Root from '../Root';
-import NotFound from '.';
+import { Root } from '../Root';
+import { NotFound } from '.';
 
 describe('NotFound', () => {
   it('renders 404 error message', () => {

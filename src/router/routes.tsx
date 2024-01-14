@@ -1,50 +1,40 @@
 import { lazy, Suspense } from 'react';
 import { RouteObject } from 'react-router-dom';
 
-import ErrorBoundary from '../components/ErrorBoundary';
-import Loader from '../components/UI/Loader';
-import Contacts from '../pages/Contacts';
-import NotFound from '../pages/NotFound';
-import Root from '../pages/Root';
+import { ErrorBoundary } from '../components/ErrorBoundary';
+import { Loader } from '../components/UI';
+import { Contacts } from '../pages';
+import { NotFound } from '../pages';
+import { Root } from '../pages';
 
-const TimeLine = lazy(() => import('../pages/TimeLine'));
+const TimeLine = lazy(() => import('../pages').then((module) => ({ default: module['TimeLine'] })));
 
-const Home = lazy(() => import('../pages/Home'));
+const Home = lazy(() => import('../pages').then((module) => ({ default: module['Home'] })));
 
-const BankMap = lazy(() => import('../pages/BankMap'));
+const BankMap = lazy(() => import('../pages').then((module) => ({ default: module['BankMap'] })));
 
-const routes: RouteObject[] = [
+export const routes: RouteObject[] = [
   {
     path: '/',
     element: (
-      <ErrorBoundary>
-        <Root />
-      </ErrorBoundary>
+      <Suspense fallback={<Loader />}>
+        <ErrorBoundary>
+          <Root />
+        </ErrorBoundary>
+      </Suspense>
     ),
     children: [
       {
         path: '/',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Home />
-          </Suspense>
-        ),
+        element: <Home />,
       },
       {
         path: '/timeline',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <TimeLine />
-          </Suspense>
-        ),
+        element: <TimeLine />,
       },
       {
         path: '/bankmap',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <BankMap />
-          </Suspense>
-        ),
+        element: <BankMap />,
       },
       {
         path: '/contacts',
@@ -57,5 +47,3 @@ const routes: RouteObject[] = [
     element: <NotFound />,
   },
 ];
-
-export default routes;

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../../constants/currencyISOSymbolMap';
-import useAppContext from '../../../hooks/useAppContext';
-import useQueryRates from '../../../hooks/useQueryRates';
-import AutoComplete from '../../Autocomplete';
-import CurrencySymbol from '../CurrencySymbol';
+import { useAppContext } from '../../../hooks/useAppContext';
+import { useQueryRates } from '../../../hooks/useQueryRates';
+import { AutoComplete } from '../../Autocomplete';
+import { CurrencySymbol } from '../CurrencySymbol';
 import * as styles from './styles.module.css';
 
-function CurrencyModalContent({ iso }: { iso: CurISO }) {
+export function CurrencyModalContent({ iso }: { iso: CurISO }) {
   const { preferredCurrency } = useAppContext();
 
   const [currency, setCurrency] = useState(() => preferredCurrency);
@@ -38,5 +38,3 @@ function CurrencyModalContent({ iso }: { iso: CurISO }) {
     </div>
   );
 }
-
-export default CurrencyModalContent;

@@ -5,8 +5,8 @@ import { act } from 'react-dom/test-utils';
 
 import { generateRandomCurrencyHistoryData } from '../../../utils/generateRandomCurrencyHistoryData';
 import { dayData } from '../../../utils/Observer';
-import Notification from '../../UI/Notification';
-import TimeLineUpdateModalContent from '.';
+import { Notification } from '../../UI';
+import { TimeLineUpdateModalContent } from '.';
 
 test('Submits data, shows notification', async () => {
   const data = generateRandomCurrencyHistoryData(new Date(Date.now()));

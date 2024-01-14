@@ -2,11 +2,11 @@ import localforage from 'localforage';
 import { PropsWithChildren, useCallback, useEffect, useMemo, useReducer } from 'react';
 
 import { CurISO } from '../../constants/currencyISOSymbolMap';
-import AppContext from './App.context';
-import appReducer from './App.reducer';
+import { AppContext } from './App.context';
+import { appReducer } from './App.reducer';
 import { AppReducerType } from './models';
 
-function AppProvider({ children }: PropsWithChildren) {
+export function AppProvider({ children }: PropsWithChildren) {
   const [{ preferredCurrency }, dispatch] = useReducer<AppReducerType>(appReducer, {
     preferredCurrency: null,
   });
@@ -44,5 +44,3 @@ function AppProvider({ children }: PropsWithChildren) {
 
   return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 }
-
-export default AppProvider;

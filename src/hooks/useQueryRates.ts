@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { CurISO } from '../constants/currencyISOSymbolMap';
-import currencyApi, { CurrencyRates } from '../services/currencyApi.service';
+import { currencyApi, CurrencyRates } from '../services/currencyApi.service';
 import { notification } from '../utils/Observer';
 
-const useQueryRates = (iso: CurISO | null) => {
+export const useQueryRates = (iso: CurISO | null) => {
   const [result, setResult] = useState<CurrencyRates | null>();
 
   const getRates = useCallback(async () => {
@@ -26,5 +26,3 @@ const useQueryRates = (iso: CurISO | null) => {
 
   return { result };
 };
-
-export default useQueryRates;

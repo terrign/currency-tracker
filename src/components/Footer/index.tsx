@@ -1,7 +1,7 @@
 import logoSvg from '../../assets/logo.svg';
 import * as styles from './styles.module.css';
 
-function Footer() {
+export function Footer() {
   return (
     <footer className={styles.footer}>
       <h3 className={`${styles.footerHeading}`}>
@@ -36,5 +36,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

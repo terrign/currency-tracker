@@ -1,7 +1,7 @@
 import logoSvg from '../../assets/logo.svg';
 import * as styles from './styles.module.css';
 
-function SubHeader() {
+export function SubHeader() {
   return (
     <div className={styles.subHeader}>
       <div className={styles.subHeaderText}>
@@ -15,5 +15,3 @@ function SubHeader() {
     </div>
   );
 }
-
-export default SubHeader;

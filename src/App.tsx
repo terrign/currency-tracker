@@ -1,8 +1,8 @@
-import AppProvider from './context/App/App.provider';
-import ThemeProvider from './context/Theme/Theme.provider';
-import Router from './router';
+import { AppProvider } from './context/App/App.provider';
+import { ThemeProvider } from './context/Theme/Theme.provider';
+import { Router } from './router';
 
-function App() {
+export function App() {
   return (
     <AppProvider>
       <ThemeProvider>
@@ -11,5 +11,3 @@ function App() {
     </AppProvider>
   );
 }
-
-export default App;

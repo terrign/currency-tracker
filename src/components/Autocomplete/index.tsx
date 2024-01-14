@@ -12,7 +12,7 @@ interface AutoCompleteProps {
   className?: string;
 }
 
-function AutoComplete({ searchObject, defaultValue, selectHandler, name, className }: AutoCompleteProps) {
+export function AutoComplete({ searchObject, defaultValue, selectHandler, name, className }: AutoCompleteProps) {
   const searchRef = useRef<HTMLInputElement>(null);
 
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
@@ -96,5 +96,3 @@ function AutoComplete({ searchObject, defaultValue, selectHandler, name, classNa
     </div>
   );
 }
-
-export default AutoComplete;

@@ -1,12 +1,10 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-
 import { ChangeEvent, Component, FormEvent } from 'react';
 
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
 import { today } from '../../utils/date';
 import { notification } from '../../utils/Observer';
-import AutoComplete from '../Autocomplete';
-import Button from '../UI/Button';
+import { AutoComplete } from '../Autocomplete';
+import { Button } from '../UI';
 import * as styles from './styles.module.css';
 
 interface TimeLineProps {
@@ -19,7 +17,7 @@ export interface TimeLineFormState {
   startDate: string;
 }
 
-class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
+export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   constructor(props: TimeLineProps) {
     super(props);
     this.state = {
@@ -110,5 +108,3 @@ class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
     );
   }
 }
-
-export default TimeLineForm;

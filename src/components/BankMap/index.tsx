@@ -1,9 +1,10 @@
 import 'maplibre-gl/dist/maplibre-gl.css';
 
+import { memo } from 'react';
 import { FullscreenControl, GeolocateControl, Map, NavigationControl, ScaleControl } from 'react-map-gl/maplibre';
 
 import { BankMapInfo } from '../../constants/bankMapInfo';
-import MapMarker from './Marker';
+import { MapMarker } from './Marker';
 
 interface CustomMapProps {
   markers: BankMapInfo[];
@@ -32,4 +33,4 @@ function CustomMap({ markers }: CustomMapProps) {
   );
 }
 
-export default CustomMap;
+export const BankMap = memo(CustomMap);

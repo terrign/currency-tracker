@@ -7,7 +7,7 @@ interface TogglerProps {
   onChange?: () => void;
 }
 
-function Toggler({ checked, onChange }: TogglerProps) {
+export function Toggler({ checked, onChange }: TogglerProps) {
   const checkBoxRef = useRef<HTMLInputElement>(null);
 
   const clickHandler = () => {
@@ -25,5 +25,3 @@ function Toggler({ checked, onChange }: TogglerProps) {
     </button>
   );
 }
-
-export default Toggler;

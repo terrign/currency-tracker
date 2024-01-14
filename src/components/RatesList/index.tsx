@@ -1,14 +1,14 @@
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
-import useAppContext from '../../hooks/useAppContext';
+import { useAppContext } from '../../hooks/useAppContext';
 import { CurrencyRates } from '../../services/currencyApi.service';
-import CurrencyCard from '../CurrencyCard';
+import { CurrencyCard } from '../CurrencyCard';
 import * as styles from './styles.module.css';
 
 interface RatesListProps {
   data: CurrencyRates['data'];
 }
 
-function RatesList({ data }: RatesListProps) {
+export function RatesList({ data }: RatesListProps) {
   const { preferredCurrency } = useAppContext();
   return (
     <div className={styles.ratesList}>
@@ -24,5 +24,3 @@ function RatesList({ data }: RatesListProps) {
     </div>
   );
 }
-
-export default RatesList;

@@ -1,4 +1,4 @@
-import axiosCacheStorage from './axiosCacheStorage';
+import { axiosCacheStorage } from './axiosCacheStorage';
 import { today, toStringDate } from './date';
 import { filterByCurrency } from './filterByCurrency';
 import { generateRandomCurrencyHistoryData } from './generateRandomCurrencyHistoryData';

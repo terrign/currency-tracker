@@ -5,11 +5,11 @@ import { act } from 'react-dom/test-utils';
 import { Map } from 'react-map-gl/maplibre';
 
 import { BANK_MAP_INFO } from '../../constants/bankMapInfo';
-import CustomMap from '.';
-import MapMarker from './Marker';
+import { BankMap } from '.';
+import { MapMarker } from './Marker';
 
 test('Map Renders', () => {
-  const { container } = render(<CustomMap markers={BANK_MAP_INFO} />);
+  const { container } = render(<BankMap markers={BANK_MAP_INFO} />);
   expect(container).toBeInTheDocument();
 });
 

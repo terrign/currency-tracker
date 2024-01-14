@@ -1,10 +1,10 @@
 import { createPortal } from 'react-dom';
 
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
-import useModal from '../../hooks/useModal';
-import Modal from '../UI/Modal';
-import CurrencyModalContent from './CurrencyModalContent';
-import CurrencySymbol from './CurrencySymbol';
+import { useModal } from '../../hooks/useModal';
+import { Modal } from '../UI';
+import { CurrencyModalContent } from './CurrencyModalContent';
+import { CurrencySymbol } from './CurrencySymbol';
 import * as styles from './styles.module.css';
 
 interface CurrencyCardProps {
@@ -12,7 +12,7 @@ interface CurrencyCardProps {
   iso: CurISO;
 }
 
-function CurrencyCard({ rate, iso }: CurrencyCardProps) {
+export function CurrencyCard({ rate, iso }: CurrencyCardProps) {
   const { showModal, closeModal, openModal } = useModal();
 
   return (
@@ -34,5 +34,3 @@ function CurrencyCard({ rate, iso }: CurrencyCardProps) {
     </>
   );
 }
-
-export default CurrencyCard;

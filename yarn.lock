@@ -3253,15 +3253,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-toggle@npm:^4":
-  version: 4.0.5
-  resolution: "@types/react-toggle@npm:4.0.5"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: f557b85c96715b145bcc3beb2903f88ee3a6045ef85da0f80561c7cc2ecdc531e2d4ae121ed8ec3a1761264de25b8410653744093f37abf042201587add7ffa6
-  languageName: node
-  linkType: hard
-
 "@types/react@npm:*, @types/react@npm:^18.2.45":
   version: 18.2.45
   resolution: "@types/react@npm:18.2.45"
@@ -3913,17 +3904,6 @@ __metadata:
     clean-stack: "npm:^2.0.0"
     indent-string: "npm:^4.0.0"
   checksum: a42f67faa79e3e6687a4923050e7c9807db3848a037076f791d10e092677d65c1d2d863b7848560699f40fc0502c19f40963fb1cd1fb3d338a7423df8e45e039
-  languageName: node
-  linkType: hard
-
-"airbnb@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "airbnb@npm:0.0.2"
-  dependencies:
-    chalk: "npm:^2.4.2"
-  bin:
-    airbnb: ./index.js
-  checksum: 91a930a8ea957481f8bbe09e09fe0fa20c94e40736ece12c7f640d8545d400b7fde059194d65f17bf21689ae95ce5425fdea3b26b730751314cc74ca238661ca
   languageName: node
   linkType: hard
 
@@ -5297,13 +5277,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:^2.2.5":
-  version: 2.5.0
-  resolution: "classnames@npm:2.5.0"
-  checksum: f10a5b07db7fda8eb77f701f795b7006f3de86a723ec62cc10f4d82b4195fc65a578bbf91c47675b8c6fcb2921b903bfea5c670bdb43513e454daa6c2e9738b3
-  languageName: node
-  linkType: hard
-
 "clean-css@npm:^5.2.2":
   version: 5.3.3
   resolution: "clean-css@npm:5.3.3"
@@ -5700,13 +5673,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"confusing-browser-globals@npm:^1.0.10":
-  version: 1.0.11
-  resolution: "confusing-browser-globals@npm:1.0.11"
-  checksum: 475d0a284fa964a5182b519af5738b5b64bf7e413cfd703c1b3496bf6f4df9f827893a9b221c0ea5873c1476835beb1e0df569ba643eff0734010c1eb780589e
-  languageName: node
-  linkType: hard
-
 "connect-history-api-fallback@npm:^2.0.0":
   version: 2.0.0
   resolution: "connect-history-api-fallback@npm:2.0.0"
@@ -5988,12 +5954,10 @@ __metadata:
     "@types/node": "npm:^20.10.5"
     "@types/react": "npm:^18.2.45"
     "@types/react-dom": "npm:^18.2.18"
-    "@types/react-toggle": "npm:^4"
     "@types/webpack": "npm:^5.28.5"
     "@typescript-eslint/eslint-plugin": "npm:^6.16.0"
     "@typescript-eslint/parser": "npm:^6.16.0"
     "@webpack-cli/generators": "npm:^3.0.7"
-    airbnb: "npm:^0.0.2"
     apexcharts: "npm:^3.45.1"
     axios: "npm:^1.6.3"
     axios-cache-interceptor: "npm:^1.4.1"
@@ -6005,8 +5969,6 @@ __metadata:
     css-loader: "npm:^6.8.1"
     cypress: "npm:^13.6.2"
     eslint: "npm:^8.56.0"
-    eslint-config-airbnb: "npm:^19.0.4"
-    eslint-config-airbnb-typescript: "npm:^17.1.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-import: "npm:^2.29.1"
     eslint-plugin-jsx-a11y: "npm:^6.8.0"
@@ -6039,7 +6001,6 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-map-gl: "npm:^7.1.7"
     react-router-dom: "npm:^6.21.1"
-    react-toggle: "npm:^4.1.3"
     sharp: "npm:^0.33.1"
     style-loader: "npm:^3.3.3"
     terser-webpack-plugin: "npm:^5.3.9"
@@ -7035,52 +6996,6 @@ __metadata:
     escodegen: bin/escodegen.js
     esgenerate: bin/esgenerate.js
   checksum: e1450a1f75f67d35c061bf0d60888b15f62ab63aef9df1901cffc81cffbbb9e8b3de237c5502cf8613a017c1df3a3003881307c78835a1ab54d8c8d2206e01d3
-  languageName: node
-  linkType: hard
-
-"eslint-config-airbnb-base@npm:^15.0.0":
-  version: 15.0.0
-  resolution: "eslint-config-airbnb-base@npm:15.0.0"
-  dependencies:
-    confusing-browser-globals: "npm:^1.0.10"
-    object.assign: "npm:^4.1.2"
-    object.entries: "npm:^1.1.5"
-    semver: "npm:^6.3.0"
-  peerDependencies:
-    eslint: ^7.32.0 || ^8.2.0
-    eslint-plugin-import: ^2.25.2
-  checksum: 93639d991654414756f82ad7860aac30b0dc6797277b7904ddb53ed88a32c470598696bbc6c503e066414024d305221974d3769e6642de65043bedf29cbbd30f
-  languageName: node
-  linkType: hard
-
-"eslint-config-airbnb-typescript@npm:^17.1.0":
-  version: 17.1.0
-  resolution: "eslint-config-airbnb-typescript@npm:17.1.0"
-  dependencies:
-    eslint-config-airbnb-base: "npm:^15.0.0"
-  peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^5.13.0 || ^6.0.0
-    "@typescript-eslint/parser": ^5.0.0 || ^6.0.0
-    eslint: ^7.32.0 || ^8.2.0
-    eslint-plugin-import: ^2.25.3
-  checksum: 46d1753d660fe4225ccd89e91dd9f812db490326dfb835cfb786ab0b9a4ca25a39171a838661233b8f6f9a19294aaedaa962e19df915066beb80e7422749f7f1
-  languageName: node
-  linkType: hard
-
-"eslint-config-airbnb@npm:^19.0.4":
-  version: 19.0.4
-  resolution: "eslint-config-airbnb@npm:19.0.4"
-  dependencies:
-    eslint-config-airbnb-base: "npm:^15.0.0"
-    object.assign: "npm:^4.1.2"
-    object.entries: "npm:^1.1.5"
-  peerDependencies:
-    eslint: ^7.32.0 || ^8.2.0
-    eslint-plugin-import: ^2.25.3
-    eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-react: ^7.28.0
-    eslint-plugin-react-hooks: ^4.3.0
-  checksum: 867feeda45c4b480b1b8eff8fabc1bb107e837da8b48e5039e0c175ae6ad34af383b1924fc163bbfcef24a324e6651b1515e5bd12cbcbb19535a8838e2544a02
   languageName: node
   linkType: hard
 
@@ -12408,7 +12323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.assign@npm:^4.1.2, object.assign@npm:^4.1.4":
+"object.assign@npm:^4.1.4":
   version: 4.1.5
   resolution: "object.assign@npm:4.1.5"
   dependencies:
@@ -12420,7 +12335,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.entries@npm:^1.1.5, object.entries@npm:^1.1.6, object.entries@npm:^1.1.7":
+"object.entries@npm:^1.1.6, object.entries@npm:^1.1.7":
   version: 1.1.7
   resolution: "object.entries@npm:1.1.7"
   dependencies:
@@ -13675,19 +13590,6 @@ __metadata:
   peerDependencies:
     react: ">=16.8"
   checksum: 81278cf25a999d7c93a31d540102e3b74b696eb4349779e22bba77b633e4e5f8f91b8c6f7946c9572a1e92f64363724150216f5643a6f9817f8bc1643cb8bdbc
-  languageName: node
-  linkType: hard
-
-"react-toggle@npm:^4.1.3":
-  version: 4.1.3
-  resolution: "react-toggle@npm:4.1.3"
-  dependencies:
-    classnames: "npm:^2.2.5"
-  peerDependencies:
-    prop-types: ">= 15.3.0 < 19"
-    react: ">= 15.3.0 < 19"
-    react-dom: ">= 15.3.0 < 19"
-  checksum: afae643981d6fb922d66830ec0e9c793e729d7a55e3974edf212965acc8dc51f0d098ae6e409461d3ff2f87fe027dc3556a1a746f8472ed3a79c8878bf338fee
   languageName: node
   linkType: hard
 

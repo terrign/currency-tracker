@@ -1,7 +1,7 @@
 import { buildStorage, StorageValue } from 'axios-cache-interceptor';
 import localforage from 'localforage';
 
-const axiosCacheStorage = buildStorage({
+export const axiosCacheStorage = buildStorage({
   async find(key) {
     const value = (await localforage.getItem(key)) as StorageValue | undefined;
 
@@ -21,5 +21,3 @@ const axiosCacheStorage = buildStorage({
     await localforage.removeItem(key);
   },
 });
-
-export default axiosCacheStorage;

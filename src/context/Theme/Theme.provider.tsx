@@ -2,9 +2,9 @@ import { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
 
 import { Theme } from '../../models';
 import { getInitialThemeFromLocal } from '../../utils/theme';
-import ThemeContext from './Theme.context';
+import { ThemeContext } from './Theme.context';
 
-function ThemeProvider({ children }: PropsWithChildren) {
+export function ThemeProvider({ children }: PropsWithChildren) {
   const [theme, setTheme] = useState<Theme>(() => getInitialThemeFromLocal());
   const bodyRef = useRef(document.body);
   const documentRef = useRef(document.documentElement);
@@ -42,5 +42,3 @@ function ThemeProvider({ children }: PropsWithChildren) {
 
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 }
-
-export default ThemeProvider;

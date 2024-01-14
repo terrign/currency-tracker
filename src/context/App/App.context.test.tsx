@@ -4,10 +4,10 @@ import { render, renderHook, screen } from '@testing-library/react';
 import localforage from 'localforage';
 import { act } from 'react-dom/test-utils';
 
-import useAppContext from '../../hooks/useAppContext';
-import AppContext from './App.context';
-import AppProvider from './App.provider';
-import appReducer from './App.reducer';
+import { useAppContext } from '../../hooks/useAppContext';
+import { AppContext } from './App.context';
+import { AppProvider } from './App.provider';
+import { appReducer } from './App.reducer';
 
 describe('App context', () => {
   it('Provides default value', async () => {

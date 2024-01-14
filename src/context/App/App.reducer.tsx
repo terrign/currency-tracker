@@ -1,6 +1,6 @@
 import { Action, AppReducerType, ReducerState } from './models';
 
-const appReducer: AppReducerType = (state: ReducerState, action: Action) => {
+export const appReducer: AppReducerType = (state: ReducerState, action: Action) => {
   switch (action.type) {
     case 'preferredCurrency':
       return {
@@ -12,5 +12,3 @@ const appReducer: AppReducerType = (state: ReducerState, action: Action) => {
       return state;
   }
 };
-
-export default appReducer;

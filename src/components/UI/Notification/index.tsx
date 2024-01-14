@@ -12,7 +12,7 @@ interface NotificationData {
   expirationMs?: number;
 }
 
-function Notification() {
+export function Notification() {
   const [message, setMessage] = useState('');
   const [nHeader, setNHeader] = useState('');
   const [status, setStatus] = useState('success');
@@ -68,5 +68,3 @@ function Notification() {
     )
   );
 }
-
-export default Notification;

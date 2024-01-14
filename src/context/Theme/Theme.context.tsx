@@ -8,6 +8,4 @@ export interface ThemeContextType {
   toggleTheme?: (() => void) | null;
 }
 
-const ThemeContext = createContext<ThemeContextType>({ theme: getInitialThemeFromLocal(), toggleTheme: null });
-
-export default ThemeContext;
+export const ThemeContext = createContext<ThemeContextType>({ theme: getInitialThemeFromLocal(), toggleTheme: null });

@@ -3,8 +3,8 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import Notification from '../UI/Notification';
-import TimeLineForm from '.';
+import { Notification } from '../UI';
+import { TimeLineForm } from '.';
 
 test('TiemLineForm submits data, shows notification', async () => {
   const submitHandler = () => {};

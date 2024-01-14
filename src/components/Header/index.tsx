@@ -1,13 +1,11 @@
-import 'react-toggle/style.css';
-
 import { Link, NavLink } from 'react-router-dom';
 
 import logoSvg from '../../assets/logo.svg';
-import useTheme from '../../hooks/useTheme';
-import Toggler from '../UI/Toggler';
+import { useTheme } from '../../hooks/useTheme';
+import { Toggler } from '../UI';
 import * as styles from './styles.module.css';
 
-function Header() {
+export function Header() {
   const { theme, toggleTheme } = useTheme();
 
   const toggleHandler = () => toggleTheme!();
@@ -36,5 +34,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

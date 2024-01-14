@@ -6,7 +6,7 @@ export interface ModalProps extends PropsWithChildren {
   onClose: () => void;
 }
 
-function Modal({ children, onClose }: ModalProps) {
+export function Modal({ children, onClose }: ModalProps) {
   const backGroundClickHandler = (e: MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -28,5 +28,3 @@ function Modal({ children, onClose }: ModalProps) {
     </div>
   );
 }
-
-export default Modal;

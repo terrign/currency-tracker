@@ -1,15 +1,15 @@
 import { Component, lazy, Suspense } from 'react';
 
-import AutoComplete from '../../components/Autocomplete';
-import Loader from '../../components/UI/Loader';
+import { AutoComplete } from '../../components/Autocomplete';
+import { Loader } from '../../components/UI';
 import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
 import { NoProps } from '../../models';
 import { filterByCurrency } from '../../utils/filterByCurrency';
 import * as styles from './styles.module.css';
 
-const CustomMap = lazy(() => import('../../components/Map'));
+const CustomMap = lazy(() => import('../../components/BankMap').then((module) => ({ default: module['BankMap'] })));
 
-class BankMap extends Component<NoProps, { currency: CurISO }, undefined> {
+export class BankMap extends Component<NoProps, { currency: CurISO }, undefined> {
   constructor(props: NoProps) {
     super(props);
     this.state = {
@@ -35,5 +35,3 @@ class BankMap extends Component<NoProps, { currency: CurISO }, undefined> {
     );
   }
 }
-
-export default BankMap;

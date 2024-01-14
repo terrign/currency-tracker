@@ -3,7 +3,7 @@ import { AxiosCacheInstance, CacheAxiosResponse, setupCache } from 'axios-cache-
 
 import { CUR_LIST, CurISO } from '../constants/currencyISOSymbolMap';
 import { CACHE_EXPIRATION_TIME_MS } from '../constants/globals';
-import axiosCacheStorage from '../utils/axiosCacheStorage';
+import { axiosCacheStorage } from '../utils/axiosCacheStorage';
 
 export interface CurrencyRate {
   code: CurISO;
@@ -48,6 +48,4 @@ class CurrencyApi {
   }
 }
 
-const currencyApi = new CurrencyApi();
-
-export default currencyApi;
+export const currencyApi = new CurrencyApi();

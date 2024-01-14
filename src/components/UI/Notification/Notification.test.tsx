@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
 import { notification } from '../../../utils/Observer';
-import Notification from '.';
+import { Notification } from '.';
 
 describe('Notification', () => {
   it('Has close button', () => {

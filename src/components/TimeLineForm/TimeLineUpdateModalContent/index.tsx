@@ -2,7 +2,7 @@ import { ChangeEvent, Component, createRef, FormEvent } from 'react';
 
 import { dayData, notification } from '../../../utils/Observer';
 import { ChartDataType } from '../../Chart';
-import Button from '../../UI/Button';
+import { Button } from '../../UI';
 import * as styles from './styles.module.css';
 
 export interface TimeLineUpdateModalContentProps {
@@ -18,7 +18,10 @@ interface TimeLineUpdateModalContentState {
   close: string;
 }
 
-class TimeLineUpdateModalContent extends Component<TimeLineUpdateModalContentProps, TimeLineUpdateModalContentState> {
+export class TimeLineUpdateModalContent extends Component<
+  TimeLineUpdateModalContentProps,
+  TimeLineUpdateModalContentState
+> {
   dateRef = createRef<HTMLSelectElement>();
 
   openRef = createRef<HTMLInputElement>();
@@ -130,5 +133,3 @@ class TimeLineUpdateModalContent extends Component<TimeLineUpdateModalContentPro
     );
   }
 }
-
-export default TimeLineUpdateModalContent;
