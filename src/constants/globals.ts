@@ -3,3 +3,5 @@ export const DEFAULT_CURRENCY = 'USD';
 export const CACHE_EXPIRATION_TIME_MS = 86_400_000;
 
 export const DEFAULT_NOTIFICATION_EXPIRATION_TIME = 4000;
+
+export const DAY_IN_MS = 86_400_000;

@@ -1,11 +1,11 @@
 import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { Notification } from 'components/UI';
 import { act } from 'react-dom/test-utils';
+import { timeLineDataObserver } from 'services/Observer';
+import { generateRandomCurrencyHistoryData } from 'utils';
 
-import { generateRandomCurrencyHistoryData } from '../../../utils/generateRandomCurrencyHistoryData';
-import { dayData } from '../../../utils/Observer';
-import { Notification } from '../../UI';
 import { TimeLineUpdateModalContent } from '.';
 
 test('Submits data, shows notification', async () => {
@@ -19,7 +19,7 @@ test('Submits data, shows notification', async () => {
     value = values.y[0];
   };
 
-  dayData.subscribe(handler);
+  timeLineDataObserver.subscribe(handler);
 
   act(() => {
     render(
@@ -60,5 +60,5 @@ test('Submits data, shows notification', async () => {
 
   expect(value).toBe(String(+open.value));
 
-  dayData.unsubscribe(handler);
+  timeLineDataObserver.unsubscribe(handler);
 });

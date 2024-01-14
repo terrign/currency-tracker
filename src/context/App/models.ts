@@ -1,6 +1,5 @@
+import { CurISO } from 'models';
 import { Dispatch } from 'react';
-
-import { CurISO } from '../../constants/currencyISOSymbolMap';
 
 export interface CurrencyAction {
   type: 'preferredCurrency';

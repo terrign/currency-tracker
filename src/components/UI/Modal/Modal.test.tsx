@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
+import { useModal } from 'hooks/useModal';
 
-import { useModal } from '../../../hooks/useModal';
 import { Modal } from '.';
 
 function TestComponent() {

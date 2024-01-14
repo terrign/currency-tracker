@@ -1,3 +1,3 @@
-import { currencyApi } from '../src/services/currencyApi.service';
-import { resMock } from './__mocks__/resMock';
-jest.spyOn(currencyApi, 'getAllCurrencyRates').mockReturnValue(Promise.resolve({ data: resMock }));
+import { currencyRatesResMock } from 'mocks/currencyRatesResMock';
+import { currencyApi } from 'services/currencyApi.service';
+jest.spyOn(currencyApi, 'getAllCurrencyRates').mockReturnValue(Promise.resolve({ data: currencyRatesResMock }));

@@ -1,10 +1,11 @@
+import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { AutoComplete } from 'components/Autocomplete';
+import { CurrencySymbol } from 'components/CurrencyCard/CurrencySymbol';
+import { useAppContext } from 'hooks/useAppContext';
+import { useQueryRates } from 'hooks/useQueryRates';
+import { CurISO } from 'models';
 import { useState } from 'react';
 
-import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../../constants/currencyISOSymbolMap';
-import { useAppContext } from '../../../hooks/useAppContext';
-import { useQueryRates } from '../../../hooks/useQueryRates';
-import { AutoComplete } from '../../Autocomplete';
-import { CurrencySymbol } from '../CurrencySymbol';
 import * as styles from './styles.module.css';
 
 export function CurrencyModalContent({ iso }: { iso: CurISO }) {

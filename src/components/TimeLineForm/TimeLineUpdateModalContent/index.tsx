@@ -1,8 +1,8 @@
+import { Button } from 'components/UI';
 import { ChangeEvent, Component, createRef, FormEvent } from 'react';
+import { notificationObserver, timeLineDataObserver } from 'services/Observer';
 
-import { dayData, notification } from '../../../utils/Observer';
 import { ChartDataType } from '../../Chart';
-import { Button } from '../../UI';
 import * as styles from './styles.module.css';
 
 export interface TimeLineUpdateModalContentProps {
@@ -53,8 +53,8 @@ export class TimeLineUpdateModalContent extends Component<
     const low = this.lowRef.current!.value;
     const close = this.closeRef.current!.value;
 
-    dayData.notify({ x: date, y: [open, high, low, close] });
-    notification.notify({ status: 'success', header: 'Chart', info: 'Has been updated' });
+    timeLineDataObserver.notify({ x: date, y: [open, high, low, close] });
+    notificationObserver.notify({ status: 'success', header: 'Chart', info: 'Has been updated' });
     this.props.onSubmit();
   };
 

@@ -1,7 +1,7 @@
 import localforage from 'localforage';
+import { CurISO } from 'models';
 import { PropsWithChildren, useCallback, useEffect, useMemo, useReducer } from 'react';
 
-import { CurISO } from '../../constants/currencyISOSymbolMap';
 import { AppContext } from './App.context';
 import { appReducer } from './App.reducer';
 import { AppReducerType } from './models';

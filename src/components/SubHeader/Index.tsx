@@ -1,4 +1,5 @@
-import logoSvg from '../../assets/logo.svg';
+import logoSvg from 'assets/logo.svg';
+
 import * as styles from './styles.module.css';
 
 export function SubHeader() {

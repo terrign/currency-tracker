@@ -1,7 +1,7 @@
+import { Theme } from 'models';
 import { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
+import { getInitialThemeFromLocal } from 'utils';
 
-import { Theme } from '../../models';
-import { getInitialThemeFromLocal } from '../../utils/theme';
 import { ThemeContext } from './Theme.context';
 
 export function ThemeProvider({ children }: PropsWithChildren) {

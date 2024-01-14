@@ -1,18 +1,18 @@
+import { ChartDataType } from 'components/Chart';
+import { TimeLineForm, TimeLineFormState } from 'components/TimeLineForm';
+import { TimeLineUpdateModalContent } from 'components/TimeLineForm/TimeLineUpdateModalContent';
+import { Button } from 'components/UI';
+import { Loader } from 'components/UI';
+import { Modal } from 'components/UI';
+import { NoProps } from 'models';
 import { Component, lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
+import { timeLineDataObserver } from 'services/Observer';
+import { generateRandomCurrencyHistoryData } from 'utils';
 
-import { ChartDataType } from '../../components/Chart';
-import { TimeLineForm, TimeLineFormState } from '../../components/TimeLineForm';
-import { TimeLineUpdateModalContent } from '../../components/TimeLineForm/TimeLineUpdateModalContent';
-import { Button } from '../../components/UI';
-import { Loader } from '../../components/UI';
-import { Modal } from '../../components/UI';
-import { NoProps } from '../../models';
-import { generateRandomCurrencyHistoryData } from '../../utils/generateRandomCurrencyHistoryData';
-import { dayData } from '../../utils/Observer';
 import * as styles from './styles.module.css';
 
-const Chart = lazy(() => import('../../components/Chart').then((module) => ({ default: module['Chart'] })));
+const Chart = lazy(() => import('components/Chart').then((module) => ({ default: module['Chart'] })));
 
 interface TimeLineState {
   chartData: ChartDataType[];
@@ -29,11 +29,11 @@ export class TimeLine extends Component<NoProps, TimeLineState> {
   }
 
   componentDidMount(): void {
-    dayData.subscribe(this.updateDayData);
+    timeLineDataObserver.subscribe(this.updateDayData);
   }
 
   componentWillUnmount(): void {
-    dayData.unsubscribe(this.updateDayData);
+    timeLineDataObserver.unsubscribe(this.updateDayData);
   }
 
   updateDayData = (newData: ChartDataType) => {

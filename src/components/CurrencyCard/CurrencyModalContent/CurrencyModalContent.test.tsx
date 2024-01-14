@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom';
 
+import { CUR_ISO_SYMBOL_MAP } from '@constants';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { currencyRatesResMock } from 'mocks/currencyRatesResMock';
 import { act } from 'react-dom/test-utils';
 
-import { resMock } from '../../../../__test__/__mocks__/resMock';
-import { CUR_ISO_SYMBOL_MAP } from '../../../constants/currencyISOSymbolMap';
 import { CurrencyModalContent } from '.';
 
 describe('CurrencyModalContent', () => {
@@ -45,6 +45,6 @@ describe('CurrencyModalContent', () => {
 
     const result = await screen.findByText(/Rate: /);
 
-    expect(result).toHaveTextContent(`Rate: ${resMock.data.GBP.value}${CUR_ISO_SYMBOL_MAP.GBP.symbol}`);
+    expect(result).toHaveTextContent(`Rate: ${currencyRatesResMock.data.GBP.value}${CUR_ISO_SYMBOL_MAP.GBP.symbol}`);
   });
 });

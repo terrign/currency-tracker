@@ -1,8 +1,8 @@
+import logoSvg from 'assets/logo.svg';
+import { Toggler } from 'components/UI';
+import { useTheme } from 'hooks/useTheme';
 import { Link, NavLink } from 'react-router-dom';
 
-import logoSvg from '../../assets/logo.svg';
-import { useTheme } from '../../hooks/useTheme';
-import { Toggler } from '../UI';
 import * as styles from './styles.module.css';
 
 export function Header() {

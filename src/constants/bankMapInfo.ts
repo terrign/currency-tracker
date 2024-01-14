@@ -1,12 +1,4 @@
-export type BankMapInfo = {
-  id: string;
-  name: string;
-  city: string;
-  address: string;
-  rates: string[];
-  longitude: string;
-  latitude: string;
-};
+import { BankMapInfo } from 'models';
 
 export const BANK_MAP_INFO: BankMapInfo[] = [
   {

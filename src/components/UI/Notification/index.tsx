@@ -1,8 +1,8 @@
+import { DEFAULT_NOTIFICATION_EXPIRATION_TIME } from '@constants';
 import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { notificationObserver } from 'services/Observer';
 
-import { DEFAULT_NOTIFICATION_EXPIRATION_TIME } from '../../../constants/globals';
-import { notification } from '../../../utils/Observer';
 import * as styles from './styles.module.css';
 
 interface NotificationData {
@@ -46,8 +46,8 @@ export function Notification() {
   }, [clearNotification, expiration, notificationVisible]);
 
   useEffect(() => {
-    notification.subscribe(onNotify);
-    return () => notification.unsubscribe(onNotify);
+    notificationObserver.subscribe(onNotify);
+    return () => notificationObserver.unsubscribe(onNotify);
   }, [onNotify]);
 
   return (

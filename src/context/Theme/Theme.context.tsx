@@ -1,7 +1,6 @@
+import { Theme } from 'models';
 import { createContext } from 'react';
-
-import { Theme } from '../../models';
-import { getInitialThemeFromLocal } from '../../utils/theme';
+import { getInitialThemeFromLocal } from 'utils';
 
 export interface ThemeContextType {
   theme: Theme;

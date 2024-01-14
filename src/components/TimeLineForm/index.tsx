@@ -1,10 +1,11 @@
+import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { Button } from 'components/UI';
+import { CurISO } from 'models';
 import { ChangeEvent, Component, FormEvent } from 'react';
+import { notificationObserver } from 'services/Observer';
+import { today } from 'utils';
 
-import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
-import { today } from '../../utils/date';
-import { notification } from '../../utils/Observer';
 import { AutoComplete } from '../Autocomplete';
-import { Button } from '../UI';
 import * as styles from './styles.module.css';
 
 interface TimeLineProps {
@@ -39,7 +40,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   componentDidUpdate(): void {
     if (!!this.state.baseCurrency && !!this.state.compareCurrency && !!this.state.startDate) {
       this.props.submitHandler(this.state);
-      notification.notify({ status: 'success', info: 'Has been created', header: 'Chart' });
+      notificationObserver.notify({ status: 'success', info: 'Has been created', header: 'Chart' });
     }
   }
 
@@ -50,7 +51,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     this.props.submitHandler(this.state);
-    notification.notify({ status: 'success', info: 'Random data generated', header: 'Chart' });
+    notificationObserver.notify({ status: 'success', info: 'Random data generated', header: 'Chart' });
   };
 
   updateCompareCurrency = (key: CurISO) => () => {

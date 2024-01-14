@@ -1,3 +1,5 @@
+import { Currency } from 'models';
+
 export const CUR_ISO_SYMBOL_MAP: Record<string, Currency> = {
   AUD: {
     symbol: 'A$',
@@ -62,7 +64,3 @@ export const CUR_ISO_SYMBOL_MAP: Record<string, Currency> = {
 };
 
 export const CUR_LIST = Object.keys(CUR_ISO_SYMBOL_MAP).join(',');
-
-export type CurISO = keyof typeof CUR_ISO_SYMBOL_MAP;
-
-export type Currency = { symbol: string; name: string };

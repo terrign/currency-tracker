@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { Notification } from 'components/UI';
 import { act } from 'react-dom/test-utils';
 
-import { Notification } from '../UI';
 import { TimeLineForm } from '.';
 
 test('TiemLineForm submits data, shows notification', async () => {

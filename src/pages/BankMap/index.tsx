@@ -1,13 +1,14 @@
+import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { AutoComplete } from 'components/Autocomplete';
+import { MarkersList } from 'components/BankMap/MarkersList';
+import { Loader } from 'components/UI';
+import { CurISO, NoProps } from 'models';
 import { Component, lazy, Suspense } from 'react';
+import { filterBanksByCurrency } from 'utils';
 
-import { AutoComplete } from '../../components/Autocomplete';
-import { Loader } from '../../components/UI';
-import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
-import { NoProps } from '../../models';
-import { filterByCurrency } from '../../utils/filterByCurrency';
 import * as styles from './styles.module.css';
 
-const CustomMap = lazy(() => import('../../components/BankMap').then((module) => ({ default: module['BankMap'] })));
+const CustomMap = lazy(() => import('components/BankMap').then((module) => ({ default: module['BankMap'] })));
 
 export class BankMap extends Component<NoProps, { currency: CurISO }, undefined> {
   constructor(props: NoProps) {
@@ -29,7 +30,9 @@ export class BankMap extends Component<NoProps, { currency: CurISO }, undefined>
           <AutoComplete selectHandler={this.selectHandler} searchObject={CUR_ISO_SYMBOL_MAP} defaultValue="" />
         </div>
         <Suspense fallback={<Loader />}>
-          <CustomMap markers={filterByCurrency(this.state.currency)} />
+          <CustomMap>
+            <MarkersList markers={filterBanksByCurrency(this.state.currency)} />
+          </CustomMap>
         </Suspense>
       </>
     );

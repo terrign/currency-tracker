@@ -1,8 +1,8 @@
+import { Loader } from 'components/UI';
 import { lazy, Suspense } from 'react';
 import { RouteObject } from 'react-router-dom';
 
 import { ErrorBoundary } from '../components/ErrorBoundary';
-import { Loader } from '../components/UI';
 import { Contacts } from '../pages';
 import { NotFound } from '../pages';
 import { Root } from '../pages';

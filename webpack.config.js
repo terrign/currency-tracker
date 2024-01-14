@@ -54,6 +54,18 @@ const common = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    alias: {
+      'components': path.resolve(__dirname, 'src/components/'),
+      'assets': path.resolve(__dirname, 'src/assets/'),
+      'context': path.resolve(__dirname, 'src/context/'),
+      'hooks': path.resolve(__dirname, 'src/hooks/'),
+      'pages': path.resolve(__dirname, 'src/pages/'),
+      'router': path.resolve(__dirname, 'src/router/'),
+      'services': path.resolve(__dirname, 'src/services/'),
+      'models': path.resolve(__dirname, 'src/models/index'),
+      'utils': path.resolve(__dirname, 'src/utils/index'),
+      '@constants': path.resolve(__dirname, 'src/constants/index'),
+    },
   },
 };
 

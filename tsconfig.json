@@ -1,7 +1,20 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "baseUrl": "/",
+    "paths": {
+      "components/*": ["./src/components/*"],
+      "assets/*": ["./src/assets/*"],
+      "context/*": ["./src/context/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "pages/*": ["./src/pages/*"],
+      "services/*": ["./src/services/*"],
+      "router/*": ["./src/router/*"],
+      "models": ["./src/models/index"],
+      "utils": ["./src/utils/index"],
+      "@constants": ["./src/constants/index"],
+      "mocks/*": ["./__test__/__mocks__/*"]
+    },
+    "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "module": "ESNext",
     "lib": ["dom", "ESNext"],
@@ -22,5 +35,5 @@
     "noImplicitAny": true
   },
   "exclude": ["./cypress.config.ts"],
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./__test__/__mocks__/*.ts"]
 }

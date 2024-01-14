@@ -1,6 +1,6 @@
+import { Button } from 'components/UI';
 import { Component } from 'react';
 
-import { Button } from '../UI';
 import * as styles from './styles.module.css';
 
 interface State {

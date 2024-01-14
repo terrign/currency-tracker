@@ -1,23 +1,23 @@
 import '@testing-library/jest-dom';
 
+import { BANK_MAP_INFO } from '@constants';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { Map } from 'react-map-gl/maplibre';
 
-import { BANK_MAP_INFO } from '../../constants/bankMapInfo';
 import { BankMap } from '.';
-import { MapMarker } from './Marker';
+import { MarkersList } from './MarkersList';
 
 test('Map Renders', () => {
-  const { container } = render(<BankMap markers={BANK_MAP_INFO} />);
+  const { container } = render(<BankMap />);
   expect(container).toBeInTheDocument();
 });
 
-test('Marker renders', () => {
+test('Markers renders', () => {
   act(() => {
     render(
       <Map>
-        <MapMarker {...BANK_MAP_INFO[0]} />
+        <MarkersList markers={BANK_MAP_INFO} />
       </Map>,
     );
   });

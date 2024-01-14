@@ -1,24 +1,14 @@
 import 'maplibre-gl/dist/maplibre-gl.css';
 
-import { memo } from 'react';
+import { memo, PropsWithChildren } from 'react';
 import { FullscreenControl, GeolocateControl, Map, NavigationControl, ScaleControl } from 'react-map-gl/maplibre';
 
-import { BankMapInfo } from '../../constants/bankMapInfo';
-import { MapMarker } from './Marker';
+import { INITIAL_MAP_VIEW } from './constants';
 
-interface CustomMapProps {
-  markers: BankMapInfo[];
-}
-
-function CustomMap({ markers }: CustomMapProps) {
+function CustomMap({ children }: PropsWithChildren) {
   return (
     <Map
-      initialViewState={{
-        longitude: 27.559107137356758,
-        latitude: 53.90334172639434,
-        zoom: 10,
-      }}
-      attributionControl={undefined}
+      initialViewState={INITIAL_MAP_VIEW}
       style={{ height: 500, marginTop: '1rem' }}
       mapStyle="https://tiles.basemaps.cartocdn.com/gl/voyager-gl-style/style.json"
     >
@@ -26,9 +16,7 @@ function CustomMap({ markers }: CustomMapProps) {
       <FullscreenControl />
       <NavigationControl showCompass={false} />
       <ScaleControl />
-      {markers.map((mark) => (
-        <MapMarker {...mark} key={mark.id} />
-      ))}
+      {children}
     </Map>
   );
 }

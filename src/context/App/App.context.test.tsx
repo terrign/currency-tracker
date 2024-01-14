@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom';
 
 import { render, renderHook, screen } from '@testing-library/react';
+import { useAppContext } from 'hooks/useAppContext';
 import localforage from 'localforage';
 import { act } from 'react-dom/test-utils';
 
-import { useAppContext } from '../../hooks/useAppContext';
 import { AppContext } from './App.context';
 import { AppProvider } from './App.provider';
 import { appReducer } from './App.reducer';

@@ -1,9 +1,10 @@
+import { Observer } from 'services/Observer';
+
 import { axiosCacheStorage } from './axiosCacheStorage';
 import { today, toStringDate } from './date';
-import { filterByCurrency } from './filterByCurrency';
+import { filterBanksByCurrency } from './filterBanksByCurrency';
 import { generateRandomCurrencyHistoryData } from './generateRandomCurrencyHistoryData';
 import { includes } from './includes';
-import { Observer } from './Observer';
 import { randomBetween, randomChangeBase } from './randoms';
 
 describe('Randoms tests', () => {
@@ -51,7 +52,7 @@ describe('Observer test', () => {
       value += 1;
     };
     obs.subscribe(change);
-    obs.notify();
+    obs.notify({});
     expect(value).toBe(2);
   });
 
@@ -59,14 +60,16 @@ describe('Observer test', () => {
     const obs = new Observer();
     const func = () => {};
     obs.subscribe(func);
+    // @ts-expect-error no types
     expect(obs.observers.length).toBe(1);
     obs.unsubscribe(func);
+    // @ts-expect-error no types
     expect(obs.observers.length).toBe(0);
   });
 });
 
 test('filterByCurrency() returns correct values', async () => {
-  const res = filterByCurrency('USD');
+  const res = filterBanksByCurrency('USD');
   const test = res.filter((a) => !a.rates.includes('USD'));
   expect(test.length).toBe(0);
 });

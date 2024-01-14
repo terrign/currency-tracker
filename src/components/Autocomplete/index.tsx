@@ -1,7 +1,8 @@
+import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CurISO } from 'models';
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { includes } from 'utils';
 
-import { CUR_ISO_SYMBOL_MAP, CurISO } from '../../constants/currencyISOSymbolMap';
-import { includes } from '../../utils/includes';
 import * as styles from './styles.module.css';
 
 interface AutoCompleteProps {
