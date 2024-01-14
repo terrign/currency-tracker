@@ -1,11 +1,11 @@
-import localforage from 'localforage';
 import { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
 
-import { matchesDarkThemeMedia } from '../../utils/matchesDarkThemeMedia';
-import ThemeContext, { Theme } from './Theme.context';
+import { Theme } from '../../models';
+import { getInitialThemeFromLocal } from '../../utils/theme';
+import ThemeContext from './Theme.context';
 
 function ThemeProvider({ children }: PropsWithChildren) {
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [theme, setTheme] = useState<Theme>(() => getInitialThemeFromLocal());
   const bodyRef = useRef(document.body);
   const documentRef = useRef(document.documentElement);
 
@@ -13,7 +13,7 @@ function ThemeProvider({ children }: PropsWithChildren) {
     setTheme(newTheme);
     bodyRef.current.className = `theme-${newTheme}`;
     documentRef.current.style.colorScheme = newTheme;
-    localforage.setItem('theme', newTheme);
+    localStorage.setItem('theme', newTheme);
   };
 
   const toggleTheme = () => {
@@ -32,25 +32,13 @@ function ThemeProvider({ children }: PropsWithChildren) {
     [theme],
   );
 
-  const setDefaultThemeBasedOnPrefered = async () => {
-    const preferredTheme = await localforage.getItem('theme');
-
-    if (preferredTheme) {
-      setAppTheme(preferredTheme as Theme);
-      return;
-    }
-
-    if (matchesDarkThemeMedia()) {
+  useEffect(() => {
+    if (theme === 'dark') {
       setAppTheme('dark');
       return;
     }
-
     setAppTheme('light');
-  };
-
-  useEffect(() => {
-    setDefaultThemeBasedOnPrefered();
-  }, []);
+  }, [theme]);
 
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 }

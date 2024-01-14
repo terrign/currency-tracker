@@ -1,10 +1,10 @@
 import 'react-toggle/style.css';
 
 import { Link, NavLink } from 'react-router-dom';
-import Toggle from 'react-toggle';
 
 import logoSvg from '../../assets/logo.svg';
 import useTheme from '../../hooks/useTheme';
+import Toggler from '../UI/Toggler';
 import * as styles from './styles.module.css';
 
 function Header() {
@@ -32,7 +32,7 @@ function Header() {
           </li>
         </ul>
       </nav>
-      <Toggle checked={theme === 'light'} onChange={toggleHandler} className="toggle" icons={false} />
+      <Toggler checked={theme === 'light'} onChange={toggleHandler} />
     </header>
   );
 }
