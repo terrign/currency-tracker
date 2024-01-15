@@ -1,5 +1,5 @@
 import { BANK_MAP_INFO } from './bankMapInfo';
-import { CUR_ISO_SYMBOL_MAP, CUR_LIST } from './currencyISOSymbolMap';
+import { CURRENCY_ISO_SYMBOL_MAP, CURRENCY_LIST } from './currencyISOSymbolMap';
 import {
   CACHE_EXPIRATION_TIME_MS,
   DAY_IN_MS,
@@ -11,8 +11,8 @@ import {
 export {
   BANK_MAP_INFO,
   CACHE_EXPIRATION_TIME_MS,
-  CUR_ISO_SYMBOL_MAP,
-  CUR_LIST,
+  CURRENCY_ISO_SYMBOL_MAP,
+  CURRENCY_LIST,
   DAY_IN_MS,
   DEFAULT_CURRENCY,
   DEFAULT_NOTIFICATION_EXPIRATION_TIME,

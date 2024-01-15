@@ -10,8 +10,8 @@ export const getInitialThemeFromLocal = (): Theme => {
   }
 
   if (matchesDarkThemeMedia()) {
-    return 'dark';
+    return Theme.DARK;
   }
 
-  return 'light';
+  return Theme.LIGHT;
 };

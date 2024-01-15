@@ -1,4 +1,4 @@
-import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { useAppContext } from 'hooks/useAppContext';
 import { CurISO, CurrencyRates } from 'models';
 
@@ -18,7 +18,7 @@ export function RatesList({ data }: RatesListProps) {
         .map((key) => (
           <CurrencyCard
             key={key}
-            rate={`${data[key as CurISO].value}${CUR_ISO_SYMBOL_MAP[key].symbol}`}
+            rate={`${data[key as CurISO].value}${CURRENCY_ISO_SYMBOL_MAP[key].symbol}`}
             iso={key as CurISO}
           />
         ))}

@@ -1,6 +1,6 @@
 import { Currency } from 'models';
 
-export const CUR_ISO_SYMBOL_MAP: Record<string, Currency> = {
+export const CURRENCY_ISO_SYMBOL_MAP: Record<string, Currency> = {
   AUD: {
     symbol: 'A$',
     name: 'Australian Dollar',
@@ -63,4 +63,4 @@ export const CUR_ISO_SYMBOL_MAP: Record<string, Currency> = {
   },
 };
 
-export const CUR_LIST = Object.keys(CUR_ISO_SYMBOL_MAP).join(',');
+export const CURRENCY_LIST = Object.keys(CURRENCY_ISO_SYMBOL_MAP).join(',');

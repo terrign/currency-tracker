@@ -52,7 +52,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
   .logo-big {
     display: none;
   }
@@ -72,13 +72,9 @@
     left: 0px;
   }
 
+  .sub-header-text-2nd-line,
   .sub-header > div > h1 {
-    font-size: 2.5rem;
-    text-align: center;
-  }
-
-  .sub-header-text-2nd-line {
-    font-size: 2.75rem;
+    font-size: 1.75rem;
     text-align: center;
   }
 }

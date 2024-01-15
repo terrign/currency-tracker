@@ -42,7 +42,7 @@ test('TiemLineForm submits data, shows notification', async () => {
 
   await waitFor(() => {
     act(() => {
-      fireEvent.change(inputCompareCur, { target: { value: 'dollar' } });
+      fireEvent.change(inputCompareCur, { target: { value: 'USD' } });
     });
   });
 

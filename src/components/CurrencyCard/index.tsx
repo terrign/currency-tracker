@@ -1,4 +1,4 @@
-import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { Modal } from 'components/UI';
 import { useModal } from 'hooks/useModal';
 import { CurISO } from 'models';
@@ -21,7 +21,7 @@ export function CurrencyCard({ rate, iso }: CurrencyCardProps) {
       <div className={styles.currencyCard} aria-hidden onClick={openModal}>
         <CurrencySymbol iso={iso} />
         <div className={styles.currencyCardText}>
-          <p className={styles.currencyName}>{CUR_ISO_SYMBOL_MAP[iso].name}</p>
+          <p className={styles.currencyName}>{CURRENCY_ISO_SYMBOL_MAP[iso].name}</p>
           <p className={styles.currencyRate}>{rate}</p>
         </div>
       </div>

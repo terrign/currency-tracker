@@ -1,8 +1,6 @@
-import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 
 export type NoProps = Readonly<unknown>;
-
-export type Theme = 'light' | 'dark';
 
 export type BankMapInfo = {
   id: string;
@@ -14,7 +12,9 @@ export type BankMapInfo = {
   latitude: string;
 };
 
-export type CurISO = keyof typeof CUR_ISO_SYMBOL_MAP;
+export type ChartDataType = { x: string; y: number[] };
+
+export type CurISO = keyof typeof CURRENCY_ISO_SYMBOL_MAP;
 
 export type Currency = { symbol: string; name: string };
 
@@ -35,4 +35,9 @@ export enum OHLC {
   HIGH = 'high',
   LOW = 'low',
   CLOSE = 'close',
+}
+
+export enum Theme {
+  LIGHT = 'light',
+  DARK = 'dark',
 }

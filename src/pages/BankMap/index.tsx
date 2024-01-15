@@ -1,4 +1,4 @@
-import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { AutoComplete } from 'components/Autocomplete';
 import { MarkersList } from 'components/BankMap/MarkersList';
 import { Loader } from 'components/UI';
@@ -27,7 +27,7 @@ export class BankMap extends Component<NoProps, { currency: CurISO }, undefined>
       <>
         <div className={styles.bankWrapper}>
           <h2 className={styles.bankHeader}>Search currency in the bank</h2>
-          <AutoComplete selectHandler={this.selectHandler} searchObject={CUR_ISO_SYMBOL_MAP} defaultValue="" />
+          <AutoComplete selectHandler={this.selectHandler} searchObject={CURRENCY_ISO_SYMBOL_MAP} defaultValue="" />
         </div>
         <Suspense fallback={<Loader />}>
           <CustomMap>

@@ -1,4 +1,4 @@
-import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 
 export type NoProps = Readonly<unknown>;
 
@@ -14,7 +14,7 @@ export type BankMapInfo = {
   latitude: string;
 };
 
-export type CurISO = keyof typeof CUR_ISO_SYMBOL_MAP;
+export type CurISO = keyof typeof CURRENCY_ISO_SYMBOL_MAP;
 
 export type Currency = { symbol: string; name: string };
 

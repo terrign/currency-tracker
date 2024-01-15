@@ -1,4 +1,4 @@
-import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { AutoComplete } from 'components/Autocomplete';
 import { CurrencySymbol } from 'components/CurrencyCard/CurrencySymbol';
 import { useAppContext } from 'hooks/useAppContext';
@@ -23,19 +23,19 @@ export function CurrencyModalContent({ iso }: { iso: CurISO }) {
     <div className={styles.currencyModal}>
       <div style={{ display: 'flex', gap: '1rem' }}>
         <CurrencySymbol iso={iso} />
-        <p className={styles.curName}>{CUR_ISO_SYMBOL_MAP[iso].name}</p>
+        <p className={styles.currencyName}>{CURRENCY_ISO_SYMBOL_MAP[iso].name}</p>
       </div>
 
       <div>
         <span>Compare to </span>
         <AutoComplete
-          searchObject={CUR_ISO_SYMBOL_MAP}
+          searchObject={CURRENCY_ISO_SYMBOL_MAP}
           defaultValue={preferredCurrency as CurISO}
           selectHandler={selectHandler}
         />
       </div>
 
-      <p>Rate: {result && `${result.data[currency!].value}${CUR_ISO_SYMBOL_MAP[currency!].symbol}`}</p>
+      <p>Rate: {result && `${result.data[currency!].value}${CURRENCY_ISO_SYMBOL_MAP[currency!].symbol}`}</p>
     </div>
   );
 }

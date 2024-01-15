@@ -1,4 +1,4 @@
-import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { CurISO } from 'models';
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { includes } from 'utils';
@@ -6,7 +6,7 @@ import { includes } from 'utils';
 import * as styles from './styles.module.css';
 
 interface AutoCompleteProps {
-  searchObject: typeof CUR_ISO_SYMBOL_MAP;
+  searchObject: typeof CURRENCY_ISO_SYMBOL_MAP;
   defaultValue: CurISO;
   selectHandler: (key: CurISO) => () => void;
   name?: string;
@@ -22,25 +22,24 @@ export function AutoComplete({ searchObject, defaultValue, selectHandler, name, 
 
   const getSuggestions = useCallback(
     (value: string) => {
-      const keys = Object.keys(searchObject);
       const result: string[] = [];
 
-      keys.forEach((key) => {
+      for (const key in searchObject) {
         const currencyObject = searchObject[key];
         if (includes(value, key)) {
           result.push(key);
-          return;
+          continue;
         }
 
         if (includes(value, currencyObject.name)) {
           result.push(key);
-          return;
+          continue;
         }
 
         if (includes(value, currencyObject.symbol)) {
           result.push(key);
         }
-      });
+      }
 
       return result;
     },
@@ -65,6 +64,7 @@ export function AutoComplete({ searchObject, defaultValue, selectHandler, name, 
     selectHandler(key)();
     setShowSuggestions(false);
   };
+
   useEffect(() => {
     if (defaultValue) {
       searchRef.current!.value = searchObject[defaultValue].name;

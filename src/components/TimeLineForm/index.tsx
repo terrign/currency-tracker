@@ -1,4 +1,4 @@
-import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { Button } from 'components/UI';
 import { CurISO } from 'models';
 import { ChangeEvent, Component, FormEvent } from 'react';
@@ -70,7 +70,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
           <label htmlFor="baseCurrency">
             <span>Currency</span>
             <AutoComplete
-              searchObject={CUR_ISO_SYMBOL_MAP}
+              searchObject={CURRENCY_ISO_SYMBOL_MAP}
               selectHandler={this.updateBaseCurrency}
               defaultValue=""
               name="baseCurrency"
@@ -81,7 +81,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
           <label htmlFor="compareCurrency">
             <span>Compare currency</span>
             <AutoComplete
-              searchObject={CUR_ISO_SYMBOL_MAP}
+              searchObject={CURRENCY_ISO_SYMBOL_MAP}
               selectHandler={this.updateCompareCurrency}
               defaultValue=""
               name="compareCurrency"

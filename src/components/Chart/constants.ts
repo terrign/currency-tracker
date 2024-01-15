@@ -20,7 +20,7 @@ export const CHART_OPTIONS: ApexOptions = {
       enabled: true,
     },
     labels: {
-      formatter: (val) => (+val.toFixed(8)).toString().trim(),
+      formatter: (val) => (+val.toFixed()).toString().trim(),
       style: {
         cssClass: 'chart-label-color',
       },

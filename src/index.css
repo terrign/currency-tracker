@@ -2,7 +2,7 @@
 
 :root {
   font-family: Poppins, system-ui, Arial, sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.5rem;
   font-synthesis: none;
@@ -76,6 +76,16 @@ body.theme-light {
 
 .chart-label-color {
   fill: var(--font-color-main) !important;
+}
+
+.apexcharts-menu-item {
+  color: var(--font-color-main) !important;
+  background-color: var(--bg) !important;
+}
+
+.apexcharts-menu.apexcharts-menu-open {
+  background-color: var(--bg) !important;
+  border: none;
 }
 
 input,

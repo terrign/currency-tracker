@@ -1,5 +1,5 @@
 import { DAY_IN_MS } from '@constants';
-import { ChartDataType } from 'components/Chart';
+import { ChartDataType } from 'models';
 import { toStringDate } from 'utils';
 
 import {

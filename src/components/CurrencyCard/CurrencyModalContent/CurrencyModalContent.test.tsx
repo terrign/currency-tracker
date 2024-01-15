@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { currencyRatesResMock } from 'mocks/currencyRatesResMock';
 import { act } from 'react-dom/test-utils';
@@ -25,7 +25,7 @@ describe('CurrencyModalContent', () => {
       });
     });
 
-    const input = await screen.findByDisplayValue(CUR_ISO_SYMBOL_MAP.USD.name);
+    const input = await screen.findByDisplayValue(CURRENCY_ISO_SYMBOL_MAP.USD.name);
 
     waitFor(() => {
       act(() => {
@@ -41,10 +41,12 @@ describe('CurrencyModalContent', () => {
       });
     });
 
-    expect(screen.getByDisplayValue(CUR_ISO_SYMBOL_MAP.GBP.name)).toBeInTheDocument();
+    expect(screen.getByDisplayValue(CURRENCY_ISO_SYMBOL_MAP.GBP.name)).toBeInTheDocument();
 
     const result = await screen.findByText(/Rate: /);
 
-    expect(result).toHaveTextContent(`Rate: ${currencyRatesResMock.data.GBP.value}${CUR_ISO_SYMBOL_MAP.GBP.symbol}`);
+    expect(result).toHaveTextContent(
+      `Rate: ${currencyRatesResMock.data.GBP.value}${CURRENCY_ISO_SYMBOL_MAP.GBP.symbol}`,
+    );
   });
 });

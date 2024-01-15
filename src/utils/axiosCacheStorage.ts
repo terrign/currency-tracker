@@ -9,7 +9,6 @@ export const axiosCacheStorage = buildStorage({
       return;
     }
 
-    // eslint-disable-next-line consistent-return
     return value;
   },
 

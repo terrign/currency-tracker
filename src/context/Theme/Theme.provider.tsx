@@ -17,11 +17,11 @@ export function ThemeProvider({ children }: PropsWithChildren) {
   };
 
   const toggleTheme = () => {
-    if (theme === 'light') {
-      setAppTheme('dark');
+    if (theme === Theme.LIGHT) {
+      setAppTheme(Theme.DARK);
       return;
     }
-    setAppTheme('light');
+    setAppTheme(Theme.LIGHT);
   };
 
   const contextValue = useMemo(
@@ -33,11 +33,11 @@ export function ThemeProvider({ children }: PropsWithChildren) {
   );
 
   useEffect(() => {
-    if (theme === 'dark') {
-      setAppTheme('dark');
+    if (theme === Theme.DARK) {
+      setAppTheme(Theme.DARK);
       return;
     }
-    setAppTheme('light');
+    setAppTheme(Theme.LIGHT);
   }, [theme]);
 
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;

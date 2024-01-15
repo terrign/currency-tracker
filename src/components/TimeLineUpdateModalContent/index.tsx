@@ -1,12 +1,12 @@
-import { ChartDataType } from 'components/Chart';
-import { VALIDATION_MAP } from 'components/TimeLineUpdateModalContent/validationMap';
 import { Button } from 'components/UI';
-import { OHLC } from 'models';
+import { ChartDataType, OHLC } from 'models';
 import { ChangeEvent, ChangeEventHandler, Component, FormEvent } from 'react';
 import { notificationObserver, timeLineDataObserver } from 'services/Observer';
+import { capitalizeFirstLetter } from 'utils';
 
 import { OHLCInput } from './OHLCInput';
 import * as styles from './styles.module.css';
+import { VALIDATION_MAP } from './validationMap';
 
 export interface TimeLineUpdateModalContentProps {
   data: ChartDataType[];
@@ -78,6 +78,16 @@ export class TimeLineUpdateModalContent extends Component<
           errors: {
             ...prev.errors,
             [errorKey]: `"${name}" must be a number`,
+          },
+        }));
+        continue;
+      }
+
+      if (numberOHLCValue <= 0) {
+        this.setState((prev) => ({
+          errors: {
+            ...prev.errors,
+            [errorKey]: `"${capitalizeFirstLetter(name)}" must be higher then sezo`,
           },
         }));
         continue;

@@ -5,7 +5,7 @@
   min-height: 40%;
 }
 
-.cur-name {
+.currency-name {
   flex: 2 0 max-content;
   line-height: 80px;
   display: inline;

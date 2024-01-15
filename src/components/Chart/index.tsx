@@ -1,8 +1,7 @@
+import { ChartDataType } from 'models';
 import ReactApexChart from 'react-apexcharts';
 
 import { CHART_OPTIONS } from './constants';
-
-export type ChartDataType = { x: string; y: number[] };
 
 export function Chart({ data }: { data: ChartDataType[] }) {
   return (

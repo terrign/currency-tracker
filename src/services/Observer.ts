@@ -13,7 +13,7 @@ class Observer {
   }
 
   notify(data: unknown) {
-    this.observers.forEach((func) => {
+    this.observers.map((func) => {
       func(data);
     });
   }

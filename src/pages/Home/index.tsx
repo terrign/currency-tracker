@@ -1,4 +1,4 @@
-import { CUR_ISO_SYMBOL_MAP } from '@constants';
+import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { AutoComplete } from 'components/Autocomplete';
 import { RatesList } from 'components/RatesList';
 import { useAppContext } from 'hooks/useAppContext';
@@ -20,7 +20,7 @@ export function Home() {
       <div>
         Quotes for{' '}
         <AutoComplete
-          searchObject={CUR_ISO_SYMBOL_MAP}
+          searchObject={CURRENCY_ISO_SYMBOL_MAP}
           defaultValue={preferredCurrency ?? 'USD'}
           selectHandler={selectHandler}
           name="preferredCurrency"

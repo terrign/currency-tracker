@@ -16,7 +16,7 @@ test('Submits data, shows notification', async () => {
 
   const handler = (values: { y: number[] }) => {
     // eslint-disable-next-line prefer-destructuring
-    value = values.y[0];
+    value = values.y[1];
   };
   // @ts-expect-error wrong type
   timeLineDataObserver.subscribe(handler);
@@ -32,9 +32,9 @@ test('Submits data, shows notification', async () => {
 
   const date = screen.getByLabelText(/Date/);
 
-  const open = screen.getByLabelText(/Open/) as HTMLInputElement;
+  const open = screen.getByLabelText(/Open/);
 
-  const high = screen.getByLabelText(/High/);
+  const high = screen.getByLabelText(/High/) as HTMLInputElement;
 
   const low = screen.getByLabelText(/Low/);
 
@@ -48,7 +48,7 @@ test('Submits data, shows notification', async () => {
 
   await waitFor(() => {
     act(() => {
-      fireEvent.change(open, { target: { value: +open.value + 1 } });
+      fireEvent.change(high, { target: { value: +high.value + 1 } });
     });
   });
 
@@ -58,7 +58,7 @@ test('Submits data, shows notification', async () => {
     });
   });
 
-  expect(value).toBe(String(+open.value));
+  expect(value).toBe(String(+high.value));
   // @ts-expect-error wrong type
   timeLineDataObserver.unsubscribe(handler);
 });
