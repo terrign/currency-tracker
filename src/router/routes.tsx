@@ -7,6 +7,13 @@ import { Contacts } from '../pages';
 import { NotFound } from '../pages';
 import { Root } from '../pages';
 
+export enum Route {
+  HOME = '/',
+  TIMELINE = '/timeline',
+  BANKMAP = '/bankmap',
+  CONTACTS = '/contacts',
+}
+
 const TimeLine = lazy(() => import('../pages').then((module) => ({ default: module['TimeLine'] })));
 
 const Home = lazy(() => import('../pages').then((module) => ({ default: module['Home'] })));
@@ -15,7 +22,7 @@ const BankMap = lazy(() => import('../pages').then((module) => ({ default: modul
 
 export const routes: RouteObject[] = [
   {
-    path: '/',
+    path: Route.HOME,
     element: (
       <Suspense fallback={<Loader />}>
         <ErrorBoundary>
@@ -25,19 +32,19 @@ export const routes: RouteObject[] = [
     ),
     children: [
       {
-        path: '/',
+        path: Route.HOME,
         element: <Home />,
       },
       {
-        path: '/timeline',
+        path: Route.TIMELINE,
         element: <TimeLine />,
       },
       {
-        path: '/bankmap',
+        path: Route.BANKMAP,
         element: <BankMap />,
       },
       {
-        path: '/contacts',
+        path: Route.CONTACTS,
         element: <Contacts />,
       },
     ],

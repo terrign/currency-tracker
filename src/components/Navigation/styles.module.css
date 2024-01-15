@@ -1,0 +1,20 @@
+.navigation {
+  width: 70%;
+  text-wrap: nowrap;
+}
+
+.navigation > ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.5rem;
+  width: 80%;
+}
+
+.navigation a {
+  font-weight: 500;
+  display: inline-block;
+  color: var(--font-color-main);
+}
