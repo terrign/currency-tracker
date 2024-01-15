@@ -29,35 +29,6 @@
   display: inline;
 }
 
-.modal > .close-button {
-  position: absolute;
-  left: calc(100% - 1rem - 48px);
-  top: 1rem;
-  border-radius: var(--border-radius);
-  background-color: transparent;
-  padding: 1rem;
-  outline: none;
-  border: none;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-.close-button::after {
-  display: inline-block;
-  content: '\2573';
-}
-
-@media (hover: hover) {
-  .close-button:hover {
-    background-color: var(--currency-card-bg-hover);
-  }
-}
-
 @media screen and (max-width: 768px) {
   .modal {
     width: 80%;
@@ -67,10 +38,5 @@
 @media screen and (max-width: 425px) {
   .modal {
     width: 90%;
-  }
-
-  .modal > .close-button {
-    font-size: 1rem;
-    left: calc(100% - 3rem);
   }
 }

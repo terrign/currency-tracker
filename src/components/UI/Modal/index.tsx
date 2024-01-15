@@ -1,3 +1,4 @@
+import { CloseButton } from 'components/UI/CloseButton';
 import { MouseEvent, PropsWithChildren } from 'react';
 
 import * as styles from './styles.module.css';
@@ -21,9 +22,7 @@ export function Modal({ children, onClose }: ModalProps) {
     <div className={styles.modalBackground} aria-hidden onClick={backGroundClickHandler} role="alertdialog">
       <div className={styles.modal}>
         {children}
-        <button type="button" onClick={closeButtonHandler} className={styles.closeButton}>
-          {' '}
-        </button>
+        <CloseButton onClick={closeButtonHandler} />
       </div>
     </div>
   );

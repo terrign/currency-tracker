@@ -1,0 +1,6 @@
+@media screen and (max-width: 768px) {
+  .home-wrapper {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}

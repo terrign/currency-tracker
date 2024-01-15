@@ -33,3 +33,9 @@
     height: 1.5rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .header-logo {
+    display: none;
+  }
+}

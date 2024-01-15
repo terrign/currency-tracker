@@ -4,7 +4,8 @@ import { RatesList } from 'components/RatesList';
 import { useAppContext } from 'hooks/useAppContext';
 import { useQueryRates } from 'hooks/useQueryRates';
 import { CurISO } from 'models';
-import { Outlet } from 'react-router-dom';
+
+import * as styles from './styles.module.css';
 
 export function Home() {
   const { preferredCurrency, setCurrency } = useAppContext();
@@ -16,8 +17,8 @@ export function Home() {
   };
 
   return (
-    <>
-      <div>
+    <section className={styles.homeWrapper}>
+      <h2>
         Quotes for{' '}
         <AutoComplete
           searchObject={CURRENCY_ISO_SYMBOL_MAP}
@@ -25,9 +26,8 @@ export function Home() {
           selectHandler={selectHandler}
           name="preferredCurrency"
         />
-      </div>
+      </h2>
       {result?.data && <RatesList data={result.data} />}
-      <Outlet />
-    </>
+    </section>
   );
 }

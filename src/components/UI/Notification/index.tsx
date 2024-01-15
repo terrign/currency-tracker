@@ -1,4 +1,5 @@
 import { DEFAULT_NOTIFICATION_EXPIRATION_TIME } from '@constants';
+import { CloseButton } from 'components/UI/CloseButton';
 import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { notificationObserver } from 'services/Observer';
@@ -61,9 +62,7 @@ export function Notification() {
       >
         <h5>{nHeader}</h5>
         <p>{message}</p>
-        <button type="button" onClick={closeButtonHandler} className={styles.closeButton}>
-          {' '}
-        </button>
+        <CloseButton onClick={closeButtonHandler} />
       </div>,
       document.body,
     )
