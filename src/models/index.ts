@@ -41,3 +41,8 @@ export enum Theme {
   LIGHT = 'light',
   DARK = 'dark',
 }
+
+export enum LocalStorageKeys {
+  PREFERRED_CURRENCY = 'preferredCurrency',
+  THEME = 'theme',
+}

@@ -1,8 +1,13 @@
+import { CurISO } from 'models';
 import { createContext } from 'react';
+import { getPreferredCurrencyFromLocal } from 'utils';
 
-import { AppContextType } from './models';
+export interface AppContextType {
+  preferredCurrency: CurISO;
+  setCurrency: (iso: CurISO) => void;
+}
 
 export const AppContext = createContext<AppContextType>({
-  preferredCurrency: 'USD',
-  dispatch: () => null,
+  preferredCurrency: getPreferredCurrencyFromLocal(),
+  setCurrency: () => {},
 });

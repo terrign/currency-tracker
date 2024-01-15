@@ -7,12 +7,12 @@ import { CurISO } from 'models';
 import { Outlet } from 'react-router-dom';
 
 export function Home() {
-  const { preferredCurrency, dispatch } = useAppContext();
+  const { preferredCurrency, setCurrency } = useAppContext();
 
   const { result } = useQueryRates(preferredCurrency);
 
   const selectHandler = (key: CurISO) => () => {
-    dispatch({ type: 'preferredCurrency', payload: key });
+    setCurrency(key);
   };
 
   return (
@@ -21,7 +21,7 @@ export function Home() {
         Quotes for{' '}
         <AutoComplete
           searchObject={CURRENCY_ISO_SYMBOL_MAP}
-          defaultValue={preferredCurrency ?? 'USD'}
+          defaultValue={preferredCurrency}
           selectHandler={selectHandler}
           name="preferredCurrency"
         />

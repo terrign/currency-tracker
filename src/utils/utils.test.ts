@@ -1,6 +1,5 @@
 import { Observer } from 'services/Observer';
 
-import { axiosCacheStorage } from './axiosCacheStorage';
 import { today, toStringDate } from './date';
 import { filterBanksByCurrency } from './filterBanksByCurrency';
 import { generateRandomCurrencyHistoryData } from './generateRandomCurrencyHistoryData';
@@ -85,11 +84,4 @@ describe('date funcs', () => {
   it('today() returns todays date', async () => {
     expect(today()).toBeTruthy();
   });
-});
-
-test('axiosCacheStorage has all required methods', async () => {
-  const { get, remove, set } = axiosCacheStorage;
-  expect(get).toBeTruthy();
-  expect(remove).toBeTruthy();
-  expect(set).toBeTruthy();
 });

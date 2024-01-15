@@ -1,46 +1,24 @@
-import localforage from 'localforage';
-import { CurISO } from 'models';
-import { PropsWithChildren, useCallback, useEffect, useMemo, useReducer } from 'react';
+import { CurISO, LocalStorageKeys } from 'models';
+import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
+import { getPreferredCurrencyFromLocal } from 'utils';
 
 import { AppContext } from './App.context';
-import { appReducer } from './App.reducer';
-import { AppReducerType } from './models';
 
 export function AppProvider({ children }: PropsWithChildren) {
-  const [{ preferredCurrency }, dispatch] = useReducer<AppReducerType>(appReducer, {
-    preferredCurrency: null,
-  });
+  const [preferredCurrency, setPreferredCurrency] = useState(() => getPreferredCurrencyFromLocal());
+
+  const setCurrency = useCallback((iso: CurISO) => {
+    setPreferredCurrency(iso);
+    localStorage.setItem(LocalStorageKeys.PREFERRED_CURRENCY, iso);
+  }, []);
 
   const contextValue = useMemo(
     () => ({
       preferredCurrency,
-      dispatch,
+      setCurrency,
     }),
     [preferredCurrency],
   );
-
-  const setPreferredCurrencyFromStorage = useCallback(async () => {
-    const savedPreferredCurrency = (await localforage.getItem('preferredCurrency')) as CurISO;
-
-    if (savedPreferredCurrency) {
-      dispatch({ type: 'preferredCurrency', payload: savedPreferredCurrency });
-    } else {
-      dispatch({ type: 'preferredCurrency', payload: 'USD' });
-      localforage.setItem('preferredCurrency', 'USD');
-    }
-  }, []);
-
-  useEffect(() => {
-    setPreferredCurrencyFromStorage();
-  }, [setPreferredCurrencyFromStorage]);
-
-  const setToLocal = useCallback(async () => {
-    localforage.setItem('preferredCurrency', preferredCurrency);
-  }, [preferredCurrency]);
-
-  useEffect(() => {
-    setToLocal();
-  }, [preferredCurrency, setToLocal]);
 
   return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 }

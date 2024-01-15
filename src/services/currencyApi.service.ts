@@ -1,9 +1,8 @@
 import { CACHE_EXPIRATION_TIME_MS } from '@constants';
 import { CURRENCY_LIST } from '@constants';
 import axios from 'axios';
-import { AxiosCacheInstance, CacheAxiosResponse, setupCache } from 'axios-cache-interceptor';
+import { AxiosCacheInstance, buildWebStorage, CacheAxiosResponse, setupCache } from 'axios-cache-interceptor';
 import { CurISO, CurrencyRates } from 'models';
-import { axiosCacheStorage } from 'utils';
 
 class CurrencyApi {
   private api: AxiosCacheInstance;
@@ -19,7 +18,7 @@ class CurrencyApi {
         adapter: ['http', 'xhr'],
       }),
       {
-        storage: axiosCacheStorage,
+        storage: buildWebStorage(localStorage, 'currencyapi-cache'),
         ttl: CACHE_EXPIRATION_TIME_MS,
         headerInterpreter: () => CACHE_EXPIRATION_TIME_MS,
       },
