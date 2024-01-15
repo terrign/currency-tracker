@@ -1,22 +1,21 @@
 class Observer {
+  private observers: ((data: unknown) => void)[];
   constructor() {
-    // @ts-expect-error no types
     this.observers = [];
   }
-  // @ts-expect-error no types
-  subscribe(func) {
-    // @ts-expect-error no types
+
+  subscribe(func: (data: unknown) => void) {
     this.observers.push(func);
   }
-  // @ts-expect-error no types
-  unsubscribe(inputFunc) {
-    // @ts-expect-error no types
+
+  unsubscribe(inputFunc: (data: unknown) => void) {
     this.observers = this.observers.filter((func) => func !== inputFunc);
   }
-  // @ts-expect-error no types
-  notify(data) {
-    // @ts-expect-error no types
-    this.observers.forEach((func) => func(data));
+
+  notify(data: unknown) {
+    this.observers.forEach((func) => {
+      func(data);
+    });
   }
 }
 

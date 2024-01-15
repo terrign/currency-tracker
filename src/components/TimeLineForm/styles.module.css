@@ -8,7 +8,6 @@
 .time-form > label > span {
   flex: 1 0 30%;
   text-align: right;
-  text-wrap: nowrap;
 }
 
 .time-form label {
@@ -25,7 +24,7 @@
 }
 
 .time-line-header {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   text-align: center;
   text-wrap: nowrap;
   margin-bottom: 1rem;

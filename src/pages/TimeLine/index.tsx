@@ -1,6 +1,6 @@
 import { ChartDataType } from 'components/Chart';
 import { TimeLineForm, TimeLineFormState } from 'components/TimeLineForm';
-import { TimeLineUpdateModalContent } from 'components/TimeLineForm/TimeLineUpdateModalContent';
+import { TimeLineUpdateModalContent } from 'components/TimeLineUpdateModalContent';
 import { Button } from 'components/UI';
 import { Loader } from 'components/UI';
 import { Modal } from 'components/UI';

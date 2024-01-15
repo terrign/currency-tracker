@@ -18,7 +18,7 @@ test('Submits data, shows notification', async () => {
     // eslint-disable-next-line prefer-destructuring
     value = values.y[0];
   };
-
+  // @ts-expect-error wrong type
   timeLineDataObserver.subscribe(handler);
 
   act(() => {
@@ -41,10 +41,10 @@ test('Submits data, shows notification', async () => {
   const close = screen.getByLabelText(/Close/);
 
   expect(date).toHaveValue(data[0].x);
-  expect(open).toHaveValue(data[0].y[0]);
-  expect(high).toHaveValue(data[0].y[1]);
-  expect(low).toHaveValue(data[0].y[2]);
-  expect(close).toHaveValue(data[0].y[3]);
+  expect(open).toHaveValue(String(data[0].y[0]));
+  expect(high).toHaveValue(String(data[0].y[1]));
+  expect(low).toHaveValue(String(data[0].y[2]));
+  expect(close).toHaveValue(String(data[0].y[3]));
 
   await waitFor(() => {
     act(() => {
@@ -59,6 +59,6 @@ test('Submits data, shows notification', async () => {
   });
 
   expect(value).toBe(String(+open.value));
-
+  // @ts-expect-error wrong type
   timeLineDataObserver.unsubscribe(handler);
 });

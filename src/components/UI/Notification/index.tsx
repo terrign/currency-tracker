@@ -5,11 +5,11 @@ import { notificationObserver } from 'services/Observer';
 
 import * as styles from './styles.module.css';
 
-interface NotificationData {
+export interface NotificationData {
   status: 'error' | 'success' | 'warning';
   header: 'string';
   info: 'string';
-  expirationMs?: number;
+  expirationMs: number;
 }
 
 export function Notification() {
@@ -23,13 +23,14 @@ export function Notification() {
     setNotificationVisible(false);
   };
 
-  const onNotify = useCallback((data: NotificationData) => {
-    setMessage(data.info);
-    setNHeader(data.header);
-    setStatus(data.status);
+  const onNotify = useCallback((data: unknown) => {
+    const { info, header, status, expirationMs } = data as NotificationData;
+    setMessage(info);
+    setNHeader(header);
+    setStatus(status);
     setNotificationVisible(true);
-    if (data.expirationMs) {
-      setExpiration(data.expirationMs);
+    if (expirationMs) {
+      setExpiration(expirationMs);
     }
   }, []);
 

@@ -18,15 +18,15 @@ export const generateRandomCurrencyHistoryData = (startDate: Date): ChartDataTyp
 
   const result: ChartDataType[] = [];
 
-  let currentRate = Math.random() * 10 ** randomBetween(-3, 3);
+  let currentRate = Math.random() * 10 ** randomBetween(-4, 4);
 
   let currentDate = startDate.getTime();
 
   for (let i = 0; i <= daysInMonth; i += 1) {
-    const rateOpen = Number(getRandomOpenFromBase(currentRate).toFixed(12));
-    const rateClose = Number(getRandomCloseFromBase(currentRate).toFixed(12));
-    const rateHigh = Number(getRandomHighFromBase(currentRate).toFixed(12));
-    const rateLow = Number(getRandomLowFromBase(currentRate).toFixed(12));
+    const rateOpen = getRandomOpenFromBase(currentRate);
+    const rateClose = getRandomCloseFromBase(rateOpen);
+    const rateHigh = getRandomHighFromBase(Math.max(rateOpen, rateClose));
+    const rateLow = getRandomLowFromBase(Math.min(rateOpen, rateClose));
     const date = toStringDate(new Date(currentDate));
 
     result.push({ x: date, y: [rateOpen, rateHigh, rateLow, rateClose] });

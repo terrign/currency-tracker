@@ -29,3 +29,10 @@ export interface CurrencyRates {
   };
   data: Record<CurISO, CurrencyRate>;
 }
+
+export enum OHLC {
+  OPEN = 'open',
+  HIGH = 'high',
+  LOW = 'low',
+  CLOSE = 'close',
+}
