@@ -38,6 +38,10 @@
   padding: 0.25rem;
 }
 
+.nothing-found {
+  padding: 0.25rem;
+}
+
 @media (hover: hover) {
   .autocomplete-option > button:hover {
     background-color: var(--bg);

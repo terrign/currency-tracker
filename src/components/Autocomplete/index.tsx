@@ -85,13 +85,17 @@ export function AutoComplete({ searchObject, defaultValue, selectHandler, name, 
       />
       {showSuggestions && (
         <ul className={styles.suggestionsList}>
-          {currentSuggestions.map((currencyKey) => (
-            <li key={currencyKey} className={styles.autocompleteOption}>
-              <button type="button" onClick={optionSelectHandler(currencyKey)}>
-                {searchObject[currencyKey].name}
-              </button>
-            </li>
-          ))}
+          {currentSuggestions.length > 0 ? (
+            currentSuggestions.map((currencyKey) => (
+              <li key={currencyKey} className={styles.autocompleteOption}>
+                <button type="button" onClick={optionSelectHandler(currencyKey)}>
+                  {searchObject[currencyKey].name}
+                </button>
+              </li>
+            ))
+          ) : (
+            <li className={styles.nothingFound}>Nothing found</li>
+          )}
         </ul>
       )}
     </div>
