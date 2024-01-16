@@ -10,7 +10,7 @@ class CurrencyApi {
   constructor() {
     this.api = setupCache(
       axios.create({
-        baseURL: 'https://api.currencyapi.com/v3/',
+        baseURL: process.env.CURRENCY_API_URL,
         headers: {
           apikey: process.env.CURRENCY_API_KEY,
         },

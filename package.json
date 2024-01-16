@@ -14,7 +14,8 @@
     "dev": "webpack serve --mode=development --node-env=development",
     "prepare": "husky install",
     "test": "jest --coverage.enabled --coverage.all",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "lint-staged": {
     "src/**/*.{js,mjs,cjs,ts,mts,jsx,tsx}": [
@@ -43,6 +44,7 @@
     "@babel/preset-env": "^7.23.6",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
+    "@cypress/webpack-preprocessor": "^6.0.1",
     "@testing-library/jest-dom": "^6.1.6",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.2",

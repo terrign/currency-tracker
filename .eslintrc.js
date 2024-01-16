@@ -24,5 +24,5 @@ module.exports = {
       version: 'detect',
     },
   },
-  ignorePatterns: ['/*.css', '*.eslintrc.js', '*.config.js', '/__test__/*', '/cypress/*'],
+  ignorePatterns: ['/*.css', '*.eslintrc.js', '*.config.js', '*.config.ts', '/__test__/*', '/cypress/*'],
 };

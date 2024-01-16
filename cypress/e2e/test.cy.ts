@@ -1,5 +1,15 @@
-describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('http://localhost:8080/');
+describe('Home page', () => {
+  it('Opens', () => {
+    cy.visit('/');
+  });
+
+  it('Has header', () => {
+    cy.visit('/');
+    cy.get('header').should('exist');
+  });
+
+  it('Has Navigation', () => {
+    cy.visit('/');
+    cy.get('header nav').should('exist');
   });
 });

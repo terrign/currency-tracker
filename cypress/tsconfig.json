@@ -1,7 +1,29 @@
 {
   "compilerOptions": {
-    "types": ["cypress", "node"]
+    "types": ["cypress", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["../src/components/*"],
+      "assets/*": ["../src/assets/*"],
+      "context/*": ["../src/context/*"],
+      "hooks/*": ["../src/hooks/*"],
+      "pages/*": ["../src/pages/*"],
+      "services/*": ["../src/services/*"],
+      "router/*": ["../src/router/*"],
+      "types": ["../src/types/index"],
+      "utils": ["../src/utils/index"],
+      "@constants": ["../src/constants/index"],
+      "resmock": ["../__test__/__mocks__/currencyRatesResMock"]
+    }
   },
-  "include": ["./cypress.config.ts", "cypress", "**/*.cy.tsx", "**/*.cy.ts"],
+  "include": [
+    "./cypress.config.ts",
+    "cypress",
+    "**/*.cy.tsx",
+    "**/*.cy.ts",
+    "../src/**/*.ts",
+    "../src/**/*.tsx",
+    "../__test__/__mocks__/currencyRatesResMock.ts"
+  ],
   "extends": "../tsconfig.json"
 }
