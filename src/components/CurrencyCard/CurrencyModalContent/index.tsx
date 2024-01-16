@@ -35,7 +35,7 @@ export function CurrencyModalContent({ iso }: { iso: CurISO }) {
         />
       </div>
 
-      <p>Rate: {result && `${result.data[currency!].value}${CURRENCY_ISO_SYMBOL_MAP[currency!].symbol}`}</p>
+      <p>Rate: {result && `${result.data[currency].value}${CURRENCY_ISO_SYMBOL_MAP[currency].symbol}`}</p>
     </div>
   );
 }

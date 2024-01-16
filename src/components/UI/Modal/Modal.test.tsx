@@ -43,8 +43,8 @@ describe('Modal renders, fires callbacks on close', () => {
         <p>text</p>
       </Modal>,
     );
-    const btn = document.querySelector('button');
-    fireEvent.click(btn!);
+    const btn = document.querySelector('button') as HTMLButtonElement;
+    fireEvent.click(btn);
     expect(value).toBe('closed');
     fireEvent.click(screen.getByRole('alertdialog', { hidden: true }));
     expect(value).toBe('closedclosed');

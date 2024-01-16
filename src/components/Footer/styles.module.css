@@ -32,28 +32,6 @@
   flex: 0 2 40%;
 }
 
-.footer-links {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex: 0 0 40%;
-  max-width: 320px;
-}
-
-.footer-links div {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.footer-links div a {
-  color: var(--font-color-dark2);
-}
-
-.footer-links div a:nth-child(1) {
-  color: var(--font-color-main);
-}
-
 .footer-copyright {
   width: 100%;
   text-align: center;

@@ -10,7 +10,7 @@ import * as styles from './styles.module.css';
 export function Header() {
   const { theme, toggleTheme } = useTheme();
 
-  const toggleHandler = () => toggleTheme!();
+  const toggleHandler = () => toggleTheme();
   return (
     <header className={styles.header}>
       <Link to={Route.HOME}>

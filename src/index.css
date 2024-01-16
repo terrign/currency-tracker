@@ -53,6 +53,7 @@ body.theme-dark {
   --currency-card-bg-hover: rgb(65, 65, 73);
   --symbol-bg: rgb(20, 46, 103);
   --modal-bg: rgb(70, 70, 82, 0.5);
+  --menu-bg: rgb(43 43 43);
 }
 
 body.theme-light {
@@ -65,6 +66,7 @@ body.theme-light {
   --currency-card-bg-hover: rgba(166, 209, 161, 0.61);
   --symbol-bg: rgb(38, 89, 199);
   --modal-bg: rgb(197, 197, 197, 0.5);
+  --menu-bg: rgb(163, 163, 163);
 }
 
 .gradient-text {

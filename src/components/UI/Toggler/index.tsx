@@ -11,10 +11,12 @@ export function Toggler({ checked, onChange }: TogglerProps) {
   const checkBoxRef = useRef<HTMLInputElement>(null);
 
   const clickHandler = () => {
-    const input = checkBoxRef.current!;
-    input.checked = !input.checked;
-    if (onChange) {
-      onChange();
+    const input = checkBoxRef.current;
+    if (input) {
+      input.checked = !input.checked;
+      if (onChange) {
+        onChange();
+      }
     }
   };
 

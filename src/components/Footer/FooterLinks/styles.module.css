@@ -1,0 +1,30 @@
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex: 0 0 40%;
+  max-width: 320px;
+}
+
+.footer-links > li > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--font-color-dark2);
+}
+
+.footer-links li > ul > li:nth-child(1) > a {
+  color: var(--font-color-main);
+}
+
+@media screen and (max-width: 768px) {
+  .footer-links {
+    width: 100%;
+
+    flex: none;
+    margin: 0 auto;
+  }
+}

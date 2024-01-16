@@ -57,14 +57,16 @@ export function AutoComplete({ searchObject, defaultValue, selectHandler, name, 
   };
 
   const optionSelectHandler = (key: CurISO) => () => {
-    searchRef.current!.value = searchObject[key].name;
+    if (searchRef.current) {
+      searchRef.current.value = searchObject[key].name;
+    }
     selectHandler(key)();
     setShowSuggestions(false);
   };
 
   useEffect(() => {
-    if (defaultValue) {
-      searchRef.current!.value = searchObject[defaultValue].name;
+    if (defaultValue && searchRef.current) {
+      searchRef.current.value = searchObject[defaultValue].name;
     }
   }, [defaultValue, searchObject]);
 

@@ -4,7 +4,10 @@ import { getInitialThemeFromLocal } from 'utils';
 
 export interface ThemeContextType {
   theme: Theme;
-  toggleTheme?: (() => void) | null;
+  toggleTheme: () => void;
 }
 
-export const ThemeContext = createContext<ThemeContextType>({ theme: getInitialThemeFromLocal(), toggleTheme: null });
+export const ThemeContext = createContext<ThemeContextType>({
+  theme: getInitialThemeFromLocal(),
+  toggleTheme: () => {},
+});

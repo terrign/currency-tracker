@@ -1,6 +1,6 @@
 import { DEFAULT_NOTIFICATION_EXPIRATION_TIME } from '@constants';
 import { CloseButton } from 'components/UI/CloseButton';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { notificationObserver } from 'services/Observer';
 
@@ -24,33 +24,31 @@ export function Notification() {
     setNotificationVisible(false);
   };
 
-  const onNotify = useCallback((data: unknown) => {
-    const { info, header, status, expirationMs } = data as NotificationData;
-    setMessage(info);
-    setNHeader(header);
-    setStatus(status);
-    setNotificationVisible(true);
-    if (expirationMs) {
-      setExpiration(expirationMs);
-    }
-  }, []);
-
-  const clearNotification = useCallback(() => {
-    if (notificationVisible) {
-      setNotificationVisible(false);
-      setExpiration(DEFAULT_NOTIFICATION_EXPIRATION_TIME);
-    }
-  }, [notificationVisible]);
-
   useEffect(() => {
+    const clearNotification = () => {
+      if (notificationVisible) {
+        setNotificationVisible(false);
+        setExpiration(DEFAULT_NOTIFICATION_EXPIRATION_TIME);
+      }
+    };
     const id = setTimeout(clearNotification, expiration);
     return () => clearTimeout(id);
-  }, [clearNotification, expiration, notificationVisible]);
+  }, [expiration, notificationVisible]);
 
   useEffect(() => {
+    const onNotify = (data: unknown) => {
+      const { info, header, status, expirationMs } = data as NotificationData;
+      setMessage(info);
+      setNHeader(header);
+      setStatus(status);
+      setNotificationVisible(true);
+      if (expirationMs) {
+        setExpiration(expirationMs);
+      }
+    };
     notificationObserver.subscribe(onNotify);
     return () => notificationObserver.unsubscribe(onNotify);
-  }, [onNotify]);
+  }, []);
 
   return (
     notificationVisible &&
