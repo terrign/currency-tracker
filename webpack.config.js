@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { merge } = require('webpack-merge');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const Dotenv = require('dotenv-webpack');
 const common = {
   entry: './src/index.tsx',
   target: 'web',
@@ -13,6 +13,9 @@ const common = {
     publicPath: '/',
   },
   plugins: [
+    new Dotenv({
+      path: path.resolve(__dirname, '.env'),
+    }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'),
@@ -62,7 +65,7 @@ const common = {
       'pages': path.resolve(__dirname, 'src/pages/'),
       'router': path.resolve(__dirname, 'src/router/'),
       'services': path.resolve(__dirname, 'src/services/'),
-      'models': path.resolve(__dirname, 'src/models/index'),
+      'types': path.resolve(__dirname, 'src/types/index'),
       'utils': path.resolve(__dirname, 'src/utils/index'),
       '@constants': path.resolve(__dirname, 'src/constants/index'),
     },

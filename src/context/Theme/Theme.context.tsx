@@ -1,5 +1,5 @@
-import { Theme } from 'models';
 import { createContext } from 'react';
+import { Theme } from 'types';
 import { getInitialThemeFromLocal } from 'utils';
 
 export interface ThemeContextType {

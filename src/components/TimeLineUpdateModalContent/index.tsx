@@ -1,7 +1,7 @@
 import { Button } from 'components/UI';
-import { ChartDataType, OHLC } from 'models';
 import { ChangeEvent, ChangeEventHandler, Component, FormEvent } from 'react';
 import { notificationObserver, timeLineDataObserver } from 'services/Observer';
+import { ChartDataType, OHLC } from 'types';
 import { capitalizeFirstLetter } from 'utils';
 
 import { OHLCInput } from './OHLCInput';

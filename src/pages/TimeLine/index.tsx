@@ -3,10 +3,10 @@ import { TimeLineUpdateModalContent } from 'components/TimeLineUpdateModalConten
 import { Button } from 'components/UI';
 import { Loader } from 'components/UI';
 import { Modal } from 'components/UI';
-import { ChartDataType, NoProps } from 'models';
 import { Component, lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 import { timeLineDataObserver } from 'services/Observer';
+import { ChartDataType, NoProps } from 'types';
 import { generateRandomCurrencyHistoryData } from 'utils';
 
 import * as styles from './styles.module.css';

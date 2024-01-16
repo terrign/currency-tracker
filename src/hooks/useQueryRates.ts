@@ -1,7 +1,7 @@
-import { CurISO, CurrencyRates } from 'models';
 import { useCallback, useEffect, useState } from 'react';
 import { currencyApi } from 'services/currencyApi.service';
 import { notificationObserver } from 'services/Observer';
+import { CurISO, CurrencyRates } from 'types';
 
 export const useQueryRates = (iso: CurISO | null) => {
   const [result, setResult] = useState<CurrencyRates | null>();

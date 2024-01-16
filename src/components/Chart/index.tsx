@@ -1,5 +1,5 @@
-import { ChartDataType } from 'models';
 import ReactApexChart from 'react-apexcharts';
+import { ChartDataType } from 'types';
 
 import { CHART_OPTIONS } from './constants';
 

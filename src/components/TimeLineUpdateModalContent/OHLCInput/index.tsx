@@ -1,6 +1,6 @@
 import { OHLC_STEP } from '@constants';
-import { OHLC } from 'models';
 import { ChangeEventHandler } from 'react';
+import { OHLC } from 'types';
 import { capitalizeFirstLetter } from 'utils';
 
 import * as styles from './styles.module.css';

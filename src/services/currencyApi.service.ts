@@ -2,7 +2,7 @@ import { CACHE_EXPIRATION_TIME_MS } from '@constants';
 import { CURRENCY_LIST } from '@constants';
 import axios from 'axios';
 import { AxiosCacheInstance, buildWebStorage, CacheAxiosResponse, setupCache } from 'axios-cache-interceptor';
-import { CurISO, CurrencyRates } from 'models';
+import { CurISO, CurrencyRates } from 'types';
 
 class CurrencyApi {
   private api: AxiosCacheInstance;
@@ -12,8 +12,7 @@ class CurrencyApi {
       axios.create({
         baseURL: 'https://api.currencyapi.com/v3/',
         headers: {
-          // apikey: 'cur_live_9TPgHZzZrB7uPZqsMkOXDqYgV3gekPGDGgZ8s1B7',
-          apikey: 'cur_live_jR8JoknFqGzwa3Da5vonQXNwpQHkkUBrzZYgyhE9',
+          apikey: process.env.CURRENCY_API_KEY,
         },
         adapter: ['http', 'xhr'],
       }),

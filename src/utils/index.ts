@@ -4,7 +4,7 @@ import { filterBanksByCurrency } from './filterBanksByCurrency';
 import { generateRandomCurrencyHistoryData } from './generateRandomCurrencyHistoryData';
 import { getPreferredCurrencyFromLocal } from './getPreferredCurrencyFromLocal';
 import { includes } from './includes';
-import { getInitialThemeFromLocal, matchesDarkThemeMedia } from './theme';
+import { getInitialThemeFromLocal, matchesDarkThemeMedia, setDomTheme } from './theme';
 
 export {
   capitalizeFirstLetter,
@@ -14,6 +14,7 @@ export {
   getPreferredCurrencyFromLocal,
   includes,
   matchesDarkThemeMedia,
+  setDomTheme,
   today,
   toStringDate,
 };

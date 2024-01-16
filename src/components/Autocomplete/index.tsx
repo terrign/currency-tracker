@@ -1,6 +1,6 @@
 import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
-import { CurISO } from 'models';
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { CurISO } from 'types';
 import { includes } from 'utils';
 
 import * as styles from './styles.module.css';
@@ -20,31 +20,28 @@ export function AutoComplete({ searchObject, defaultValue, selectHandler, name, 
 
   const [currentSuggestions, setCurrentSuggestions] = useState<string[]>([]);
 
-  const getSuggestions = useCallback(
-    (value: string) => {
-      const result: string[] = [];
+  const getSuggestions = (value: string) => {
+    const result: string[] = [];
 
-      for (const key in searchObject) {
-        const currencyObject = searchObject[key];
-        if (includes(value, key)) {
-          result.push(key);
-          continue;
-        }
-
-        if (includes(value, currencyObject.name)) {
-          result.push(key);
-          continue;
-        }
-
-        if (includes(value, currencyObject.symbol)) {
-          result.push(key);
-        }
+    for (const key in searchObject) {
+      const currencyObject = searchObject[key];
+      if (includes(value, key)) {
+        result.push(key);
+        continue;
       }
 
-      return result;
-    },
-    [searchObject],
-  );
+      if (includes(value, currencyObject.name)) {
+        result.push(key);
+        continue;
+      }
+
+      if (includes(value, currencyObject.symbol)) {
+        result.push(key);
+      }
+    }
+
+    return result;
+  };
 
   const updateSuggestions = (value: string) => {
     setCurrentSuggestions(getSuggestions(value));

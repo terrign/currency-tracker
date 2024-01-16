@@ -1,8 +1,8 @@
 import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { Modal } from 'components/UI';
 import { useModal } from 'hooks/useModal';
-import { CurISO } from 'models';
 import { createPortal } from 'react-dom';
+import { CurISO } from 'types';
 
 import { CurrencyModalContent } from './CurrencyModalContent';
 import { CurrencySymbol } from './CurrencySymbol';

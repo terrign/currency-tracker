@@ -1,4 +1,4 @@
-import { BankMapInfo } from 'models';
+import { BankMapInfo } from 'types';
 
 export const BANK_MAP_INFO: BankMapInfo[] = [
   {

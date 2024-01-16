@@ -1,4 +1,4 @@
-import { Currency } from 'models';
+import { Currency } from 'types';
 
 export const CURRENCY_ISO_SYMBOL_MAP: Record<string, Currency> = {
   AUD: {

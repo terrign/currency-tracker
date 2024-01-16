@@ -3,7 +3,7 @@ import { AutoComplete } from 'components/Autocomplete';
 import { RatesList } from 'components/RatesList';
 import { useAppContext } from 'hooks/useAppContext';
 import { useQueryRates } from 'hooks/useQueryRates';
-import { CurISO } from 'models';
+import { CurISO } from 'types';
 
 import * as styles from './styles.module.css';
 

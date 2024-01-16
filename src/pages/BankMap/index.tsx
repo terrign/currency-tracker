@@ -2,8 +2,8 @@ import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { AutoComplete } from 'components/Autocomplete';
 import { MarkersList } from 'components/BankMap/MarkersList';
 import { Loader } from 'components/UI';
-import { CurISO, NoProps } from 'models';
 import { Component, lazy, Suspense } from 'react';
+import { CurISO, NoProps } from 'types';
 import { filterBanksByCurrency } from 'utils';
 
 import * as styles from './styles.module.css';

@@ -1,5 +1,5 @@
-import { BankMapInfo } from 'models';
 import { Marker } from 'react-map-gl/maplibre';
+import { BankMapInfo } from 'types';
 
 export function MarkersList({ markers }: { markers: BankMapInfo[] }) {
   return (

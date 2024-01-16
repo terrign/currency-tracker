@@ -9,7 +9,7 @@
       "pages/*": ["./src/pages/*"],
       "services/*": ["./src/services/*"],
       "router/*": ["./src/router/*"],
-      "models": ["./src/models/index"],
+      "types": ["./src/types/index"],
       "utils": ["./src/utils/index"],
       "@constants": ["./src/constants/index"],
       "mocks/*": ["./__test__/__mocks__/*"]

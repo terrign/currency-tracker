@@ -3,8 +3,8 @@ import { AutoComplete } from 'components/Autocomplete';
 import { CurrencySymbol } from 'components/CurrencyCard/CurrencySymbol';
 import { useAppContext } from 'hooks/useAppContext';
 import { useQueryRates } from 'hooks/useQueryRates';
-import { CurISO } from 'models';
 import { useState } from 'react';
+import { CurISO } from 'types';
 
 import * as styles from './styles.module.css';
 

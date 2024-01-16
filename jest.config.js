@@ -15,7 +15,7 @@ module.exports = {
     '^pages/(.*)$': '<rootDir>/src/pages/$1',
     '^router/(.*)$': '<rootDir>/src/router/$1',
     '^services/(.*)$': '<rootDir>/src/services/$1',
-    '^models$': '<rootDir>/src/models/index',
+    '^types$': '<rootDir>/src/types/index',
     '^utils': '<rootDir>/src/utils/index',
     '^@constants': '<rootDir>/src/constants/index',
     '^mocks/(.*)$': '<rootDir>/__test__/__mocks__/$1',

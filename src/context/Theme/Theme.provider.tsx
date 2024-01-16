@@ -1,44 +1,34 @@
-import { Theme } from 'models';
-import { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
-import { getInitialThemeFromLocal } from 'utils';
+import { useTheme } from 'hooks/useTheme';
+import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
+import { Theme } from 'types';
+import { setDomTheme } from 'utils';
 
 import { ThemeContext } from './Theme.context';
 
 export function ThemeProvider({ children }: PropsWithChildren) {
-  const [theme, setTheme] = useState<Theme>(() => getInitialThemeFromLocal());
-  const bodyRef = useRef(document.body);
-  const documentRef = useRef(document.documentElement);
+  const defaultTheme = useTheme().theme;
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
 
-  const setAppTheme = (newTheme: Theme) => {
+  const setAppTheme = useCallback((newTheme: Theme) => {
     setTheme(newTheme);
-    bodyRef.current.className = `theme-${newTheme}`;
-    documentRef.current.style.colorScheme = newTheme;
-    localStorage.setItem('theme', newTheme);
-  };
+    setDomTheme(newTheme);
+  }, []);
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     if (theme === Theme.LIGHT) {
       setAppTheme(Theme.DARK);
       return;
     }
     setAppTheme(Theme.LIGHT);
-  };
+  }, [theme, setAppTheme]);
 
   const contextValue = useMemo(
     () => ({
       theme,
       toggleTheme,
     }),
-    [theme],
+    [theme, toggleTheme],
   );
-
-  useEffect(() => {
-    if (theme === Theme.DARK) {
-      setAppTheme(Theme.DARK);
-      return;
-    }
-    setAppTheme(Theme.LIGHT);
-  }, [theme]);
 
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 }

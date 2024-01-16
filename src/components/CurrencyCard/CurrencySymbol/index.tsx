@@ -1,5 +1,5 @@
 import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
-import { CurISO } from 'models';
+import { CurISO } from 'types';
 
 import * as styles from './styles.module.css';
 

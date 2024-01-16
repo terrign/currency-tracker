@@ -1,11 +1,12 @@
-import { CurISO, LocalStorageKeys } from 'models';
+import { useAppContext } from 'hooks/useAppContext';
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
-import { getPreferredCurrencyFromLocal } from 'utils';
+import { CurISO, LocalStorageKeys } from 'types';
 
 import { AppContext } from './App.context';
 
 export function AppProvider({ children }: PropsWithChildren) {
-  const [preferredCurrency, setPreferredCurrency] = useState(() => getPreferredCurrencyFromLocal());
+  const savedpreferredCurrency = useAppContext().preferredCurrency;
+  const [preferredCurrency, setPreferredCurrency] = useState(savedpreferredCurrency);
 
   const setCurrency = useCallback((iso: CurISO) => {
     setPreferredCurrency(iso);
@@ -17,7 +18,7 @@ export function AppProvider({ children }: PropsWithChildren) {
       preferredCurrency,
       setCurrency,
     }),
-    [preferredCurrency],
+    [preferredCurrency, setCurrency],
   );
 
   return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;

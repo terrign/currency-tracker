@@ -1,8 +1,8 @@
 import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { Button } from 'components/UI';
-import { CurISO } from 'models';
 import { ChangeEvent, Component, FormEvent } from 'react';
 import { notificationObserver } from 'services/Observer';
+import { CurISO } from 'types';
 import { today } from 'utils';
 
 import { AutoComplete } from '../Autocomplete';

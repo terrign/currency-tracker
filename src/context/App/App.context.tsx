@@ -1,5 +1,5 @@
-import { CurISO } from 'models';
 import { createContext } from 'react';
+import { CurISO } from 'types';
 import { getPreferredCurrencyFromLocal } from 'utils';
 
 export interface AppContextType {
