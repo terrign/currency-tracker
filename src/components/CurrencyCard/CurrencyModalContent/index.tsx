@@ -20,7 +20,7 @@ export function CurrencyModalContent({ iso }: { iso: CurISO }) {
   };
 
   return (
-    <div className={styles.currencyModal}>
+    <section className={styles.currencyModal}>
       <div style={{ display: 'flex', gap: '1rem' }}>
         <CurrencySymbol iso={iso} />
         <p className={styles.currencyName}>{CURRENCY_ISO_SYMBOL_MAP[iso].name}</p>
@@ -36,6 +36,6 @@ export function CurrencyModalContent({ iso }: { iso: CurISO }) {
       </div>
 
       <p>Rate: {result && `${result.data[currency].value}${CURRENCY_ISO_SYMBOL_MAP[currency].symbol}`}</p>
-    </div>
+    </section>
   );
 }

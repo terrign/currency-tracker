@@ -53,7 +53,7 @@ export function Notification() {
   return (
     notificationVisible &&
     createPortal(
-      <div
+      <section
         className={`${styles.notification} ${
           status === 'success' ? styles.notificationSuccess : styles.notificationError
         }`}
@@ -61,7 +61,7 @@ export function Notification() {
         <h5>{nHeader}</h5>
         <p>{message}</p>
         <CloseButton onClick={closeButtonHandler} />
-      </div>,
+      </section>,
       document.body,
     )
   );

@@ -11,10 +11,10 @@ export function Footer() {
         <img src={logoSvg} alt="icon" />
         <p className="gradient-text">Modsen Currency Tracker</p>
       </h3>
-      <div className={styles.footerContent}>
+      <section className={styles.footerContent}>
         <p>{FOOTER_SECTION_TEXT}</p>
         <FooterLinks />
-      </div>
+      </section>
       <p className={styles.footerCopyright}>{COPYRIGHT_TEXT}</p>
     </footer>
   );

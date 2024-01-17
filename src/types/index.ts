@@ -46,3 +46,10 @@ export enum LocalStorageKeys {
   PREFERRED_CURRENCY = 'preferredCurrency',
   THEME = 'theme',
 }
+
+export enum Route {
+  HOME = '/',
+  TIMELINE = '/timeline',
+  BANKMAP = '/bankmap',
+  CONTACTS = '/contacts',
+}

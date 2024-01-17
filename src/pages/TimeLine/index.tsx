@@ -35,11 +35,12 @@ export class TimeLine extends Component<NoProps, TimeLineState> {
     timeLineDataObserver.unsubscribe(this.updateDayData);
   }
 
-  updateDayData = (newData: ChartDataType) => {
+  updateDayData = (newData: unknown) => {
+    const convertedNewData = newData as ChartDataType;
     this.setState((prev) => ({
       chartData: prev.chartData.map((data) => {
-        if (data.x === newData.x) {
-          return newData;
+        if (data.x === convertedNewData.x) {
+          return convertedNewData;
         }
         return data;
       }),
@@ -59,25 +60,26 @@ export class TimeLine extends Component<NoProps, TimeLineState> {
   };
 
   render() {
+    const { chartData, showModal } = this.state;
     return (
       <>
-        <div className={styles.wrapper}>
+        <section className={styles.wrapper}>
           <TimeLineForm submitHandler={this.submitHandler} />
-          <Button onClick={this.openModal} disabled={this.state.chartData.length === 0}>
+          <Button onClick={this.openModal} disabled={chartData.length === 0}>
             Update
           </Button>
 
-          {this.state.showModal &&
+          {showModal &&
             createPortal(
               <Modal onClose={this.closeModal}>
-                <TimeLineUpdateModalContent data={this.state.chartData} onSubmit={this.closeModal} />
+                <TimeLineUpdateModalContent data={chartData} onSubmit={this.closeModal} />
               </Modal>,
               document.body,
             )}
-        </div>
-        {this.state.chartData.length > 0 && (
+        </section>
+        {chartData.length > 0 && (
           <Suspense fallback={<Loader />}>
-            <Chart data={this.state.chartData} />
+            <Chart data={chartData} />
           </Suspense>
         )}
       </>

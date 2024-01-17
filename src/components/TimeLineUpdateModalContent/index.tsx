@@ -149,7 +149,9 @@ export class TimeLineUpdateModalContent extends Component<
           <OHLCInput name={OHLC.HIGH} value={high} error={highError} onChange={this.OHLCChangeHandler} />
           <OHLCInput name={OHLC.LOW} value={low} error={lowError} onChange={this.OHLCChangeHandler} />
           <OHLCInput name={OHLC.CLOSE} value={close} error={closeError} onChange={this.OHLCChangeHandler} />
-          <Button disabled={this.hasError()}>Submit</Button>
+          <Button disabled={this.hasError()} type="submit">
+            Submit
+          </Button>
         </form>
       </>
     );

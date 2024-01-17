@@ -1,16 +1,11 @@
 import { defineConfig } from 'cypress';
 import webpackPreprocessor from '@cypress/webpack-preprocessor';
 import path from 'path';
-
-console.log(path.resolve(__dirname, 'src/components/'));
-console.log(path.resolve(__dirname, 'src/components/'));
-console.log(path.resolve(__dirname, 'src/components/'));
-console.log(path.resolve(__dirname, '../../__test__/__mocks__/'));
 import Dotenv from 'dotenv-webpack';
 
 export default defineConfig({
   e2e: {
-    supportFile: false,
+    supportFile: path.resolve(__dirname, 'cypress/support/e2e.ts'),
     baseUrl: 'http://localhost:8080/',
     setupNodeEvents(on, config) {
       on(
@@ -38,7 +33,6 @@ export default defineConfig({
                 'services': path.resolve(__dirname, 'src/services/'),
                 'types': path.resolve(__dirname, 'src/types/index'),
                 'utils': path.resolve(__dirname, 'src/utils/index'),
-                'resmock': path.resolve(__dirname, '__test__/__mocks__/currencyRatesResMock'),
                 '@constants': path.resolve(__dirname, 'src/constants/index'),
               },
             },
