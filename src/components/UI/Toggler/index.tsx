@@ -22,7 +22,7 @@ export function Toggler({ checked, onChange }: TogglerProps) {
 
   return (
     <button className={styles.toggler} type="button" onClick={clickHandler} aria-hidden>
-      <input type="checkbox" style={{ display: 'none' }} checked={checked} ref={checkBoxRef} readOnly />
+      <input type="checkbox" checked={checked} ref={checkBoxRef} readOnly />
       <div className={styles.togglerBar} />
     </button>
   );

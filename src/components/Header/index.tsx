@@ -3,7 +3,7 @@ import { Navigation } from 'components/Navigation';
 import { Toggler } from 'components/UI';
 import { useTheme } from 'hooks/useTheme';
 import { Link } from 'react-router-dom';
-import { Route } from 'router/routes';
+import { Route } from 'types';
 
 import * as styles from './styles.module.css';
 

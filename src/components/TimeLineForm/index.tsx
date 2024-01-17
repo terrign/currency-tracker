@@ -1,6 +1,6 @@
 import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { Button } from 'components/UI';
-import { ChangeEvent, Component, FormEvent } from 'react';
+import { ChangeEvent, Component, createRef, FormEvent } from 'react';
 import { notificationObserver } from 'services/Observer';
 import { CurISO } from 'types';
 import { today } from 'utils';
@@ -19,6 +19,7 @@ export interface TimeLineFormState {
 }
 
 export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
+  timerId = createRef<number>();
   constructor(props: TimeLineProps) {
     super(props);
     this.state = {
@@ -38,15 +39,18 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   }
 
   componentDidUpdate(): void {
-    if (!!this.state.baseCurrency && !!this.state.compareCurrency && !!this.state.startDate) {
+    const { baseCurrency, compareCurrency } = this.state;
+    if (!!baseCurrency && !!compareCurrency && this.isDateValid()) {
       this.props.submitHandler(this.state);
       notificationObserver.notify({ status: 'success', info: 'Has been created', header: 'Chart' });
     }
   }
 
-  dateChangeHandler = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    this.setState({ startDate: e.target.value });
+  dateChangeHandler = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    this.setState({ startDate: event.target.value });
   };
+
+  isDateValid = () => !isNaN(new Date(this.state.startDate).valueOf());
 
   submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -101,9 +105,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
             />
           </label>
 
-          <Button type="submit" style={{ alignSelf: 'flex-end' }}>
-            Randomize
-          </Button>
+          <Button type="submit">Randomize</Button>
         </form>
       </>
     );

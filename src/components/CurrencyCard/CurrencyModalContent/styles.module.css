@@ -10,3 +10,8 @@
   line-height: 80px;
   display: inline;
 }
+
+.currency-modal > div {
+  display: 'flex';
+  gap: '1rem';
+}

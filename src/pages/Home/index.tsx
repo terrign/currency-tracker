@@ -19,7 +19,7 @@ export function Home() {
   return (
     <section className={styles.homeWrapper}>
       <h2>
-        Quotes for{' '}
+        <span>Quotes for </span>
         <AutoComplete
           searchObject={CURRENCY_ISO_SYMBOL_MAP}
           defaultValue={preferredCurrency}

@@ -19,11 +19,11 @@ export function Modal({ children, onClose }: ModalProps) {
   };
 
   return (
-    <div className={styles.modalBackground} aria-hidden onClick={backGroundClickHandler} role="alertdialog">
+    <section className={styles.modalBackground} aria-hidden onClick={backGroundClickHandler} role="alertdialog">
       <div className={styles.modal}>
         {children}
         <CloseButton onClick={closeButtonHandler} />
       </div>
-    </div>
+    </section>
   );
 }

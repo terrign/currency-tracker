@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Route } from 'router/routes';
+import { Route } from 'types';
 
 export const ROUTE_NAME_MAP: Record<Route, string> = {
   '/bankmap': 'Bank map',

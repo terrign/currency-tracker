@@ -2,11 +2,12 @@ import ReactApexChart from 'react-apexcharts';
 import { ChartDataType } from 'types';
 
 import { CHART_OPTIONS } from './constants';
+import * as styles from './styles.module.css';
 
 export function Chart({ data }: { data: ChartDataType[] }) {
   return (
-    <div id="chart" style={{ marginTop: '2rem' }}>
+    <section id="chart" className={styles.chart}>
       <ReactApexChart options={CHART_OPTIONS} series={[{ data }]} type="candlestick" height={400} width="100%" />
-    </div>
+    </section>
   );
 }

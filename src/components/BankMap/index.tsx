@@ -4,20 +4,22 @@ import { memo, PropsWithChildren } from 'react';
 import { FullscreenControl, GeolocateControl, Map, NavigationControl, ScaleControl } from 'react-map-gl/maplibre';
 
 import { INITIAL_MAP_VIEW } from './constants';
+import * as styles from './styles.module.css';
 
 function CustomMap({ children }: PropsWithChildren) {
   return (
-    <Map
-      initialViewState={INITIAL_MAP_VIEW}
-      style={{ height: 500, marginTop: '1rem' }}
-      mapStyle="https://tiles.basemaps.cartocdn.com/gl/voyager-gl-style/style.json"
-    >
-      <GeolocateControl />
-      <FullscreenControl />
-      <NavigationControl showCompass={false} />
-      <ScaleControl />
-      {children}
-    </Map>
+    <section className={styles.mapContainer}>
+      <Map
+        initialViewState={INITIAL_MAP_VIEW}
+        mapStyle="https://tiles.basemaps.cartocdn.com/gl/voyager-gl-style/style.json"
+      >
+        <GeolocateControl />
+        <FullscreenControl />
+        <NavigationControl showCompass={false} />
+        <ScaleControl />
+        {children}
+      </Map>
+    </section>
   );
 }
 

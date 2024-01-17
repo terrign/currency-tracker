@@ -21,6 +21,9 @@
   background-color: white;
 }
 
+.toggler input {
+  display: none;
+}
 .toggler:has(input[type='checkbox']:checked) {
   justify-content: flex-start;
   padding-left: 26px;

@@ -12,7 +12,7 @@ interface RatesListProps {
 export function RatesList({ data }: RatesListProps) {
   const { preferredCurrency } = useAppContext();
   return (
-    <div className={styles.ratesList}>
+    <section className={styles.ratesList}>
       {Object.keys(data)
         .filter((key) => key !== preferredCurrency)
         .map((key) => (
@@ -22,6 +22,6 @@ export function RatesList({ data }: RatesListProps) {
             iso={key as CurISO}
           />
         ))}
-    </div>
+    </section>
   );
 }

@@ -1,18 +1,12 @@
 import { Loader } from 'components/UI';
 import { lazy, Suspense } from 'react';
 import { RouteObject } from 'react-router-dom';
+import { Route } from 'types';
 
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { Contacts } from '../pages';
 import { NotFound } from '../pages';
 import { Root } from '../pages';
-
-export enum Route {
-  HOME = '/',
-  TIMELINE = '/timeline',
-  BANKMAP = '/bankmap',
-  CONTACTS = '/contacts',
-}
 
 const TimeLine = lazy(() => import('../pages').then((module) => ({ default: module['TimeLine'] })));
 

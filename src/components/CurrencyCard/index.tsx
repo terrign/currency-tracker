@@ -18,7 +18,7 @@ export function CurrencyCard({ rate, iso }: CurrencyCardProps) {
 
   return (
     <>
-      <div className={styles.currencyCard} aria-hidden onClick={openModal}>
+      <div className={styles.currencyCard} aria-hidden onClick={openModal} data-testid={`currency-card-${iso}`}>
         <CurrencySymbol iso={iso} />
         <div className={styles.currencyCardText}>
           <p className={styles.currencyName}>{CURRENCY_ISO_SYMBOL_MAP[iso].name}</p>

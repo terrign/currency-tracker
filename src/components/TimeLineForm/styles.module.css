@@ -29,3 +29,7 @@
   text-wrap: nowrap;
   margin-bottom: 1rem;
 }
+
+.time-form > button[type='submit'] {
+  align-self: flex-end;
+}

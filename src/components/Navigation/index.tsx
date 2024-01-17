@@ -1,7 +1,7 @@
 import { CloseButton } from 'components/UI/CloseButton';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Route } from 'router/routes';
+import { Route } from 'types';
 
 import { NavItem } from './NavItem';
 import * as styles from './styles.module.css';

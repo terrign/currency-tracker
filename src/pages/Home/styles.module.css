@@ -4,3 +4,17 @@
     margin: 0 auto;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .home-wrapper > h2 > span {
+    display: none;
+  }
+
+  .home-wrapper > h2 {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .home-wrapper > h2 > div {
+    width: 100%;
+  }
+}

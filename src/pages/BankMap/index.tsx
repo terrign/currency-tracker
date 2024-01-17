@@ -25,10 +25,10 @@ export class BankMap extends Component<NoProps, { currency: CurISO }, undefined>
   render() {
     return (
       <>
-        <div className={styles.bankWrapper}>
+        <section className={styles.bankWrapper}>
           <h2 className={styles.bankHeader}>Search currency in the bank</h2>
           <AutoComplete selectHandler={this.selectHandler} searchObject={CURRENCY_ISO_SYMBOL_MAP} defaultValue="" />
-        </div>
+        </section>
         <Suspense fallback={<Loader />}>
           <CustomMap>
             <MarkersList markers={filterBanksByCurrency(this.state.currency)} />

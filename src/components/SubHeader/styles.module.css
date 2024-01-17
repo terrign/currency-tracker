@@ -5,7 +5,7 @@
   margin-top: 2rem;
 }
 
-.sub-header > div > h1 {
+.sub-header > section > h1 {
   font-size: 3.15rem;
   text-wrap: nowrap;
   display: flex;
@@ -57,7 +57,7 @@
     display: none;
   }
 
-  .sub-header > div > h1 {
+  .sub-header > section > h1 {
     width: 100%;
   }
 
@@ -73,7 +73,7 @@
   }
 
   .sub-header-text-2nd-line,
-  .sub-header > div > h1 {
+  .sub-header > section > h1 {
     font-size: 1.75rem;
     text-align: center;
   }
