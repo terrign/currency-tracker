@@ -21,10 +21,12 @@ export function CurrencyModalContent({ iso }: { iso: CurISO }) {
 
   return (
     <section className={styles.currencyModal}>
-      <div>
+      <h4 className={styles.currencyModalHeading}>
         <CurrencySymbol iso={iso} />
-        <p className={styles.currencyName}>{CURRENCY_ISO_SYMBOL_MAP[iso].name}</p>
-      </div>
+        <p className={styles.currencyName}>
+          <span>{CURRENCY_ISO_SYMBOL_MAP[iso].name}</span>
+        </p>
+      </h4>
 
       <div>
         <span>Compare to </span>

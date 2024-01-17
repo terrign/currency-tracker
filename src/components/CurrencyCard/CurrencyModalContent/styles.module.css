@@ -6,12 +6,13 @@
 }
 
 .currency-name {
+  display: inline-flex;
   flex: 2 0 max-content;
-  line-height: 80px;
-  display: inline;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.currency-modal > div {
-  display: 'flex';
-  gap: '1rem';
+.currency-modal-heading {
+  display: inline-flex;
+  gap: 1rem;
 }
