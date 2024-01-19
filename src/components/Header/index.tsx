@@ -3,7 +3,7 @@ import { Navigation } from 'components/Navigation';
 import { Toggler } from 'components/UI';
 import { useTheme } from 'hooks/useTheme';
 import { Link } from 'react-router-dom';
-import { Route } from 'types';
+import { Route, Theme } from 'types';
 
 import * as styles from './styles.module.css';
 
@@ -17,7 +17,7 @@ export function Header() {
         <img src={logoSvg} alt="icon" className={styles.headerLogo} />
       </Link>
       <Navigation />
-      <Toggler checked={theme === 'light'} onChange={toggleHandler} />
+      <Toggler checked={theme === Theme.LIGHT} onChange={toggleHandler} />
     </header>
   );
 }

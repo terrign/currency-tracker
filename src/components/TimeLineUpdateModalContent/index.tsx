@@ -87,7 +87,7 @@ export class TimeLineUpdateModalContent extends Component<
         this.setState((prev) => ({
           errors: {
             ...prev.errors,
-            [errorKey]: `"${capitalizeFirstLetter(name)}" must be higher then sezo`,
+            [errorKey]: `"${capitalizeFirstLetter(name)}" must be higher then zero`,
           },
         }));
         continue;
@@ -115,7 +115,7 @@ export class TimeLineUpdateModalContent extends Component<
 
   hasError = () => {
     const { openError, highError, lowError, closeError } = this.state.errors;
-    return !!openError || !!highError || !!lowError || !!closeError;
+    return Boolean(openError || highError || lowError || closeError);
   };
 
   OHLCChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
