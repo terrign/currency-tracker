@@ -1,5 +1,5 @@
 import { capitalizeFirstLetter } from './capitalizeFirstLetter';
-import { today, toStringDate } from './date';
+import { currentYear, today, toStringDate } from './date';
 import { filterBanksByCurrency } from './filterBanksByCurrency';
 import { generateRandomCurrencyHistoryData } from './generateRandomCurrencyHistoryData';
 import { getPreferredCurrencyFromLocal } from './getPreferredCurrencyFromLocal';
@@ -8,6 +8,7 @@ import { getInitialThemeFromLocal, matchesDarkThemeMedia, setDomTheme } from './
 
 export {
   capitalizeFirstLetter,
+  currentYear,
   filterBanksByCurrency,
   generateRandomCurrencyHistoryData,
   getInitialThemeFromLocal,
