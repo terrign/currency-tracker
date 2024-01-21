@@ -15,8 +15,9 @@ interface TimeLineState {
   chartData: ChartDataType[];
   showModal: boolean;
 }
+interface Props {}
 
-export class TimeLine extends Component<never, TimeLineState> {
+export class TimeLine extends Component<Props, TimeLineState> {
   state: TimeLineState = {
     chartData: [],
     showModal: false,
