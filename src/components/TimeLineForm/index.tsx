@@ -29,8 +29,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
     };
   }
 
-  // @ts-expect-error unused param
-  shouldComponentUpdate(_, nextState: Readonly<TimeLineFormState>): boolean {
+  shouldComponentUpdate(_: never, nextState: Readonly<TimeLineFormState>): boolean {
     return (
       nextState.baseCurrency !== this.state.baseCurrency ||
       nextState.compareCurrency !== this.state.compareCurrency ||
