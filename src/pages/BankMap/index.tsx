@@ -8,9 +8,11 @@ import { filterBanksByCurrency } from 'utils';
 
 import * as styles from './styles.module.css';
 
+interface Props {}
+
 const CustomMap = lazy(() => import('components/BankMap').then((module) => ({ default: module['BankMap'] })));
 
-export class BankMap extends Component<never, { currency: CurISO }, undefined> {
+export class BankMap extends Component<Props, { currency: CurISO }, undefined> {
   state = {
     currency: '',
   };
