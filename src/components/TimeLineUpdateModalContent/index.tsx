@@ -128,8 +128,8 @@ export class TimeLineUpdateModalContent extends Component<
   };
 
   render() {
-    const { date, open, high, low, close } = this.state;
-    const { openError, highError, lowError, closeError } = this.state.errors;
+    const { date, open, high, low, close, errors } = this.state;
+    const { openError, highError, lowError, closeError } = errors;
     return (
       <>
         <h3 className={styles.formHeader}>Update data for a day</h3>

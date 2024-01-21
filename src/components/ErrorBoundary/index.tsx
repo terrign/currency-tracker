@@ -26,11 +26,12 @@ export class ErrorBoundary extends Component<Props, State> {
   };
 
   render() {
-    if (this.state.hasError) {
+    const { hasError, errorMessage } = this.state;
+    if (hasError) {
       return (
         <section className={styles.boundary}>
           <h1>Something went wrong, please try to reload</h1>
-          <p>Error: {this.state.errorMessage}</p>
+          <p>Error: {errorMessage}</p>
           <Button key="console" onClick={this.refreshPage} type="button">
             Try to reload
           </Button>
