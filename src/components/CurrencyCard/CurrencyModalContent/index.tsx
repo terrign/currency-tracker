@@ -32,7 +32,7 @@ export function CurrencyModalContent({ iso }: { iso: CurISO }) {
         <span>Compare to </span>
         <AutoComplete
           searchObject={CURRENCY_ISO_SYMBOL_MAP}
-          defaultValue={preferredCurrency as CurISO}
+          defaultValue={preferredCurrency}
           selectHandler={selectHandler}
         />
       </div>

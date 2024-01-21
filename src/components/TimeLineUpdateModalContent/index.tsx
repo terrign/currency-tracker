@@ -1,7 +1,7 @@
 import { Button } from 'components/UI';
 import { ChangeEvent, ChangeEventHandler, Component, FormEvent } from 'react';
 import { notificationObserver, timeLineDataObserver } from 'services/Observer';
-import { ChartDataType, OHLC } from 'types';
+import { ChartDataType, NotificationStatus, OHLC } from 'types';
 import { capitalizeFirstLetter } from 'utils';
 
 import { OHLCInput } from './OHLCInput';
@@ -64,7 +64,7 @@ export class TimeLineUpdateModalContent extends Component<
     const { date, open, high, low, close } = this.state;
 
     timeLineDataObserver.notify({ x: date, y: [open, high, low, close] });
-    notificationObserver.notify({ status: 'success', header: 'Chart', info: 'Has been updated' });
+    notificationObserver.notify({ status: NotificationStatus.SUCCESS, header: 'Chart', info: 'Has been updated' });
     this.props.onSubmit();
   };
 
@@ -77,7 +77,7 @@ export class TimeLineUpdateModalContent extends Component<
         this.setState((prev) => ({
           errors: {
             ...prev.errors,
-            [errorKey]: `"${name}" must be a number`,
+            [errorKey]: `"${capitalizeFirstLetter(name)}" must be a number`,
           },
         }));
         continue;
@@ -87,7 +87,7 @@ export class TimeLineUpdateModalContent extends Component<
         this.setState((prev) => ({
           errors: {
             ...prev.errors,
-            [errorKey]: `"${capitalizeFirstLetter(name)}" must be higher then sezo`,
+            [errorKey]: `"${capitalizeFirstLetter(name)}" must be higher then zero`,
           },
         }));
         continue;
@@ -115,7 +115,7 @@ export class TimeLineUpdateModalContent extends Component<
 
   hasError = () => {
     const { openError, highError, lowError, closeError } = this.state.errors;
-    return !!openError || !!highError || !!lowError || !!closeError;
+    return Boolean(openError || highError || lowError || closeError);
   };
 
   OHLCChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -128,8 +128,8 @@ export class TimeLineUpdateModalContent extends Component<
   };
 
   render() {
-    const { date, open, high, low, close } = this.state;
-    const { openError, highError, lowError, closeError } = this.state.errors;
+    const { date, open, high, low, close, errors } = this.state;
+    const { openError, highError, lowError, closeError } = errors;
     return (
       <>
         <h3 className={styles.formHeader}>Update data for a day</h3>

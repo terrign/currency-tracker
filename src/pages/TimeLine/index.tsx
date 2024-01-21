@@ -1,12 +1,10 @@
 import { TimeLineForm, TimeLineFormState } from 'components/TimeLineForm';
 import { TimeLineUpdateModalContent } from 'components/TimeLineUpdateModalContent';
-import { Button } from 'components/UI';
-import { Loader } from 'components/UI';
-import { Modal } from 'components/UI';
+import { Button, Loader, Modal } from 'components/UI';
 import { Component, lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 import { timeLineDataObserver } from 'services/Observer';
-import { ChartDataType, NoProps } from 'types';
+import { ChartDataType } from 'types';
 import { generateRandomCurrencyHistoryData } from 'utils';
 
 import * as styles from './styles.module.css';
@@ -18,14 +16,11 @@ interface TimeLineState {
   showModal: boolean;
 }
 
-export class TimeLine extends Component<NoProps, TimeLineState> {
-  constructor(props: NoProps) {
-    super(props);
-    this.state = {
-      chartData: [],
-      showModal: false,
-    };
-  }
+export class TimeLine extends Component<never, TimeLineState> {
+  state: TimeLineState = {
+    chartData: [],
+    showModal: false,
+  };
 
   componentDidMount(): void {
     timeLineDataObserver.subscribe(this.updateDayData);

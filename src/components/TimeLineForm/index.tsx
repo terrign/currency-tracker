@@ -2,7 +2,7 @@ import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { Button } from 'components/UI';
 import { ChangeEvent, Component, createRef, FormEvent } from 'react';
 import { notificationObserver } from 'services/Observer';
-import { CurISO } from 'types';
+import { CurISO, NotificationStatus } from 'types';
 import { today } from 'utils';
 
 import { AutoComplete } from '../Autocomplete';
@@ -29,8 +29,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
     };
   }
 
-  // @ts-expect-error unused param
-  shouldComponentUpdate(_, nextState: Readonly<TimeLineFormState>): boolean {
+  shouldComponentUpdate(_: never, nextState: Readonly<TimeLineFormState>): boolean {
     return (
       nextState.baseCurrency !== this.state.baseCurrency ||
       nextState.compareCurrency !== this.state.compareCurrency ||
@@ -39,23 +38,23 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   }
 
   componentDidUpdate(): void {
-    const { baseCurrency, compareCurrency } = this.state;
-    if (!!baseCurrency && !!compareCurrency && this.isDateValid()) {
+    const { baseCurrency, compareCurrency, startDate } = this.state;
+    if (baseCurrency && compareCurrency && startDate) {
       this.props.submitHandler(this.state);
-      notificationObserver.notify({ status: 'success', info: 'Has been created', header: 'Chart' });
+      notificationObserver.notify({ status: NotificationStatus.SUCCESS, info: 'Has been created', header: 'Chart' });
     }
   }
+
+  preventManualDateInput = () => false;
 
   dateChangeHandler = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     this.setState({ startDate: event.target.value });
   };
 
-  isDateValid = () => !isNaN(new Date(this.state.startDate).valueOf());
-
   submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     this.props.submitHandler(this.state);
-    notificationObserver.notify({ status: 'success', info: 'Random data generated', header: 'Chart' });
+    notificationObserver.notify({ status: NotificationStatus.SUCCESS, info: 'Random data generated', header: 'Chart' });
   };
 
   updateCompareCurrency = (key: CurISO) => () => {
@@ -101,6 +100,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
               value={this.state.startDate}
               onChange={this.dateChangeHandler}
               max={today()}
+              onKeyDown={this.preventManualDateInput}
               required
             />
           </label>

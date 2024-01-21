@@ -6,6 +6,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:import/recommended',
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -20,8 +21,26 @@ module.exports = {
     sourceType: 'module',
   },
   settings: {
-    react: {
+    'react': {
       version: 'detect',
+    },
+    'import/resolver': {
+      alias: {
+        map: [
+          ['components', './src/components'],
+          ['assets', './src/assets'],
+          ['context', './src/context'],
+          ['hooks', './src/hooks'],
+          ['pages', './src/pages'],
+          ['services', './src/services'],
+          ['router', './src/router'],
+          ['types', './src/types/index'],
+          ['utils', './src/utils/index'],
+          ['@constants', './src/constants/index'],
+          ['mocks', './__test__/__mocks__'],
+        ],
+        extensions: ['.tsx', '.ts'],
+      },
     },
   },
   ignorePatterns: ['/*.css', '*.eslintrc.js', '*.config.js', '*.config.ts', '/__test__/*', '/cypress/*'],

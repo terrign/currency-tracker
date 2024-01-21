@@ -1,5 +1,5 @@
 import { CloseButton } from 'components/UI/CloseButton';
-import { MouseEvent, PropsWithChildren } from 'react';
+import { MouseEvent, PropsWithChildren, useEffect } from 'react';
 
 import * as styles from './styles.module.css';
 
@@ -8,8 +8,8 @@ export interface ModalProps extends PropsWithChildren {
 }
 
 export function Modal({ children, onClose }: ModalProps) {
-  const backGroundClickHandler = (e: MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) {
+  const backGroundClickHandler = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target === event.currentTarget) {
       onClose();
     }
   };
@@ -17,6 +17,16 @@ export function Modal({ children, onClose }: ModalProps) {
   const closeButtonHandler = () => {
     onClose();
   };
+
+  useEffect(() => {
+    const closeOnEsc = (event: KeyboardEvent) => {
+      event.key === 'Escape' && onClose();
+    };
+    document.addEventListener('keydown', closeOnEsc);
+    return () => {
+      document.removeEventListener('keydown', closeOnEsc);
+    };
+  }, [onClose]);
 
   return (
     <section className={styles.modalBackground} aria-hidden onClick={backGroundClickHandler} role="alertdialog">

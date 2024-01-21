@@ -1,7 +1,5 @@
 import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 
-export type NoProps = Readonly<unknown>;
-
 export type BankMapInfo = {
   id: string;
   name: string;
@@ -52,4 +50,10 @@ export enum Route {
   TIMELINE = '/timeline',
   BANKMAP = '/bankmap',
   CONTACTS = '/contacts',
+}
+
+export enum NotificationStatus {
+  ERROR,
+  SUCCESS,
+  WARNING,
 }

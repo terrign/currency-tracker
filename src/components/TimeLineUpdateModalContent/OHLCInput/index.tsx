@@ -18,7 +18,7 @@ export function OHLCInput({ name, error, value, onChange }: OHLCInputProps) {
       <span>{capitalizeFirstLetter(name)}</span>
       <div className={styles.inputWithError}>
         <input type="text" id={name} name={name} step={OHLC_STEP} required value={value} onChange={onChange} />
-        <p>{!!error && error}</p>
+        <p data-testid={`${name}Error`}>{!!error && error}</p>
       </div>
     </label>
   );

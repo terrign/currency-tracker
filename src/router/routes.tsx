@@ -4,9 +4,7 @@ import { RouteObject } from 'react-router-dom';
 import { Route } from 'types';
 
 import { ErrorBoundary } from '../components/ErrorBoundary';
-import { Contacts } from '../pages';
-import { NotFound } from '../pages';
-import { Root } from '../pages';
+import { Contacts, NotFound, Root } from '../pages';
 
 const TimeLine = lazy(() => import('../pages').then((module) => ({ default: module['TimeLine'] })));
 

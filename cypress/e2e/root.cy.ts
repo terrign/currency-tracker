@@ -23,9 +23,9 @@ describe('Root', () => {
 
   it('Theme Toggle', () => {
     cy.get(`button:has(input[type="checkbox"])`).click({ multiple: true });
-    cy.get('html').should('have.css', 'color-scheme').and('include', 'light');
+    cy.get('html').should('have.css', 'color-scheme', 'light');
     cy.get(`button:has(input[type="checkbox"])`).click({ multiple: true });
-    cy.get('html').should('have.css', 'color-scheme').and('include', 'dark');
+    cy.get('html').should('have.css', 'color-scheme', 'dark');
   });
 
   it('Subheader', () => {
