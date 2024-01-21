@@ -2,7 +2,7 @@ import { CURRENCY_ISO_SYMBOL_MAP } from '@constants';
 import { Button } from 'components/UI';
 import { ChangeEvent, Component, createRef, FormEvent } from 'react';
 import { notificationObserver } from 'services/Observer';
-import { CurISO } from 'types';
+import { CurISO, NotificationStatus } from 'types';
 import { today } from 'utils';
 
 import { AutoComplete } from '../Autocomplete';
@@ -42,7 +42,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
     const { baseCurrency, compareCurrency, startDate } = this.state;
     if (baseCurrency && compareCurrency && startDate) {
       this.props.submitHandler(this.state);
-      notificationObserver.notify({ status: 'success', info: 'Has been created', header: 'Chart' });
+      notificationObserver.notify({ status: NotificationStatus.SUCCESS, info: 'Has been created', header: 'Chart' });
     }
   }
 
@@ -55,7 +55,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     this.props.submitHandler(this.state);
-    notificationObserver.notify({ status: 'success', info: 'Random data generated', header: 'Chart' });
+    notificationObserver.notify({ status: NotificationStatus.SUCCESS, info: 'Random data generated', header: 'Chart' });
   };
 
   updateCompareCurrency = (key: CurISO) => () => {

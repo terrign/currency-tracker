@@ -3,11 +3,12 @@ import { CloseButton } from 'components/UI/CloseButton';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { notificationObserver } from 'services/Observer';
+import { NotificationStatus } from 'types';
 
 import * as styles from './styles.module.css';
 
 export interface NotificationData {
-  status: 'error' | 'success' | 'warning';
+  status: NotificationStatus;
   header: string;
   info: string;
   expirationMs: number;
@@ -16,7 +17,7 @@ export interface NotificationData {
 export function Notification() {
   const [message, setMessage] = useState('');
   const [nHeader, setNHeader] = useState('');
-  const [status, setStatus] = useState('success');
+  const [status, setStatus] = useState(NotificationStatus.SUCCESS);
   const [expiration, setExpiration] = useState(DEFAULT_NOTIFICATION_EXPIRATION_TIME);
   const [notificationVisible, setNotificationVisible] = useState(false);
 
@@ -56,7 +57,7 @@ export function Notification() {
       <section
         data-testid="notification"
         className={`${styles.notification} ${
-          status === 'success' ? styles.notificationSuccess : styles.notificationError
+          status === NotificationStatus.SUCCESS ? styles.notificationSuccess : styles.notificationError
         }`}
       >
         <h5>{nHeader}</h5>

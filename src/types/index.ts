@@ -53,3 +53,9 @@ export enum Route {
   BANKMAP = '/bankmap',
   CONTACTS = '/contacts',
 }
+
+export enum NotificationStatus {
+  ERROR,
+  SUCCESS,
+  WARNING,
+}

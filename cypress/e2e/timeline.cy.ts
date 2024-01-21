@@ -35,7 +35,7 @@ describe('Timeline', () => {
     cy.get('section[data-testid="notification"] p').should('have.text', 'Has been updated');
   });
 
-  it('Disables submit button for wrong data', () => {
+  it('Disables submit button for invalid entries', () => {
     cy.get('button:contains("Update")').click();
     cy.fillUpdateTimeLineForm(['100', '50', '20', '1']);
     cy.get('button:contains("Submit")').should('have.attr', 'disabled');
