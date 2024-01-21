@@ -1,5 +1,4 @@
-import { CACHE_EXPIRATION_TIME_MS } from '@constants';
-import { CURRENCY_LIST } from '@constants';
+import { CACHE_EXPIRATION_TIME_MS, CURRENCY_LIST } from '@constants';
 import axios from 'axios';
 import { AxiosCacheInstance, buildWebStorage, CacheAxiosResponse, setupCache } from 'axios-cache-interceptor';
 import { CurISO, CurrencyRates } from 'types';

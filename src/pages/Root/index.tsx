@@ -1,8 +1,7 @@
 import { Footer } from 'components/Footer';
 import { Header } from 'components/Header';
 import { SubHeader } from 'components/SubHeader/Index';
-import { Layout } from 'components/UI';
-import { Notification } from 'components/UI';
+import { Layout, Notification } from 'components/UI';
 import { Outlet } from 'react-router-dom';
 
 export function Root() {

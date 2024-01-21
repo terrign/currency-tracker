@@ -1,8 +1,6 @@
 import { TimeLineForm, TimeLineFormState } from 'components/TimeLineForm';
 import { TimeLineUpdateModalContent } from 'components/TimeLineUpdateModalContent';
-import { Button } from 'components/UI';
-import { Loader } from 'components/UI';
-import { Modal } from 'components/UI';
+import { Button, Loader, Modal } from 'components/UI';
 import { Component, lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 import { timeLineDataObserver } from 'services/Observer';

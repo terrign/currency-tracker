@@ -39,18 +39,18 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
   }
 
   componentDidUpdate(): void {
-    const { baseCurrency, compareCurrency } = this.state;
-    if (!!baseCurrency && !!compareCurrency && this.isDateValid()) {
+    const { baseCurrency, compareCurrency, startDate } = this.state;
+    if (baseCurrency && compareCurrency && startDate) {
       this.props.submitHandler(this.state);
       notificationObserver.notify({ status: 'success', info: 'Has been created', header: 'Chart' });
     }
   }
 
+  preventManualDateInput = () => false;
+
   dateChangeHandler = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     this.setState({ startDate: event.target.value });
   };
-
-  isDateValid = () => !isNaN(new Date(this.state.startDate).valueOf());
 
   submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -101,6 +101,7 @@ export class TimeLineForm extends Component<TimeLineProps, TimeLineFormState> {
               value={this.state.startDate}
               onChange={this.dateChangeHandler}
               max={today()}
+              onKeyDown={this.preventManualDateInput}
               required
             />
           </label>

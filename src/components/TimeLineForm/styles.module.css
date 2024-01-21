@@ -33,3 +33,7 @@
 .time-form > button[type='submit'] {
   align-self: flex-end;
 }
+
+.time-form input[type='date']::selection {
+  background-color: transparent;
+}

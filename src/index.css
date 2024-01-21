@@ -107,6 +107,13 @@ input[type='date']::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
+input::-webkit-datetime-edit-day-field,
+input::-webkit-datetime-edit-month-field,
+input::-webkit-datetime-edit-year-field {
+  background-color: transparent;
+  color: var(--font-color-main);
+}
+
 a,
 li {
   text-decoration: none;
