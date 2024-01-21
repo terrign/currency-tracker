@@ -77,7 +77,7 @@ export class TimeLineUpdateModalContent extends Component<
         this.setState((prev) => ({
           errors: {
             ...prev.errors,
-            [errorKey]: `"${name}" must be a number`,
+            [errorKey]: `"${capitalizeFirstLetter(name)}" must be a number`,
           },
         }));
         continue;

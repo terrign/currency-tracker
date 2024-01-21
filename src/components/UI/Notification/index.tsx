@@ -8,8 +8,8 @@ import * as styles from './styles.module.css';
 
 export interface NotificationData {
   status: 'error' | 'success' | 'warning';
-  header: 'string';
-  info: 'string';
+  header: string;
+  info: string;
   expirationMs: number;
 }
 
@@ -54,6 +54,7 @@ export function Notification() {
     notificationVisible &&
     createPortal(
       <section
+        data-testid="notification"
         className={`${styles.notification} ${
           status === 'success' ? styles.notificationSuccess : styles.notificationError
         }`}

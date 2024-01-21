@@ -9,7 +9,7 @@ interface CloseButtonProps {
 
 export function CloseButton({ onClick, className }: CloseButtonProps) {
   return (
-    <button type="button" onClick={onClick} className={`${styles.closeButton} ${className}`}>
+    <button type="button" onClick={onClick} className={`${styles.closeButton} ${className ? className : ''}`}>
       {' '}
     </button>
   );
