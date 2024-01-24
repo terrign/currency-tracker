@@ -11,7 +11,7 @@ export interface NotificationData {
   status: NotificationStatus;
   header: string;
   info: string;
-  expirationMs: number;
+  expirationMs?: number;
 }
 
 export function Notification() {

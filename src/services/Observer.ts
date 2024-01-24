@@ -1,26 +1,35 @@
-class Observer {
-  private observers: ((data: unknown) => void)[];
+import { NotificationData } from 'components/UI/Notification';
+import { ChartDataType } from 'types';
+
+interface ObserverType<T> {
+  observers: ((data: T) => void)[];
+  subscribe: (func: (data: T) => void) => void;
+  unsubscribe: (inputFunc: (data: T) => void) => void;
+  notify: (data: T) => void;
+}
+
+class Observer<T> implements ObserverType<T> {
+  observers: ((data: T) => void)[];
   constructor() {
     this.observers = [];
   }
-
-  subscribe(func: (data: unknown) => void) {
+  subscribe(func: (data: T) => void) {
     this.observers.push(func);
   }
 
-  unsubscribe(inputFunc: (data: unknown) => void) {
+  unsubscribe(inputFunc: (data: T) => void) {
     this.observers = this.observers.filter((func) => func !== inputFunc);
   }
 
-  notify(data: unknown) {
+  notify(data: T) {
     this.observers.map((func) => {
       func(data);
     });
   }
 }
 
-const timeLineDataObserver = new Observer();
+const timeLineDataObserver = new Observer<ChartDataType>();
 
-const notificationObserver = new Observer();
+const notificationObserver = new Observer<NotificationData>();
 
 export { notificationObserver, Observer, timeLineDataObserver };

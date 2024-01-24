@@ -63,7 +63,7 @@ export class TimeLineUpdateModalContent extends Component<
 
     const { date, open, high, low, close } = this.state;
 
-    timeLineDataObserver.notify({ x: date, y: [open, high, low, close] });
+    timeLineDataObserver.notify({ x: date, y: [open, high, low, close].map((a) => Number(a)) });
     notificationObserver.notify({ status: NotificationStatus.SUCCESS, header: 'Chart', info: 'Has been updated' });
     this.props.onSubmit();
   };

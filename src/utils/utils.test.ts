@@ -59,10 +59,10 @@ describe('Observer test', () => {
     const obs = new Observer();
     const func = () => {};
     obs.subscribe(func);
-    // @ts-expect-error no types
+
     expect(obs.observers.length).toBe(1);
     obs.unsubscribe(func);
-    // @ts-expect-error no types
+
     expect(obs.observers.length).toBe(0);
   });
 });

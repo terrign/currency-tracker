@@ -15,10 +15,9 @@ test('Submits data, shows notification', async () => {
   let value;
 
   const handler = (values: { y: number[] }) => {
-    // eslint-disable-next-line prefer-destructuring
     value = values.y[1];
   };
-  // @ts-expect-error wrong type
+
   timeLineDataObserver.subscribe(handler);
 
   act(() => {
@@ -58,7 +57,7 @@ test('Submits data, shows notification', async () => {
     });
   });
 
-  expect(value).toBe(String(+high.value));
-  // @ts-expect-error wrong type
+  expect(String(value)).toBe(String(high.value));
+
   timeLineDataObserver.unsubscribe(handler);
 });
