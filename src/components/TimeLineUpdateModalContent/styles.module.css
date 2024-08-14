@@ -1,0 +1,33 @@
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.update-form > button {
+  align-self: flex-end;
+}
+
+.form-header {
+  line-height: 48px;
+  font-size: 1.25rem;
+}
+
+.update-form > label {
+  display: flex;
+  gap: 1rem;
+  min-height: 45px;
+}
+
+.update-form > label > input,
+select {
+  flex: 1 0 70%;
+  height: 30px;
+}
+
+.update-form > label > span:nth-child(1) {
+  flex: 1 1 10%;
+  text-align: right;
+}

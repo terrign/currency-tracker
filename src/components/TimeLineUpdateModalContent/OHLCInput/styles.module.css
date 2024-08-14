@@ -1,0 +1,20 @@
+.form-input {
+  display: flex;
+}
+
+.input-with-error {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 70%;
+  min-height: 45px;
+}
+
+.input-with-error > p {
+  font-size: 14px;
+  color: red;
+  font-weight: 300;
+}
+
+.input-with-error > input {
+  width: 100%;
+}

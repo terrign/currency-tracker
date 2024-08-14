@@ -1,0 +1,36 @@
+.close-button {
+  position: absolute;
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  top: 10px;
+  left: calc(100% - 2rem - 10px);
+  padding: 20px;
+  outline: none;
+  border: none;
+  height: 1rem;
+  width: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1rem;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.close-button::after {
+  display: inline-block;
+  content: '\2573';
+}
+
+@media (hover: hover) {
+  .close-button:hover {
+    background-color: var(--currency-card-bg-hover);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .close-button {
+    font-size: 1rem;
+  }
+}

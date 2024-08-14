@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "paths": {
+      "components/*": ["./src/components/*"],
+      "assets/*": ["./src/assets/*"],
+      "context/*": ["./src/context/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "pages/*": ["./src/pages/*"],
+      "services/*": ["./src/services/*"],
+      "router/*": ["./src/router/*"],
+      "types": ["./src/types/index"],
+      "utils": ["./src/utils/index"],
+      "@constants": ["./src/constants/index"],
+      "mocks/*": ["./__test__/__mocks__/*"]
+    },
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "module": "ESNext",
+    "lib": ["dom", "ESNext"],
+    "target": "es5",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "jsxImportSource": "react",
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true
+  },
+  "exclude": ["./cypress.config.ts"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./__test__/__mocks__/*.ts"]
+}

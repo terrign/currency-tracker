@@ -1,0 +1,30 @@
+.currency-card {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--currency-card-bg);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+}
+
+.currency-card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.currency-name {
+  font-weight: 500;
+}
+
+.currency-rate {
+  font-size: 1rem;
+  color: var(--font-color-dark2);
+  font-weight: 300;
+}
+
+@media (hover: hover) {
+  .currency-card:hover {
+    background-color: var(--currency-card-bg-hover);
+    cursor: pointer;
+  }
+}

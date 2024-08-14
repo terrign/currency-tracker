@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "types": ["cypress", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["../src/components/*"],
+      "assets/*": ["../src/assets/*"],
+      "context/*": ["../src/context/*"],
+      "hooks/*": ["../src/hooks/*"],
+      "pages/*": ["../src/pages/*"],
+      "services/*": ["../src/services/*"],
+      "router/*": ["../src/router/*"],
+      "types": ["../src/types/index"],
+      "utils": ["../src/utils/index"],
+      "@constants": ["../src/constants/index"]
+    }
+  },
+  "include": [
+    "./cypress.config.ts",
+    "cypress",
+    "**/*.cy.tsx",
+    "**/*.cy.ts",
+    "../cypress/support/*.ts",
+    "../src/**/*.ts",
+    "../src/**/*.tsx"
+  ],
+  "extends": "../tsconfig.json"
+}

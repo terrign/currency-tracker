@@ -1,0 +1,23 @@
+import logoSvg from 'assets/logo.svg';
+import { Navigation } from 'components/Navigation';
+import { Toggler } from 'components/UI';
+import { useTheme } from 'hooks/useTheme';
+import { Link } from 'react-router-dom';
+import { Route, Theme } from 'types';
+
+import * as styles from './styles.module.css';
+
+export function Header() {
+  const { theme, toggleTheme } = useTheme();
+
+  const toggleHandler = () => toggleTheme();
+  return (
+    <header className={styles.header}>
+      <Link to={Route.HOME}>
+        <img src={logoSvg} alt="icon" className={styles.headerLogo} />
+      </Link>
+      <Navigation />
+      <Toggler checked={theme === Theme.LIGHT} onChange={toggleHandler} />
+    </header>
+  );
+}

@@ -1,0 +1,18 @@
+.currency-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 40%;
+}
+
+.currency-name {
+  display: inline-flex;
+  flex: 2 0 max-content;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.currency-modal-heading {
+  display: inline-flex;
+  gap: 1rem;
+}

@@ -1,0 +1,39 @@
+.time-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.time-form > label > span {
+  flex: 1 0 30%;
+  text-align: right;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+.time-form label {
+  display: flex;
+  gap: 1rem;
+}
+
+.time-line-auto-complete,
+.time-form > label > input {
+  flex: 1 0 40%;
+  height: 2rem;
+}
+
+.time-line-header {
+  font-size: 1.25rem;
+  text-align: center;
+  text-wrap: nowrap;
+  margin-bottom: 1rem;
+}
+
+.time-form > button[type='submit'] {
+  align-self: flex-end;
+}
+
+.time-form input[type='date']::selection {
+  background-color: transparent;
+}

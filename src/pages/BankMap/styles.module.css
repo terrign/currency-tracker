@@ -1,0 +1,14 @@
+.bank-header {
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.bank-wrapper {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto;
+  width: 100%;
+}

@@ -1,0 +1,42 @@
+.modal-background {
+  background-color: var(--modal-bg);
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  border-radius: var(--border-radius);
+  background-color: var(--bg);
+
+  width: 50%;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-cur-name {
+  flex: 2 0 max-content;
+  font-size: 1.25rem;
+  line-height: 80px;
+  display: inline;
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .modal {
+    width: 90%;
+  }
+}
