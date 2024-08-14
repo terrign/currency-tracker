@@ -1,4 +1,6 @@
-# Setup instructions:
+## Currency tracker
+## https://currency-tracker-jfyg.netlify.app 
+## Setup instructions:
 
 1. Install [Node.js](https://nodejs.org/), if you haven't. Check if Node is installed:
 
